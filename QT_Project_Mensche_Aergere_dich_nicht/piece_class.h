@@ -1,5 +1,5 @@
-#ifndef PIACE_H_CLASS_H
-#define PIACE_H_CLASS_H
+#ifndef PIECE_H_CLASS_H
+#define PIECE_H_CLASS_H
 
 #include <iostream>
 #include <string>
@@ -13,10 +13,15 @@ private:
     int moves; // 0-39, number of moves taken so far, when = 55, the piece is on finish position
 
 public:
-    inline Piece(int input_piece_id, int input_player_id);
+    Piece(int input_piece_id, int input_player_id)
+        :
+        piece_id(input_piece_id),
+        player_id(input_player_id),
+        moves(0)
+    {}
     inline int get_piece_id();
     inline int get_player_id();
     inline int get_moves();
 };
 
-#endif // PIACE_H
+#endif // PIECE_H

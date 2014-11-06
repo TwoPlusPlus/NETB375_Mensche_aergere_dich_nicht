@@ -5,12 +5,12 @@
 #include <string>
 #include <cstdlib>
 
-template <typename T> class Stack
+class Stack
 {
-    T arr[4];
+    bool arr[4];
     int top;
 public:
-    Stack<T>()
+    Stack()
     {
         top = -1;
         for(int i = 0; i < 4; i++)
@@ -19,26 +19,15 @@ public:
         }
     }
 
-    void push(T x)
-    {
-        arr[++top] = x;
-    }
-    T pop()
-    {
-        return arr[top--];
-    }
-    bool is_empty()
-    {
-        return (top < 0);
-    }
-    bool is_full()
-    {
-        return (top == 3);
-    }
-    bool not_empty()
-    {
-        return (top >= 0);
-    }
+    inline void push(bool x);
+
+    inline int pop();
+
+    inline bool is_empty();
+
+    inline bool is_full();
+
+    inline bool not_empty();
 };
 
 #endif // TEMPLATE_STACK_CLASS_H

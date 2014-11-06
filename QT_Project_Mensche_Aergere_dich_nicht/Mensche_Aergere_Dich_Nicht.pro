@@ -20,11 +20,11 @@ SOURCES += main.cpp \
     template_stack_class.cpp \
     field_class.cpp \
     player_class.cpp \
-    piace_class.cpp
+    piece_class.cpp
 
 HEADERS += \
     game.h \
     template_stack_class.h \
     field_class.h \
     player_class.h \
-    piace_class.h
+    piece_class.h
