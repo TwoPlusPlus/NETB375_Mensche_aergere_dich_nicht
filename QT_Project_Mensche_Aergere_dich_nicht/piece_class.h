@@ -19,9 +19,9 @@ public:
         player_id(input_player_id),
         moves(0)
     {}
-    inline int get_piece_id();
-    inline int get_player_id();
-    inline int get_moves();
+    int get_piece_id();
+    int get_player_id();
+    int get_moves();
 };
 
 #endif // PIECE_H
