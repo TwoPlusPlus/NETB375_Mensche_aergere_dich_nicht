@@ -6,7 +6,7 @@
 
 //-----------------//
 
-#include "piace_class.h"
+#include "piece_class.h"
 using namespace std;
 class Player  // holds player properties
 {

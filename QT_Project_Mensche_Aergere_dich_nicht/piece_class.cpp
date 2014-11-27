@@ -1,4 +1,4 @@
-#include "piace_class.h"
+#include "piece_class.h"
 
 Piece::Piece(int input_piece_id, int input_player_id)
 {
