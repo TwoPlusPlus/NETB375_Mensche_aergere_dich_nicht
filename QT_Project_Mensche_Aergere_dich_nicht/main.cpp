@@ -23,7 +23,7 @@ int main()
 
         for(int j = 0; j < 4; j++)
         {
-            cout << test.player_list[i]->piece_list[j]->get_piece_id() <<
+            cout << test.player_list[i] ->piece_list[j]->get_piece_id() <<
             " " << test.player_list[i]->piece_list[j]->get_player_id() <<
             " " << test.player_list[i]->piece_list[j]->get_moves() << endl;
         }
