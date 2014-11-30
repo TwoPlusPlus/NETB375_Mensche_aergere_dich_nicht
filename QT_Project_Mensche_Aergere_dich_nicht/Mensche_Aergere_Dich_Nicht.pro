@@ -8,6 +8,8 @@ QT       += core
 
 QT       -= gui
 
+QMAKE_CXXFLAGS += -std=c++11
+
 TARGET = Mensche_Aergere_Dich_Nicht
 CONFIG   += console
 CONFIG   -= app_bundle
@@ -16,15 +18,13 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    game.cpp \
-    template_stack_class.cpp \
     field_class.cpp \
     player_class.cpp \
-    piece_class.cpp
+    piece_class.cpp \
+    game_class.cpp
 
 HEADERS += \
-    game.h \
-    template_stack_class.h \
     field_class.h \
     player_class.h \
-    piece_class.h
+    piece_class.h \
+    game_class.h
