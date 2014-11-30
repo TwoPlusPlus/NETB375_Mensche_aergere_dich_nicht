@@ -19,4 +19,4 @@ public:
     int get_moves();
 };
 
-#endif // PIACE_H
+#endif // PIECE_H
