@@ -1,5 +1,5 @@
-#ifndef PIECE_H_CLASS_H
-#define PIECE_H_CLASS_H
+#ifndef PIECE_CLASS_H
+#define PIECE_CLASS_H
 
 #include <iostream>
 #include <string>
@@ -19,6 +19,7 @@ public:
         player_id(input_player_id),
         moves(0)
     {}
+
     int get_piece_id();
     int get_player_id();
     int get_moves();

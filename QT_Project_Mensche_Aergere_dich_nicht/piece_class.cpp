@@ -1,5 +1,6 @@
 #include "piece_class.h"
 
+
 int Piece::get_piece_id()
 {
     return piece_id;
