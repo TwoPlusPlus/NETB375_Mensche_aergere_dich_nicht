@@ -7,7 +7,7 @@ Piece::Piece(int input_piece_id, int input_piece_player_id)
 	piece_id = input_piece_id;
 	piece_player_id = input_piece_player_id;
 	moves = -1;
-	home_moves = 0;
+    home_moves = -1;
 }
 
 int Piece::get_piece_id()

@@ -11,8 +11,8 @@ class Piece // 4 pieces per player,
 private:
 	int piece_id; // 1-4 identifies the pieces
 	int piece_player_id; // 1-4 depending which player the piece belongs to
-	int moves; // 0-43, number of moves taken so far, when = 39, the piece is on finish position
-	int home_moves; // 1-4
+    int moves; // 0-39, number of moves taken so far, when = 39, the piece is on finish position
+    int home_moves; // 0-3
 public:
 	Piece(int input_piece_id, int input_piece_player_id);
 
@@ -64,5 +64,6 @@ public:
 
     void add_to_name(int x);
 };
+
 
 #endif

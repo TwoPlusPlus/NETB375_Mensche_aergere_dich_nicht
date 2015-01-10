@@ -74,6 +74,8 @@ void Game::game_turn()
     for (int i = 0; i < player_num; i++)
     {
         player_turn(i+1);
+        if (roll_six == true)
+            player_turn(i+1);
 		roll_six = false;
 	}
 	turn++;
