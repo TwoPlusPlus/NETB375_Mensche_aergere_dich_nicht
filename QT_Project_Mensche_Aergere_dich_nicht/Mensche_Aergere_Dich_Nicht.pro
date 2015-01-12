@@ -18,11 +18,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    field_class.cpp \
     game_class.cpp \
-    piece_player_class.cpp
+    field_piece_class.cpp \
+    player_ai_class.cpp
 
 HEADERS += \
-    field_class.h \
     game_class.h \
-    piece_player_class.h
+    field_piece_class.h \
+    player_ai_class.h

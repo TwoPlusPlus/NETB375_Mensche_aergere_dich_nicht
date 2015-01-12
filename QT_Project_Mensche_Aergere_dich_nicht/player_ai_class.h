@@ -8,7 +8,6 @@ class Player // holds player properties
 {
 private:
 
-
     string name;
     int ID; // 1-4, decides turns and other events
     int start_move; // starting position on field, node ID
