@@ -1,9 +1,28 @@
-#ifndef __FIELD_CLASS_H_INCLUDED__
-#define __FIELD_CLASS_H_INCLUDED__
-
-#include "piece_player_class.h"
+#ifndef __FIELD_PIECE_CLASS_H_INCLUDED__
+#define __FIELD_PIECE_CLASS_H_INCLUDED__
 
 #include <iostream>
+
+using namespace std;
+
+class Piece // 4 pieces per player,
+{
+private:
+    int piece_id; // 1-4 identifies the pieces
+    int piece_player_id; // 1-4 depending which player the piece belongs to
+    int moves; // 0-39, number of moves taken so far, when = 39, the piece is on finish position
+    int home_moves; // 0-3
+public:
+    Piece(int input_piece_id, int input_piece_player_id);
+
+    int get_piece_id();
+    int get_piece_player_id();
+    int get_piece_moves();
+    int get_piece_home_moves();
+    bool is_piece_home();
+
+    void update_moves(int roll, bool home);
+};
 
 class Field{ // represents the game field with a simple data structure resembeling
 			// an array of the 56 positions of the game field, with an extension of 6 home position nodes
@@ -26,6 +45,7 @@ private:
 public:
 
     Node* node_list[40];
+    Node* home_node_list[4][4];
 
 //-------Constructor----Destructor---------//
 	Field();
@@ -38,6 +58,9 @@ public:
 //----Node utility functions---------//
 	void occupy_node(int node_id, Piece* occupy_piece);  // occupies the node by give piece
 	void de_occupy_node(int node_id);   // de-occupies a node
+
+    void occupy_home_node(int node_id, int player_id, Piece* occupy_piece);
+    void de_occupy_home_node(int node_id, int player_id);
 
 };
 

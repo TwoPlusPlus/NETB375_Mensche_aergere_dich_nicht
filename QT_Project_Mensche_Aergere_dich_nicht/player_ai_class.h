@@ -1,37 +1,13 @@
 #ifndef __PIECE_PLAYER_CLASS_H_INCLUDED__
 #define __PIECE_PLAYER_H_INCLUDED__
 
-#include <iostream>
+#include "field_piece_class.h"
 #include <string>
-
-using namespace std;
-
-class Piece // 4 pieces per player,
-{
-private:
-	int piece_id; // 1-4 identifies the pieces
-	int piece_player_id; // 1-4 depending which player the piece belongs to
-    int moves; // 0-39, number of moves taken so far, when = 39, the piece is on finish position
-    int home_moves; // 0-3
-public:
-	Piece(int input_piece_id, int input_piece_player_id);
-
-	int get_piece_id();
-	int get_piece_player_id();
-	int get_piece_moves();
-	bool is_piece_home();
-};
 
 class Player // holds player properties
 {
 private:
-    struct Home_node{
-        Piece* home_occupied_piece;
 
-        Home_node(){
-            home_occupied_piece = NULL;
-        }
-    };
 
     string name;
     int ID; // 1-4, decides turns and other events
@@ -39,13 +15,13 @@ private:
     int finish_move;// finish position on field, node ID
     bool is_bot;
     int active_player_pieces;
+    Field* board;
 
 public:
     Piece* piece_list[4];
-    Home_node* home_node_list[4];
     bool home_score[4];
 
-    Player(string input_name, int input_ID, bool bot);
+    Player(string input_name, int input_ID, bool bot, Field* game_field);
     ~Player();
 
     string get_name();
@@ -63,6 +39,13 @@ public:
     bool is_player_win();
 
     void add_to_name(int x);
+    //new//==========================================
+    void move_piece (int piece_id, int roll);
+    void activate_piece(int piece_id);
+    void deactivate_piece(int piece_id);
+    void move_piece_home(int piece_id, int roll);
+    void move_home_piece(int piece_id, int roll);
+
 };
 
 
