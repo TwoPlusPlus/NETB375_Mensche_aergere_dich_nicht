@@ -118,5 +118,3 @@ void Field::de_occupy_home_node(int node_id, int player_id)
 {
     this->home_node_list[player_id][node_id]->occupied_piece = 0;
 }
-
-

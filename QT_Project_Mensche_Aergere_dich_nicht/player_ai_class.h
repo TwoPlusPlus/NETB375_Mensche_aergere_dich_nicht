@@ -47,5 +47,15 @@ public:
 
 };
 
+class Ai: public Player
+{
+    ai(string input_name,int input_ID,Field* game_field) : Player(input_name,input_ID,true,game_field)
+    {}
+
+    void ai_exec(int dice);
+
+
+
+};
 
 #endif

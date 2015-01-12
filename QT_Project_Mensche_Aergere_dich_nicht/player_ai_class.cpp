@@ -167,3 +167,28 @@ void Player::move_home_piece(int piece_id, int roll)
 }
 
 //==================================================================END=====//
+
+//==================================================================AI CLASS//
+
+void Ai::ai_exec(int dice)
+{
+    if(this->board->node_list[this->get_player_start()]->state != 0)//CLEAR BOT STARTING FIELD
+    {
+        this->move_piece(board->node_list[this->get_player_start()]->occupied_piece->get_piece_id(), dice);
+    }
+
+    else if(this->is_player_active())//SCORE A POINT
+    {
+        for(int i = 0;i<4;i++)
+        {
+            if(this->piece_list[i]->get_piece_moves() + dice > 39  && this->piece_list[i]->get_piece_moves() + dice < 44)
+            {
+                int x = ( this->piece_list[i]->get_piece_moves() + dice ) % 40;
+                if(this->board->home_node_list[this->get_player_id()-1][x]->state != 0)
+                {
+                    this->move_piece_home(i,dice);
+                }
+            }
+        }
+    }
+}
