@@ -191,4 +191,14 @@ void Ai::ai_exec(int dice)
             }
         }
     }
+/*
+    else if(this->is_player_active())
+    {
+        for(int i = 0;i<4;i++)
+        {
+            if(this->board->node_list[this->])
+
+        }
+    }
+    */
 }

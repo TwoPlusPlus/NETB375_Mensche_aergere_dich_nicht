@@ -4,6 +4,8 @@
 #include "field_piece_class.h"
 #include <string>
 
+using namespace std;
+
 class Player // holds player properties
 {
 private:
@@ -49,7 +51,8 @@ public:
 
 class Ai: public Player
 {
-    ai(string input_name,int input_ID,Field* game_field) : Player(input_name,input_ID,true,game_field)
+public:
+    Ai(string input_name,int input_ID,Field* game_field) : Player(input_name,input_ID,true,game_field)
     {}
 
     void ai_exec(int dice);

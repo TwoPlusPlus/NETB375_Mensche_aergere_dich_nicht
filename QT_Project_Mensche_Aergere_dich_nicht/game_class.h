@@ -8,25 +8,25 @@
 class Game{
 private:
 
-	int ai_num;
+    int ai_num;
 
-	bool done;
-	bool roll_six;
+    bool done;
+    bool roll_six;
 
-	int turn;
+    int turn;
 
 public:
     int player_num;
     Player* player_list[4];
     Field* game_field;
 
-	Game(int input_player_num, int input_ai_num);
+    Game(int input_player_num, int input_ai_num);
     ~Game();
 
     int dice();
 
     void play();
-	void game_turn();
+    void game_turn();
     void player_turn(int plr_ID);
     void ai_turn(int plr_ID);
 };

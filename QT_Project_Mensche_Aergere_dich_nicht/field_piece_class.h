@@ -25,13 +25,13 @@ public:
 };
 
 class Field{ // represents the game field with a simple data structure resembeling
-			// an array of the 56 positions of the game field, with an extension of 6 home position nodes
+            // an array of the 56 positions of the game field, with an extension of 6 home position nodes
             // to every finish position node
 private:
 
     struct Node{ // the node structure for the list representing the 39 game positions + the 16 home positions
-		Piece* occupied_piece;
-		int state; // 0 position is empty, 1-2 number of pieces stacked
+        Piece* occupied_piece;
+        int state; // 0 position is empty, 1-2 number of pieces stacked
         int node_id;
 
         Node(int id)
@@ -40,7 +40,7 @@ private:
         state = 0;
         node_id = id;
         }
-	};
+    };
 
 public:
 
@@ -48,7 +48,7 @@ public:
     Node* home_node_list[4][4];
 
 //-------Constructor----Destructor---------//
-	Field();
+    Field();
     ~Field();
 
 //------Node get functions-------------//
@@ -56,8 +56,8 @@ public:
     int get_node_state(int node_id);
 
 //----Node utility functions---------//
-	void occupy_node(int node_id, Piece* occupy_piece);  // occupies the node by give piece
-	void de_occupy_node(int node_id);   // de-occupies a node
+    void occupy_node(int node_id, Piece* occupy_piece);  // occupies the node by give piece
+    void de_occupy_node(int node_id);   // de-occupies a node
 
     void occupy_home_node(int node_id, int player_id, Piece* occupy_piece);
     void de_occupy_home_node(int node_id, int player_id);
