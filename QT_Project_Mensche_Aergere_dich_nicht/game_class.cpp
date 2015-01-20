@@ -19,32 +19,32 @@ Game::Game(int input_player_num, int input_ai_num)
         {
             cout << "Enter name for Player 1: ";
             cin >> temp_name;
-            player_list[0] = new Player(temp_name, 1, false, game_field);
+            player_list[0] = new Player(temp_name, 0, false, game_field, player_list);
 
             cout << "Enter name for Player 2: ";
             cin >> temp_name;
-            player_list[1] = new Player(temp_name, 3, false, game_field);
+            player_list[1] = new Player(temp_name, 2, false, game_field, player_list);
         } else
             if (ai_num == 1){
             cout << "Enter name for Player 1: ";
             cin >> temp_name;
-            player_list[0] = new Player(temp_name, 1, false, game_field);
+            player_list[0] = new Player(temp_name, 0, false, game_field, player_list);
 
-            player_list[1] = new Player("Bot_1", 3, true, game_field);
+            player_list[1] = new Player("Bot_1", 2, true, game_field, player_list);
         } else {
-            player_list[0] = new Player("Bot_1", 1, true, game_field);
-            player_list[1] = new Player("Bot_2", 3, true, game_field);
+            player_list[0] = new Player("Bot_1", 0, true, game_field, player_list);
+            player_list[1] = new Player("Bot_2", 2, true, game_field, player_list);
         }
     } else {
         for (int i = 0; i < player_num - ai_num; i++)
         {
             cout << "Enter name for Player " << i+1 <<": ";
             cin >> temp_name;
-            player_list[i] = new Player(temp_name, i+1, false, game_field);
+            player_list[i] = new Player(temp_name, i, false, game_field, player_list);
         }
         for (int i = player_num - ai_num; i < 4; i++)
         {
-            player_list[i] = new Player("Bot_", i+1, false, game_field);
+            player_list[i] = new Player("Bot_", i, false, game_field, player_list);
             player_list[i]->add_to_name(i+1);
         }
     }

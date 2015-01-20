@@ -8,21 +8,23 @@ using namespace std;
 
 class Player // holds player properties
 {
-private:
+protected:
 
     string name;
-    int ID; // 1-4, decides turns and other events
+    int ID; // 0-3, decides turns and other events
     int start_move; // starting position on field, node ID
     int finish_move;// finish position on field, node ID
     bool is_bot;
     int active_player_pieces;
     Field* board;
 
+
 public:
+    Player* player_list[4];
     Piece* piece_list[4];
     bool home_score[4];
 
-    Player(string input_name, int input_ID, bool bot, Field* game_field);
+    Player(string input_name, int input_ID, bool bot, Field* game_field, Player** input_player_list);
     ~Player();
 
     string get_name();
@@ -52,7 +54,7 @@ public:
 class Ai: public Player
 {
 public:
-    Ai(string input_name,int input_ID,Field* game_field) : Player(input_name,input_ID,true,game_field)
+    Ai(string input_name,int input_ID,Field* game_field, Player** input_player_list) : Player(input_name,input_ID,true,game_field,input_player_list)
     {}
 
     void ai_exec(int dice);

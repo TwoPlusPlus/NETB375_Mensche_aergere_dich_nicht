@@ -39,7 +39,7 @@ void Piece::update_moves(int roll, bool home)
 {
     if (!home)
     {
-        if (roll > 0)
+        if (roll > -1)
             this->moves += roll;
         else
             this->moves = -1;
