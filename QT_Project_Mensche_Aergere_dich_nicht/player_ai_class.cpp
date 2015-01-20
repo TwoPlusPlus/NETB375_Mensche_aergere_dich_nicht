@@ -206,7 +206,7 @@ void Ai::ai_exec(int dice)
     {
         for(int i = 0;i <4;i++) // get how many tokens are on the board
         {
-            if(this->piece_list[i]->moves > -1)// check if token is on the board
+            if(this->piece_list[i]->get_piece_moves() > -1)// check if token is on the board
             {
                 if(this->board->node_list[this->get_piece_current_node_id(i) + dice]->state != 0)//check board's node_list->state( token position + dice)
                 {
