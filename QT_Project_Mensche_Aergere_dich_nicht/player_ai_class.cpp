@@ -227,15 +227,25 @@ void Ai::ai_exec(int dice)
         }
     }
     //DICE == 6
-    else if(this->is_player_active())
+    else if (dice == 6)
     {
-        if (dice == 6)
+        if(this->board->node_list[this->get_player_start()]->state != 0)
         {
-            if(this->board->node_list[this->get_player_start()]->state != 0)
+            if(this->board->node_list[this->get_player_start()]->occupied_piece->get_piece_player_id() != this->Player.get_player_id())
             {
+                //Remove opponet's token & put player's token
 
+                int enemy_player_id = this->board->node_list[this->get_piece_current_node_id(i) + dice]->occupied_piece->get_piece_player_id();
+                int token_id = this->board->node_list[this->get_piece_current_node_id(i) + dice]->occupied_piece->get_piece_id();
+
+                this->player_list[enemy_player_id]->deactivate_piece(token_id);//REMOVE ENEMY PLAYER TOKEN
+
+                this->board->occupy_node(this->Player.get_player_start(),);//CHOOSE TOKEN NODE ID ????
             }
-
+        }
+        else
+        {
+            this->board->occupy_node(this->Player.get_player_start(),this->piece_list[]);//CHOOSE TOKEN NODE ID ????
         }
     }
     // MOVE TOKEN
@@ -244,7 +254,7 @@ void Ai::ai_exec(int dice)
         int PRIORITY[4];//var for each token
         int selected_token;
 
-        for(int i = 0;i<4;i++)
+        for(int i = 0;i<4;i++) //аsing priority to each token
         {
             //CHEACK FIELDS BEHIND TOKEN AND ADD PRIORITY
 
@@ -323,8 +333,18 @@ void Ai::ai_exec(int dice)
             }
         }
 
-
         //MOVE TOKEN WITH HIGHEST PRIORITY
+
+        for(int i=0;i<4;i++)
+        {
+            if(selected_token < PRIORITY[i])
+            {
+                selected_token = PRIORITY[i];
+            }
+        }
+        //check if there is one of players token in the way
+
+        this->move_piece(board->node_list[this->get_piece_current_node_id(selected_token)]->occupied_piece->get_piece_id(), dice);
     }
 
 }
