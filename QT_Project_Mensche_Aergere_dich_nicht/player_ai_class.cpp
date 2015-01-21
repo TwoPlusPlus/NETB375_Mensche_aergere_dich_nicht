@@ -231,7 +231,7 @@ void Ai::ai_exec(int dice)
     {
         if(this->board->node_list[this->get_player_start()]->state != 0)
         {
-            if(this->board->node_list[this->get_player_start()]->occupied_piece->get_piece_player_id() != this->Player.get_player_id())
+            if(this->board->node_list[this->get_player_start()]->occupied_piece->get_piece_player_id() != this->ID)
             {
                 //Remove opponet's token & put player's token
 
@@ -240,12 +240,20 @@ void Ai::ai_exec(int dice)
 
                 this->player_list[enemy_player_id]->deactivate_piece(token_id);//REMOVE ENEMY PLAYER TOKEN
 
-                this->board->occupy_node(this->Player.get_player_start(),);//CHOOSE TOKEN NODE ID ????
+                for(int i = 0;i<4;i++)
+                {
+                    if(this->piece_list[i]->get_piece_moves() == -1)
+                        this->board->occupy_node(this->Player.get_player_start(),this->piece_list[i]);
+                }
             }
         }
         else
         {
-            this->board->occupy_node(this->Player.get_player_start(),this->piece_list[]);//CHOOSE TOKEN NODE ID ????
+            for(int i = 0;i<4;i++) // find a token that is not on the board by checking if token moves is = -1
+            {
+                if(this->piece_list[i]->get_piece_moves() == -1)
+                    this->board->occupy_node(this->Player.get_player_start(),this->piece_list[i]);
+            }
         }
     }
     // MOVE TOKEN
