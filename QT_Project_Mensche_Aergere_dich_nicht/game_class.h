@@ -20,7 +20,7 @@ public:
     Player* player_list[4];
     Field* game_field;
 
-    Game(int input_player_num, int input_ai_num);
+    Game();
     ~Game();
 
     int dice();

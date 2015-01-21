@@ -1,56 +1,26 @@
 #include "game_class.h"
 
-Game::Game(int input_player_num, int input_ai_num)
+Game::Game()
 {
-    player_num = input_player_num;
-    ai_num = input_ai_num;
-
     done = false;
     roll_six = false;
     turn = 1;
 
-    string temp_name;
+    //string temp_name;
 
     game_field = new Field();
 
-    if (player_num == 2)
-    {
-        if (ai_num == 0)
-        {
-            cout << "Enter name for Player 1: ";
-            cin >> temp_name;
-            player_list[0] = new Player(temp_name, 0, false, game_field, player_list);
+    player_list[0] = new Player("BOT 1", 0, true, game_field, player_list);
 
-            cout << "Enter name for Player 2: ";
-            cin >> temp_name;
-            player_list[1] = new Player(temp_name, 2, false, game_field, player_list);
-        } else
-            if (ai_num == 1){
-            cout << "Enter name for Player 1: ";
-            cin >> temp_name;
-            player_list[0] = new Player(temp_name, 0, false, game_field, player_list);
+    player_list[1] = new Player("bot 2", 1, true, game_field, player_list);
 
-            player_list[1] = new Player("Bot_1", 2, true, game_field, player_list);
-        } else {
-            player_list[0] = new Player("Bot_1", 0, true, game_field, player_list);
-            player_list[1] = new Player("Bot_2", 2, true, game_field, player_list);
-        }
-    } else {
-        for (int i = 0; i < player_num - ai_num; i++)
-        {
-            cout << "Enter name for Player " << i+1 <<": ";
-            cin >> temp_name;
-            player_list[i] = new Player(temp_name, i, false, game_field, player_list);
-        }
-        for (int i = player_num - ai_num; i < 4; i++)
-        {
-            player_list[i] = new Player("Bot_", i, false, game_field, player_list);
-            player_list[i]->add_to_name(i+1);
-        }
-    }
+    player_list[2] = new Player("terminator 3", 2, true, game_field, player_list);
+
+    player_list[3] = new Player("BoT_4", 3, true, game_field, player_list);
 
 
 }
+
 Game::~Game()
 {
     for (int i = 0; i < player_num; i++)
