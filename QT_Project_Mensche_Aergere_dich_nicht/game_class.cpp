@@ -1,31 +1,36 @@
 #include "game_class.h"
 
-Game::Game()
+Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, bool Y, string Y_name)
 {
     done = false;
     roll_six = false;
     turn = 1;
 
-    //string temp_name;
-
     game_field = new Field();
 
-    player_list[0] = new Player("BOT 1", 0, true, game_field, player_list);
 
-    player_list[1] = new Player("bot 2", 1, true, game_field, player_list);
+    player_list[0] = new Player(G_name, 0, G, game_field, player_list);
+//cout<<G_name;
+    player_list[1] = new Player(R_name, 1, R, game_field, player_list);
+//cout<<R_name;
+    player_list[2] = new Player(B_name, 2, B, game_field, player_list);
+//cout<<B_name;
+    player_list[3] = new Player(Y_name, 3, Y, game_field, player_list);
+//cout<<Y_name;
 
-    player_list[2] = new Player("terminator 3", 2, true, game_field, player_list);
+    ClassicBoardDialog classicboarddialog;
+    classicboarddialog.setModal(true);
+    classicboarddialog.exec();
 
-    player_list[3] = new Player("BoT_4", 3, true, game_field, player_list);
 
 
+   //connect(classicboarddialog,SIGNAL(),this,SLOT());
 }
 
 Game::~Game()
 {
     for (int i = 0; i < player_num; i++)
     {
-
         delete player_list[i];
     }
     delete game_field;

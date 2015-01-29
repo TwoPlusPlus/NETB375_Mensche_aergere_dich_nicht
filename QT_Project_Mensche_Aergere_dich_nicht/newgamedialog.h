@@ -2,6 +2,8 @@
 #define NEWGAMEDIALOG_H
 
 #include <QDialog>
+#include <string>
+#include "game_class.h"
 
 namespace Ui {
 class NewGameDialog;
