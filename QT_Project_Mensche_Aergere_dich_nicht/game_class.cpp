@@ -18,13 +18,14 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
     player_list[3] = new Player(Y_name, 3, Y, game_field, player_list);
 //cout<<Y_name;
 
-    ClassicBoardDialog classicboarddialog;
-    classicboarddialog.setModal(true);
-    classicboarddialog.exec();
+    classicboarddialog = new ClassicBoardDialog(0);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::roll_the_dice,  this, &Game::dice_slot);
+    QObject::connect(this, &Game::show_dice, classicboarddialog, &ClassicBoardDialog::Show_Dice);
 
 
-
-   //connect(classicboarddialog,SIGNAL(),this,SLOT());
+    classicboarddialog->setModal(true);
+    classicboarddialog->exec();
 }
 
 Game::~Game()
@@ -34,9 +35,10 @@ Game::~Game()
         delete player_list[i];
     }
     delete game_field;
+    delete classicboarddialog;
 }
 
-int Game::dice(){return rand()%6+1;}
+//int Game::dice(){return rand()%6+1;}
 
 void Game::play()
 {
@@ -86,7 +88,7 @@ void Game::ai_turn(int plr_ID)
 {
     int roll = 0;
 
-    roll = dice();
+   // roll = dice();
 
     if( roll == 6)
     {
@@ -110,3 +112,10 @@ void Game::ai_turn(int plr_ID)
         }
     }
 }
+
+void Game::dice_slot()
+{
+    int x = rand()%6+1;
+    emit show_dice(x);
+}
+

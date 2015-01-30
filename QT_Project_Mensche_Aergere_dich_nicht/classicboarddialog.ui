@@ -25,6 +25,9 @@
    <property name="text">
     <string>DICE</string>
    </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
   </widget>
   <widget class="QPushButton" name="YH1">
    <property name="geometry">

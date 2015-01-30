@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QButtonGroup>
+#include <QString>
 
 namespace Ui {
 class ClassicBoardDialog;
@@ -16,11 +17,15 @@ public:
     explicit ClassicBoardDialog(QWidget *parent = 0);
     ~ClassicBoardDialog();
 
+signals:
+    void game_started();
+    void roll_the_dice();
 
 
 public slots:
 
-    bool on_Dice_Button_clicked();
+    void on_Dice_Button_clicked();
+    void Show_Dice(int N);
 
     void on_GBase1_toggled(bool checked);
 
@@ -54,7 +59,7 @@ public slots:
 
     void on_YBase4_toggled(bool checked);
 //BOARD SLOTS---------------------------------------------------------------
-    void on_node_0_toggled(int player_id);//GREEN PLAYER ENTRANCE
+/*    void on_node_0_toggled(int player_id);//GREEN PLAYER ENTRANCE
 
     void on_node_1_toggled(int player_id);
 
@@ -134,7 +139,7 @@ public slots:
 
     void on_node_39_toggled(int player_id);
 
-
+*/
 private:
     Ui::ClassicBoardDialog *ui;
 };

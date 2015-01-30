@@ -7,9 +7,11 @@
 
 #include <cstdlib>
 
-class Game
+class Game : public QDialog
 {
+    Q_OBJECT
 private:
+
 
     int ai_num;
 
@@ -17,8 +19,10 @@ private:
     bool roll_six;
 
     int turn;
+    int roll;
 
 public:
+    ClassicBoardDialog* classicboarddialog;
     int player_num;
     Player* player_list[4];
     Field* game_field;
@@ -26,15 +30,19 @@ public:
     Game(bool G,string G_name,bool R,string R_name,bool B,string B_name,bool Y,string Y_name);
     ~Game();
 
-    int dice();
+ //   int dice();
 
-    void play();
+
     void game_turn();
     void player_turn(int plr_ID);
     void ai_turn(int plr_ID);
 
 public slots:
-    void match_boardButtons_nodeList(int index);
+    void play();
+    //void match_boardButtons_nodeList(int index);
+    void dice_slot();
+signals:
+    void show_dice(int num);
 };
 
 #endif

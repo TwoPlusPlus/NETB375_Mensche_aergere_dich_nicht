@@ -5,118 +5,9 @@ ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ) :
     QDialog(parent),
     ui(new Ui::ClassicBoardDialog)
 {
+    emit game_started();
+
     ui->setupUi(this);
-
-
-/* board-----------------------------------------------------
-    QButtonGroup *board_node_group = new  QButtonGroup(this);
-
-    board_node_group->addButton(ui->node_0,0);
-    board_node_group->addButton(ui->node_1,1);
-    board_node_group->addButton(ui->node_2,2);
-    board_node_group->addButton(ui->node_3,3);
-    board_node_group->addButton(ui->node_4,4);
-    board_node_group->addButton(ui->node_5,5);
-    board_node_group->addButton(ui->node_6,6);
-    board_node_group->addButton(ui->node_7,7);
-    board_node_group->addButton(ui->node_8,8);
-    board_node_group->addButton(ui->node_9,9);
-    board_node_group->addButton(ui->node_10,10);
-    board_node_group->addButton(ui->node_11,11);
-    board_node_group->addButton(ui->node_12,12);
-    board_node_group->addButton(ui->node_13,13);
-    board_node_group->addButton(ui->node_14,14);
-    board_node_group->addButton(ui->node_15,15);
-    board_node_group->addButton(ui->node_16,16);
-    board_node_group->addButton(ui->node_17,17);
-    board_node_group->addButton(ui->node_18,18);
-    board_node_group->addButton(ui->node_19,19);
-    board_node_group->addButton(ui->node_20,20);
-    board_node_group->addButton(ui->node_21,21);
-    board_node_group->addButton(ui->node_22,22);
-    board_node_group->addButton(ui->node_23,23);
-    board_node_group->addButton(ui->node_24,24);
-    board_node_group->addButton(ui->node_25,25);
-    board_node_group->addButton(ui->node_26,26);
-    board_node_group->addButton(ui->node_27,27);
-    board_node_group->addButton(ui->node_28,28);
-    board_node_group->addButton(ui->node_29,29);
-    board_node_group->addButton(ui->node_30,30);
-    board_node_group->addButton(ui->node_31,31);
-    board_node_group->addButton(ui->node_32,32);
-    board_node_group->addButton(ui->node_33,33);
-    board_node_group->addButton(ui->node_34,34);
-    board_node_group->addButton(ui->node_35,35);
-    board_node_group->addButton(ui->node_36,36);
-    board_node_group->addButton(ui->node_37,37);
-    board_node_group->addButton(ui->node_38,38);
-    board_node_group->addButton(ui->node_39,39);
-// board-----------------------------------------------------
-// limbo green-----------------------------------------------
-    QButtonGroup *limbo_green_group = new  QButtonGroup(this);
-
-    limbo_green_group->addButton(ui->GBase1,1);
-    limbo_green_group->addButton(ui->GBase2,2);
-    limbo_green_group->addButton(ui->GBase3,3);
-    limbo_green_group->addButton(ui->GBase4,4);
-// limbo green-----------------------------------------------
-// limbo blue-----------------------------------------------
-    QButtonGroup *limbo_blue_group = new  QButtonGroup(this);
-
-    limbo_blue_group->addButton(ui->BBase1,1);
-    limbo_blue_group->addButton(ui->BBase2,2);
-    limbo_blue_group->addButton(ui->BBase3,3);
-    limbo_blue_group->addButton(ui->BBase4,4);
-// limbo blue-----------------------------------------------
-// limbo red------------------------------------------------
-    QButtonGroup *limbo_red_group = new  QButtonGroup(this);
-
-    limbo_red_group->addButton(ui->RBase1,1);
-    limbo_red_group->addButton(ui->RBase2,2);
-    limbo_red_group->addButton(ui->RBase3,3);
-    limbo_red_group->addButton(ui->RBase4,4);
-// limbo red------------------------------------------------
-// limbo yellow------------------------------------------------
-    QButtonGroup *limbo_yellow_group = new  QButtonGroup(this);
-
-    limbo_yellow_group->addButton(ui->YBase1,1);
-    limbo_yellow_group->addButton(ui->YBase2,2);
-    limbo_yellow_group->addButton(ui->YBase3,3);
-    limbo_yellow_group->addButton(ui->YBase4,4);
-// limbo yellow------------------------------------------------
-// finish green------------------------------------------------
-    QButtonGroup *finish_green_group = new  QButtonGroup(this);
-
-    finish_green_group->addButton(ui->GH1,1);
-    finish_green_group->addButton(ui->GH2,2);
-    finish_green_group->addButton(ui->GH3,3);
-    finish_green_group->addButton(ui->GH4,4);
-// finish green------------------------------------------------
-// finish blue------------------------------------------------
-    QButtonGroup *finish_blue_group = new  QButtonGroup(this);
-
-    finish_blue_group->addButton(ui->BH1,1);
-    finish_blue_group->addButton(ui->BH2,2);
-    finish_blue_group->addButton(ui->BH3,3);
-    finish_blue_group->addButton(ui->BH4,4);
-// finish blue------------------------------------------------
-// finish red------------------------------------------------
-    QButtonGroup *finish_red_group = new  QButtonGroup(this);
-
-    finish_red_group->addButton(ui->RH1,1);
-    finish_red_group->addButton(ui->RH2,2);
-    finish_red_group->addButton(ui->RH3,3);
-    finish_red_group->addButton(ui->RH4,4);
-// finish red------------------------------------------------
-// finish yellow------------------------------------------------
-    QButtonGroup *finish_yellow_group = new  QButtonGroup(this);
-
-    finish_yellow_group->addButton(ui->YH1,1);
-    finish_yellow_group->addButton(ui->YH2,2);
-    finish_yellow_group->addButton(ui->YH3,3);
-    finish_yellow_group->addButton(ui->YH4,4);
-// finish yellow------------------------------------------------
-*/
 }
 
 ClassicBoardDialog::~ClassicBoardDialog()
@@ -126,10 +17,19 @@ ClassicBoardDialog::~ClassicBoardDialog()
 
 
 //DICE
-bool ClassicBoardDialog::on_Dice_Button_clicked()
+void ClassicBoardDialog::Show_Dice(int N)
+{
+    QString s = QString::number(N);
+    ui->Dice_Button->setText(s);
+    ui->Dice_Button->setEnabled(true);
+}
+
+void ClassicBoardDialog::on_Dice_Button_clicked()
 {
     ui->Dice_Button->setEnabled(false);
-    return true;
+
+    emit roll_the_dice();
+
 }
 
 //------------------------------------------------------------------------
@@ -279,7 +179,7 @@ void ClassicBoardDialog::on_YBase4_toggled(bool checked)
 //------------------------------------------------------------------------
 // BOARD
 //------------------------------------------------------------------------
-
+/*
 
 
 void ClassicBoardDialog::on_node_0_toggled(int player_id)
@@ -1559,7 +1459,8 @@ void ClassicBoardDialog::on_node_39_toggled(int player_id)
             ui->node_39->setEnabled(true);
             ui->node_39->setStyleSheet("background-color: yellow");
         }
-    }
-}
 
+  }
+}
+*/
 

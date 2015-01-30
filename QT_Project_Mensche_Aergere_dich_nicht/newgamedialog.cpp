@@ -153,6 +153,8 @@ void NewGameDialog::on_StartButton_clicked()
 
     Game newgame(G,G_name,R,R_name,B,B_name,Y,Y_name);
 
+
+
     /*
 
 
