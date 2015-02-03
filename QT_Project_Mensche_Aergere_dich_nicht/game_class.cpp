@@ -22,7 +22,7 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
 
     QObject::connect(classicboarddialog, &ClassicBoardDialog::roll_the_dice,  this, &Game::dice_slot);
     QObject::connect(this, &Game::show_dice, classicboarddialog, &ClassicBoardDialog::Show_Dice);
-    QObject::connect(this, &Game::,classicboarddialog, &ClassicBoardDialog::set_Dice_Player);
+    QObject::connect(this, &Game::set_dice_player,classicboarddialog, &ClassicBoardDialog::set_Dice_Player);
 
     //board connections
     QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_0_clicked, this,& Game::classicboard_input);
