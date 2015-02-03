@@ -22,7 +22,170 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
 
     QObject::connect(classicboarddialog, &ClassicBoardDialog::roll_the_dice,  this, &Game::dice_slot);
     QObject::connect(this, &Game::show_dice, classicboarddialog, &ClassicBoardDialog::Show_Dice);
+    QObject::connect(this, &Game::,classicboarddialog, &ClassicBoardDialog::set_Dice_Player);
 
+    //board connections
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_0_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_0_set_player, classicboarddialog, &ClassicBoardDialog::node_0_set_player);
+    QObject::connect(this, &Game::signal_node_0_set_state, classicboarddialog, &ClassicBoardDialog::node_0_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_1_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_1_set_player, classicboarddialog, &ClassicBoardDialog::node_1_set_player);
+    QObject::connect(this, &Game::signal_node_1_set_state, classicboarddialog, &ClassicBoardDialog::node_1_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_2_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_2_set_player, classicboarddialog, &ClassicBoardDialog::node_2_set_player);
+    QObject::connect(this, &Game::signal_node_2_set_state, classicboarddialog, &ClassicBoardDialog::node_2_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_3_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_3_set_player, classicboarddialog, &ClassicBoardDialog::node_3_set_player);
+    QObject::connect(this, &Game::signal_node_3_set_state, classicboarddialog, &ClassicBoardDialog::node_3_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_4_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_4_set_player, classicboarddialog, &ClassicBoardDialog::node_4_set_player);
+    QObject::connect(this, &Game::signal_node_4_set_state, classicboarddialog, &ClassicBoardDialog::node_4_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_5_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_5_set_player, classicboarddialog, &ClassicBoardDialog::node_5_set_player);
+    QObject::connect(this, &Game::signal_node_5_set_state, classicboarddialog, &ClassicBoardDialog::node_5_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_6_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_6_set_player, classicboarddialog, &ClassicBoardDialog::node_6_set_player);
+    QObject::connect(this, &Game::signal_node_6_set_state, classicboarddialog, &ClassicBoardDialog::node_6_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_7_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_7_set_player, classicboarddialog, &ClassicBoardDialog::node_7_set_player);
+    QObject::connect(this, &Game::signal_node_7_set_state, classicboarddialog, &ClassicBoardDialog::node_7_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_8_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_8_set_player, classicboarddialog, &ClassicBoardDialog::node_8_set_player);
+    QObject::connect(this, &Game::signal_node_8_set_state, classicboarddialog, &ClassicBoardDialog::node_8_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_9_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_9_set_player, classicboarddialog, &ClassicBoardDialog::node_9_set_player);
+    QObject::connect(this, &Game::signal_node_9_set_state, classicboarddialog, &ClassicBoardDialog::node_9_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_10_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_10_set_player, classicboarddialog, &ClassicBoardDialog::node_10_set_player);
+    QObject::connect(this, &Game::signal_node_10_set_state, classicboarddialog, &ClassicBoardDialog::node_10_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_11_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_11_set_player, classicboarddialog, &ClassicBoardDialog::node_11_set_player);
+    QObject::connect(this, &Game::signal_node_11_set_state, classicboarddialog, &ClassicBoardDialog::node_11_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_12_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_12_set_player, classicboarddialog, &ClassicBoardDialog::node_12_set_player);
+    QObject::connect(this, &Game::signal_node_12_set_state, classicboarddialog, &ClassicBoardDialog::node_12_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_13_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_13_set_player, classicboarddialog, &ClassicBoardDialog::node_13_set_player);
+    QObject::connect(this, &Game::signal_node_13_set_state, classicboarddialog, &ClassicBoardDialog::node_13_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_14_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_14_set_player, classicboarddialog, &ClassicBoardDialog::node_14_set_player);
+    QObject::connect(this, &Game::signal_node_14_set_state, classicboarddialog, &ClassicBoardDialog::node_14_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_15_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_15_set_player, classicboarddialog, &ClassicBoardDialog::node_15_set_player);
+    QObject::connect(this, &Game::signal_node_15_set_state, classicboarddialog, &ClassicBoardDialog::node_15_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_16_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_16_set_player, classicboarddialog, &ClassicBoardDialog::node_16_set_player);
+    QObject::connect(this, &Game::signal_node_16_set_state, classicboarddialog, &ClassicBoardDialog::node_16_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_17_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_17_set_player, classicboarddialog, &ClassicBoardDialog::node_17_set_player);
+    QObject::connect(this, &Game::signal_node_17_set_state, classicboarddialog, &ClassicBoardDialog::node_17_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_18_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_18_set_player, classicboarddialog, &ClassicBoardDialog::node_18_set_player);
+    QObject::connect(this, &Game::signal_node_18_set_state, classicboarddialog, &ClassicBoardDialog::node_18_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_19_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_19_set_player, classicboarddialog, &ClassicBoardDialog::node_19_set_player);
+    QObject::connect(this, &Game::signal_node_19_set_state, classicboarddialog, &ClassicBoardDialog::node_19_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_20_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_20_set_player, classicboarddialog, &ClassicBoardDialog::node_20_set_player);
+    QObject::connect(this, &Game::signal_node_20_set_state, classicboarddialog, &ClassicBoardDialog::node_20_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_21_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_21_set_player, classicboarddialog, &ClassicBoardDialog::node_21_set_player);
+    QObject::connect(this, &Game::signal_node_21_set_state, classicboarddialog, &ClassicBoardDialog::node_21_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_22_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_22_set_player, classicboarddialog, &ClassicBoardDialog::node_22_set_player);
+    QObject::connect(this, &Game::signal_node_22_set_state, classicboarddialog, &ClassicBoardDialog::node_22_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_23_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_23_set_player, classicboarddialog, &ClassicBoardDialog::node_23_set_player);
+    QObject::connect(this, &Game::signal_node_23_set_state, classicboarddialog, &ClassicBoardDialog::node_23_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_24_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_24_set_player, classicboarddialog, &ClassicBoardDialog::node_24_set_player);
+    QObject::connect(this, &Game::signal_node_24_set_state, classicboarddialog, &ClassicBoardDialog::node_24_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_25_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_25_set_player, classicboarddialog, &ClassicBoardDialog::node_25_set_player);
+    QObject::connect(this, &Game::signal_node_25_set_state, classicboarddialog, &ClassicBoardDialog::node_25_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_26_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_26_set_player, classicboarddialog, &ClassicBoardDialog::node_26_set_player);
+    QObject::connect(this, &Game::signal_node_26_set_state, classicboarddialog, &ClassicBoardDialog::node_26_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_27_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_27_set_player, classicboarddialog, &ClassicBoardDialog::node_27_set_player);
+    QObject::connect(this, &Game::signal_node_27_set_state, classicboarddialog, &ClassicBoardDialog::node_27_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_28_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_28_set_player, classicboarddialog, &ClassicBoardDialog::node_28_set_player);
+    QObject::connect(this, &Game::signal_node_28_set_state, classicboarddialog, &ClassicBoardDialog::node_28_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_29_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_29_set_player, classicboarddialog, &ClassicBoardDialog::node_29_set_player);
+    QObject::connect(this, &Game::signal_node_29_set_state, classicboarddialog, &ClassicBoardDialog::node_29_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_30_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_30_set_player, classicboarddialog, &ClassicBoardDialog::node_30_set_player);
+    QObject::connect(this, &Game::signal_node_30_set_state, classicboarddialog, &ClassicBoardDialog::node_30_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_31_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_31_set_player, classicboarddialog, &ClassicBoardDialog::node_31_set_player);
+    QObject::connect(this, &Game::signal_node_31_set_state, classicboarddialog, &ClassicBoardDialog::node_31_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_32_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_32_set_player, classicboarddialog, &ClassicBoardDialog::node_32_set_player);
+    QObject::connect(this, &Game::signal_node_32_set_state, classicboarddialog, &ClassicBoardDialog::node_32_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_33_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_33_set_player, classicboarddialog, &ClassicBoardDialog::node_33_set_player);
+    QObject::connect(this, &Game::signal_node_33_set_state, classicboarddialog, &ClassicBoardDialog::node_33_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_34_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_34_set_player, classicboarddialog, &ClassicBoardDialog::node_34_set_player);
+    QObject::connect(this, &Game::signal_node_34_set_state, classicboarddialog, &ClassicBoardDialog::node_34_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_35_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_35_set_player, classicboarddialog, &ClassicBoardDialog::node_35_set_player);
+    QObject::connect(this, &Game::signal_node_35_set_state, classicboarddialog, &ClassicBoardDialog::node_35_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_36_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_36_set_player, classicboarddialog, &ClassicBoardDialog::node_36_set_player);
+    QObject::connect(this, &Game::signal_node_36_set_state, classicboarddialog, &ClassicBoardDialog::node_36_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_37_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_37_set_player, classicboarddialog, &ClassicBoardDialog::node_37_set_player);
+    QObject::connect(this, &Game::signal_node_37_set_state, classicboarddialog, &ClassicBoardDialog::node_37_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_38_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_38_set_player, classicboarddialog, &ClassicBoardDialog::node_38_set_player);
+    QObject::connect(this, &Game::signal_node_38_set_state, classicboarddialog, &ClassicBoardDialog::node_38_set_state);
+
+    QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_39_clicked, this,& Game::classicboard_input);
+    QObject::connect(this, &Game::signal_node_39_set_player, classicboarddialog, &ClassicBoardDialog::node_39_set_player);
+    QObject::connect(this, &Game::signal_node_39_set_state, classicboarddialog, &ClassicBoardDialog::node_39_set_state);
+
+    //-----------------
 
     classicboarddialog->setModal(true);
     classicboarddialog->exec();
@@ -37,8 +200,6 @@ Game::~Game()
     delete game_field;
     delete classicboarddialog;
 }
-
-//int Game::dice(){return rand()%6+1;}
 
 void Game::play()
 {
@@ -113,9 +274,366 @@ void Game::ai_turn(int plr_ID)
     }
 }
 
+//SIGNAL EMIT'S -> BOARD
+//------------------------------------------------------------------------
+void Game::update_classicboard()
+{
+    emit signal_node_0_set_player(this->game_field->node_list[0]->occupied_piece->get_piece_player_id());
+    emit signal_node_1_set_player(this->game_field->node_list[1]->occupied_piece->get_piece_player_id());
+    emit signal_node_2_set_player(this->game_field->node_list[2]->occupied_piece->get_piece_player_id());
+    emit signal_node_3_set_player(this->game_field->node_list[3]->occupied_piece->get_piece_player_id());
+    emit signal_node_4_set_player(this->game_field->node_list[4]->occupied_piece->get_piece_player_id());
+    emit signal_node_5_set_player(this->game_field->node_list[5]->occupied_piece->get_piece_player_id());
+    emit signal_node_6_set_player(this->game_field->node_list[6]->occupied_piece->get_piece_player_id());
+    emit signal_node_7_set_player(this->game_field->node_list[7]->occupied_piece->get_piece_player_id());
+    emit signal_node_8_set_player(this->game_field->node_list[8]->occupied_piece->get_piece_player_id());
+    emit signal_node_9_set_player(this->game_field->node_list[9]->occupied_piece->get_piece_player_id());
+
+    emit signal_node_10_set_player(this->game_field->node_list[10]->occupied_piece->get_piece_player_id());
+    emit signal_node_11_set_player(this->game_field->node_list[11]->occupied_piece->get_piece_player_id());
+    emit signal_node_12_set_player(this->game_field->node_list[12]->occupied_piece->get_piece_player_id());
+    emit signal_node_13_set_player(this->game_field->node_list[13]->occupied_piece->get_piece_player_id());
+    emit signal_node_14_set_player(this->game_field->node_list[14]->occupied_piece->get_piece_player_id());
+    emit signal_node_15_set_player(this->game_field->node_list[15]->occupied_piece->get_piece_player_id());
+    emit signal_node_16_set_player(this->game_field->node_list[16]->occupied_piece->get_piece_player_id());
+    emit signal_node_17_set_player(this->game_field->node_list[17]->occupied_piece->get_piece_player_id());
+    emit signal_node_18_set_player(this->game_field->node_list[18]->occupied_piece->get_piece_player_id());
+    emit signal_node_19_set_player(this->game_field->node_list[19]->occupied_piece->get_piece_player_id());
+
+    emit signal_node_20_set_player(this->game_field->node_list[20]->occupied_piece->get_piece_player_id());
+    emit signal_node_21_set_player(this->game_field->node_list[21]->occupied_piece->get_piece_player_id());
+    emit signal_node_22_set_player(this->game_field->node_list[22]->occupied_piece->get_piece_player_id());
+    emit signal_node_23_set_player(this->game_field->node_list[23]->occupied_piece->get_piece_player_id());
+    emit signal_node_24_set_player(this->game_field->node_list[24]->occupied_piece->get_piece_player_id());
+    emit signal_node_25_set_player(this->game_field->node_list[25]->occupied_piece->get_piece_player_id());
+    emit signal_node_26_set_player(this->game_field->node_list[26]->occupied_piece->get_piece_player_id());
+    emit signal_node_27_set_player(this->game_field->node_list[27]->occupied_piece->get_piece_player_id());
+    emit signal_node_28_set_player(this->game_field->node_list[28]->occupied_piece->get_piece_player_id());
+    emit signal_node_29_set_player(this->game_field->node_list[29]->occupied_piece->get_piece_player_id());
+
+    emit signal_node_30_set_player(this->game_field->node_list[30]->occupied_piece->get_piece_player_id());
+    emit signal_node_31_set_player(this->game_field->node_list[31]->occupied_piece->get_piece_player_id());
+    emit signal_node_32_set_player(this->game_field->node_list[32]->occupied_piece->get_piece_player_id());
+    emit signal_node_33_set_player(this->game_field->node_list[33]->occupied_piece->get_piece_player_id());
+    emit signal_node_34_set_player(this->game_field->node_list[34]->occupied_piece->get_piece_player_id());
+    emit signal_node_35_set_player(this->game_field->node_list[35]->occupied_piece->get_piece_player_id());
+    emit signal_node_36_set_player(this->game_field->node_list[36]->occupied_piece->get_piece_player_id());
+    emit signal_node_37_set_player(this->game_field->node_list[37]->occupied_piece->get_piece_player_id());
+    emit signal_node_38_set_player(this->game_field->node_list[38]->occupied_piece->get_piece_player_id());
+    emit signal_node_39_set_player(this->game_field->node_list[39]->occupied_piece->get_piece_player_id());
+
+}
+
+void Game::set_board_state(int dice,int active_player,int state)
+{
+    if(state == 0 )// DICE
+    {
+        emit set_dice_player(true,active_player);
+    }
+    if((state > 0 || state == 3) && (active_player == this->game_field->node_list[0]->occupied_piece->get_piece_player_id()))// button_node_0
+    {
+        emit signal_node_0_set_state(true);
+    }
+    else
+        emit signal_node_0_set_state(false);
+
+    if((state > 0 && state < 3 )&& (active_player == this->game_field->node_list[1]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_1_set_state(true);
+    }
+    else
+        emit signal_node_1_set_state(false);
+
+    if((state > 0 && state < 3 )&& (active_player == this->game_field->node_list[2]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_2_set_state(true);
+    }
+    else
+        emit signal_node_2_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[3]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_3_set_state(true);
+    }
+    else
+        emit signal_node_3_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[4]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_4_set_state(true);
+    }
+    else
+        emit signal_node_4_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[5]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_5_set_state(true);
+    }
+    else
+        emit signal_node_5_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[6]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_6_set_state(true);
+    }
+    else
+        emit signal_node_6_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[7]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_7_set_state(true);
+    }
+    else
+        emit signal_node_7_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[8]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_8_set_state(true);
+    }
+    else
+        emit signal_node_8_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[9]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_9_set_state(true);
+    }
+    else
+        emit signal_node_9_set_state(false);
+
+    if((state > 0 || state == 3 )&& (active_player == this->game_field->node_list[10]->occupied_piece->get_piece_player_id()))// button_node_10
+    {
+        emit signal_node_10_set_state(true);
+    }
+    else
+        emit signal_node_10_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[11]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_11_set_state(true);
+    }
+    else
+        emit signal_node_11_set_state(false);
+
+    if((state > 0 && state < 3 )&&( active_player == this->game_field->node_list[12]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_12_set_state(true);
+    }
+    else
+        emit signal_node_12_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[13]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_13_set_state(true);
+    }
+    else
+        emit signal_node_13_set_state(false);
+
+    if((state > 0 && state < 3 )&& (active_player == this->game_field->node_list[14]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_14_set_state(true);
+    }
+    else
+        emit signal_node_14_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[15]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_15_set_state(true);
+    }
+    else
+        emit signal_node_15_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[16]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_16_set_state(true);
+    }
+    else
+        emit signal_node_16_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[17]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_17_set_state(true);
+    }
+    else
+        emit signal_node_17_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[18]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_18_set_state(true);
+    }
+    else
+        emit signal_node_18_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[19]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_19_set_state(true);
+    }
+    else
+        emit signal_node_19_set_state(false);
+
+    if((state > 0 || state < 3) && (active_player == this->game_field->node_list[20]->occupied_piece->get_piece_player_id()))// button_node_20
+    {
+        emit signal_node_20_set_state(true);
+    }
+    else
+        emit signal_node_20_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[21]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_21_set_state(true);
+    }
+    else
+        emit signal_node_21_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[22]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_22_set_state(true);
+    }
+    else
+        emit signal_node_22_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[23]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_23_set_state(true);
+    }
+    else
+        emit signal_node_23_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[24]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_24_set_state(true);
+    }
+    else
+        emit signal_node_24_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[25]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_25_set_state(true);
+    }
+    else
+        emit signal_node_25_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[26]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_26_set_state(true);
+    }
+    else
+        emit signal_node_26_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[27]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_27_set_state(true);
+    }
+    else
+        emit signal_node_27_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[28]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_28_set_state(true);
+    }
+    else
+        emit signal_node_28_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[29]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_29_set_state(true);
+    }
+    else
+        emit signal_node_29_set_state(false);
+
+    if((state > 0 || state < 3) && (active_player == this->game_field->node_list[30]->occupied_piece->get_piece_player_id()))//node 30
+    {
+        emit signal_node_30_set_state(true);
+    }
+    else
+        emit signal_node_30_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[31]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_31_set_state(true);
+    }
+    else
+        emit signal_node_31_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[32]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_32_set_state(true);
+    }
+    else
+        emit signal_node_32_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[33]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_33_set_state(true);
+    }
+    else
+        emit signal_node_33_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[34]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_34_set_state(true);
+    }
+    else
+        emit signal_node_34_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[35]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_35_set_state(true);
+    }
+    else
+        emit signal_node_35_set_state(false);
+
+    if((state > 0 && state < 3) &&( active_player == this->game_field->node_list[36]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_36_set_state(true);
+    }
+    else
+        emit signal_node_36_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[37]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_37_set_state(true);
+    }
+    else
+        emit signal_node_37_set_state(false);
+
+    if((state > 0 && state < 3) && (active_player == this->game_field->node_list[38]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_38_set_state(true);
+    }
+    else
+        emit signal_node_38_set_state(false);
+
+    if((state > 0 && state < 3 )&& (active_player == this->game_field->node_list[39]->occupied_piece->get_piece_player_id()))
+    {
+        emit signal_node_39_set_state(true);
+    }
+    else
+        emit signal_node_39_set_state(false);
+
+}
+
+//------------------------------------------------------------------------
+
+//SLOTS
+//------------------------------------------------------------------------
 void Game::dice_slot()
 {
     int x = rand()%6+1;
     emit show_dice(x);
 }
 
+int Game::classicboard_input(int node_id)
+{
+    if(node_id != -1)
+        return node_id;
+
+    return -1;
+}
+int Game::limbo_input(int limbo_id)
+{
+    if(limbo_id != -1)
+        return limbo_id;
+    return -1;
+}
+
+//------------------------------------------------------------------------
