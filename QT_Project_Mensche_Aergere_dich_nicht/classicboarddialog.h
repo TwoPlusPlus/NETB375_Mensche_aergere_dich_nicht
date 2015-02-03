@@ -17,6 +17,40 @@ public:
     explicit ClassicBoardDialog(QWidget *parent = 0);
     ~ClassicBoardDialog();
 
+
+    void GBase1(bool checked);
+
+    void GBase2(bool checked);
+
+    void GBase3(bool checked);
+
+    void GBase4(bool checked);
+
+    void BBase1(bool checked);
+
+    void BBase2(bool checked);
+
+    void BBase3(bool checked);
+
+    void BBase4(bool checked);
+
+    void RBase1(bool checked);
+
+    void RBase2(bool checked);
+
+    void RBase3(bool checked);
+
+    void RBase4(bool checked);
+
+    void YBase1(bool checked);
+
+    void YBase2(bool checked);
+
+    void YBase3(bool checked);
+
+    void YBase4(bool checked);
+
+
     void on_node_0_clicked();
     void on_node_1_clicked();
     void on_node_2_clicked();
@@ -64,37 +98,8 @@ signals:
 
     //output
     //LIMBO
-    void GBase1(bool checked);
 
-    void GBase2(bool checked);
-
-    void GBase3(bool checked);
-
-    void GBase4(bool checked);
-
-    void BBase1(bool checked);
-
-    void BBase2(bool checked);
-
-    void BBase3(bool checked);
-
-    void BBase4(bool checked);
-
-    void RBase1(bool checked);
-
-    void RBase2(bool checked);
-
-    void RBase3(bool checked);
-
-    void RBase4(bool checked);
-
-    void YBase1(bool checked);
-
-    void YBase2(bool checked);
-
-    void YBase3(bool checked);
-
-    void YBase4(bool checked);
+    void GBase_1_clicked(int piece_id);
 
     //BOARD
     void node_0_clicked(int id);
@@ -146,6 +151,8 @@ public slots:
     void on_Dice_Button_clicked();
     void Show_Dice(int N);
     void set_Dice_Player(bool state,int player);
+    //LIMBO SLOTS
+    void on_GBase1_clicked();
 
 //BOARD SLOTS---------------------------------------------------------------
     void node_0_set_state(bool checked);
@@ -269,6 +276,9 @@ public slots:
     void node_39_set_player(int player_id);
 //output
 
+
+private slots:
+    void on_GBase2_clicked();
 
 private:
     Ui::ClassicBoardDialog *ui;

@@ -24,6 +24,8 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
     QObject::connect(this, &Game::show_dice, classicboarddialog, &ClassicBoardDialog::Show_Dice);
     QObject::connect(this, &Game::set_dice_player,classicboarddialog, &ClassicBoardDialog::set_Dice_Player);
 
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::GBase_1_clicked, this, & Game::limbo_input);
+
     //board connections
     QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_0_clicked, this,& Game::classicboard_input);
     QObject::connect(this, &Game::signal_node_0_set_player, classicboarddialog, &ClassicBoardDialog::node_0_set_player);
@@ -278,6 +280,10 @@ void Game::ai_turn(int plr_ID)
 //------------------------------------------------------------------------
 void Game::update_classicboard()
 {
+    //LIMBO
+    emit signal_GBase_1_set_state(this->player_list[0]->piece_list[0]->is_piece_home());
+
+//BOARD
     emit signal_node_0_set_player(this->game_field->node_list[0]->occupied_piece->get_piece_player_id());
     emit signal_node_1_set_player(this->game_field->node_list[1]->occupied_piece->get_piece_player_id());
     emit signal_node_2_set_player(this->game_field->node_list[2]->occupied_piece->get_piece_player_id());
@@ -330,6 +336,21 @@ void Game::set_board_state(int dice,int active_player,int state)
     {
         emit set_dice_player(true,active_player);
     }
+    // GREEN LIMBO
+    if(state == 2 && active_player == 0 && dice == 6)
+    {
+        emit signal_GBase_1_set_state(true);
+    }
+    else
+        emit signal_GBase_1_set_state(false);
+    // BLUE BASE
+
+    // RED BASE
+
+    // YELLOW BASE
+
+
+    //BOARD
     if((state > 0 || state == 3) && (active_player == this->game_field->node_list[0]->occupied_piece->get_piece_player_id()))// button_node_0
     {
         emit signal_node_0_set_state(true);

@@ -36,6 +36,11 @@ void ClassicBoardDialog::on_Dice_Button_clicked()
 // GREEN LIMBO
 //------------------------------------------------------------------------
 
+void ClassicBoardDialog::on_GBase1_clicked()
+{
+    emit GBase_1_clicked(0);
+}
+
 void ClassicBoardDialog::GBase1(bool checked)
 {
     if(!checked)
@@ -45,6 +50,12 @@ void ClassicBoardDialog::GBase1(bool checked)
     else
         ui->GBase1->setStyleSheet("background-color: green");ui->GBase1->setEnabled(false);
 }
+
+void ClassicBoardDialog::on_GBase2_clicked()
+{
+    emit GBase_2_clicked(0);
+}
+
 void ClassicBoardDialog::GBase2(bool checked)
 {
     if(!checked)
@@ -1674,4 +1685,9 @@ void ClassicBoardDialog::node_39_set_player(int player_id)
         ui->node_39->setEnabled(true);
         ui->node_39->setStyleSheet("background-color: yellow");
     }
+}
+
+void ClassicBoardDialog::on_GBase1_clicked()
+{
+    emit GBase1(true);
 }

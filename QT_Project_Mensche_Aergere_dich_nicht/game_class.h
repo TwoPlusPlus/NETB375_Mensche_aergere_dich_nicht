@@ -55,7 +55,9 @@ public slots:
 signals:
     void show_dice(int num);
     void set_dice_player(bool state,int player);
-
+   //LIMBO
+    void signal_GBase_1_set_state(bool check);
+//BOARD
     void signal_node_0_set_player(int player_id);
     void signal_node_0_set_state(bool check);
 
