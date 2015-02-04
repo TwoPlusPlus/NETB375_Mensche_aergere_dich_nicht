@@ -25,6 +25,52 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
     QObject::connect(this, &Game::set_dice_player,classicboarddialog, &ClassicBoardDialog::set_Dice_Player);
 
     QObject::connect(classicboarddialog, & ClassicBoardDialog::GBase_1_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_GBase_1_set_state, classicboarddialog, & ClassicBoardDialog::GBase1);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::GBase_2_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_GBase_2_set_state, classicboarddialog, & ClassicBoardDialog::GBase2);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::GBase_3_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_GBase_3_set_state, classicboarddialog, & ClassicBoardDialog::GBase3);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::GBase_4_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_GBase_4_set_state, classicboarddialog, & ClassicBoardDialog::GBase4);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::BBase_1_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_BBase_1_set_state, classicboarddialog, & ClassicBoardDialog::BBase1);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::BBase_2_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_BBase_2_set_state, classicboarddialog, & ClassicBoardDialog::BBase2);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::BBase_3_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_BBase_3_set_state, classicboarddialog, & ClassicBoardDialog::BBase3);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::BBase_4_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_BBase_4_set_state, classicboarddialog, & ClassicBoardDialog::BBase4);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::RBase_1_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_RBase_1_set_state, classicboarddialog, & ClassicBoardDialog::RBase1);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::RBase_2_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_RBase_2_set_state, classicboarddialog, & ClassicBoardDialog::RBase2);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::RBase_3_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_RBase_3_set_state, classicboarddialog, & ClassicBoardDialog::RBase3);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::RBase_4_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_RBase_4_set_state, classicboarddialog, & ClassicBoardDialog::RBase4);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::YBase_1_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_YBase_1_set_state, classicboarddialog, & ClassicBoardDialog::YBase1);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::YBase_2_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_YBase_2_set_state, classicboarddialog, & ClassicBoardDialog::YBase2);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::YBase_3_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_YBase_3_set_state, classicboarddialog, & ClassicBoardDialog::YBase3);
+
+    QObject::connect(classicboarddialog, & ClassicBoardDialog::YBase_4_clicked, this, & Game::limbo_input);
+    QObject::connect(this, &Game::signal_YBase_4_set_state, classicboarddialog, & ClassicBoardDialog::YBase4);
 
     //board connections
     QObject::connect(classicboarddialog, &ClassicBoardDialog::on_node_0_clicked, this,& Game::classicboard_input);
@@ -282,6 +328,24 @@ void Game::update_classicboard()
 {
     //LIMBO
     emit signal_GBase_1_set_state(this->player_list[0]->piece_list[0]->is_piece_home());
+    emit signal_GBase_2_set_state(this->player_list[0]->piece_list[1]->is_piece_home());
+    emit signal_GBase_3_set_state(this->player_list[0]->piece_list[2]->is_piece_home());
+    emit signal_GBase_4_set_state(this->player_list[0]->piece_list[3]->is_piece_home());
+
+    emit signal_BBase_1_set_state(this->player_list[1]->piece_list[0]->is_piece_home());
+    emit signal_BBase_2_set_state(this->player_list[1]->piece_list[1]->is_piece_home());
+    emit signal_BBase_3_set_state(this->player_list[1]->piece_list[2]->is_piece_home());
+    emit signal_BBase_4_set_state(this->player_list[1]->piece_list[3]->is_piece_home());
+
+    emit signal_RBase_1_set_state(this->player_list[2]->piece_list[0]->is_piece_home());
+    emit signal_RBase_2_set_state(this->player_list[2]->piece_list[1]->is_piece_home());
+    emit signal_RBase_3_set_state(this->player_list[2]->piece_list[2]->is_piece_home());
+    emit signal_RBase_4_set_state(this->player_list[2]->piece_list[3]->is_piece_home());
+
+    emit signal_YBase_1_set_state(this->player_list[3]->piece_list[0]->is_piece_home());
+    emit signal_YBase_2_set_state(this->player_list[3]->piece_list[1]->is_piece_home());
+    emit signal_YBase_3_set_state(this->player_list[3]->piece_list[2]->is_piece_home());
+    emit signal_YBase_4_set_state(this->player_list[3]->piece_list[3]->is_piece_home());
 
 //BOARD
     emit signal_node_0_set_player(this->game_field->node_list[0]->occupied_piece->get_piece_player_id());
@@ -344,11 +408,26 @@ void Game::set_board_state(int dice,int active_player,int state)
     else
         emit signal_GBase_1_set_state(false);
     // BLUE BASE
-
+    if(state == 2 && active_player == 1 && dice == 6) // check the player's number
+    {
+        emit signal_BBase_1_set_state(true);
+    }
+    else
+        emit signal_BBase_1_set_state(false);
     // RED BASE
-
+    if(state == 2 && active_player == 2 && dice == 6)
+    {
+        emit signal_RBase_1_set_state(true);
+    }
+    else
+        emit signal_RBase_1_set_state(false);
     // YELLOW BASE
-
+    if(state == 2 && active_player == 3 && dice == 6)
+    {
+        emit signal_YBase_1_set_state(true);
+    }
+    else
+        emit signal_YBase_1_set_state(false);
 
     //BOARD
     if((state > 0 || state == 3) && (active_player == this->game_field->node_list[0]->occupied_piece->get_piece_player_id()))// button_node_0

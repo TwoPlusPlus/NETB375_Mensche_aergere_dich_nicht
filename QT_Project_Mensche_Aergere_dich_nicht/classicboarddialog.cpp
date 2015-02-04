@@ -1686,8 +1686,3 @@ void ClassicBoardDialog::node_39_set_player(int player_id)
         ui->node_39->setStyleSheet("background-color: yellow");
     }
 }
-
-void ClassicBoardDialog::on_GBase1_clicked()
-{
-    emit GBase1(true);
-}

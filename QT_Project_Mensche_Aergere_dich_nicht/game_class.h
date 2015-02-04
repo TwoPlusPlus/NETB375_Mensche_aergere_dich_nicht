@@ -57,6 +57,25 @@ signals:
     void set_dice_player(bool state,int player);
    //LIMBO
     void signal_GBase_1_set_state(bool check);
+    void signal_GBase_2_set_state(bool check);
+    void signal_GBase_3_set_state(bool check);
+    void signal_GBase_4_set_state(bool check);
+
+    void signal_BBase_1_set_state(bool check);
+    void signal_BBase_2_set_state(bool check);
+    void signal_BBase_3_set_state(bool check);
+    void signal_BBase_4_set_state(bool check);
+
+    void signal_RBase_1_set_state(bool check);
+    void signal_RBase_2_set_state(bool check);
+    void signal_RBase_3_set_state(bool check);
+    void signal_RBase_4_set_state(bool check);
+
+    void signal_YBase_1_set_state(bool check);
+    void signal_YBase_2_set_state(bool check);
+    void signal_YBase_3_set_state(bool check);
+    void signal_YBase_4_set_state(bool check);
+
 //BOARD
     void signal_node_0_set_player(int player_id);
     void signal_node_0_set_state(bool check);

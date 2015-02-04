@@ -1582,6 +1582,58 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="Green_Player_Label">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>120</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Green</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Blue_Player_Label">
+   <property name="geometry">
+    <rect>
+     <x>950</x>
+     <y>120</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Blue</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Red_Player_Label">
+   <property name="geometry">
+    <rect>
+     <x>1010</x>
+     <y>690</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Red</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Yellow_Player_Label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>670</y>
+     <width>67</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Yellow</string>
+   </property>
+  </widget>
   <zorder>node_27</zorder>
   <zorder>Dice_Button</zorder>
   <zorder>YH1</zorder>
@@ -1655,6 +1707,10 @@
   <zorder>RBase2</zorder>
   <zorder>RBase3</zorder>
   <zorder>RBase4</zorder>
+  <zorder>Green_Player_Label</zorder>
+  <zorder>Blue_Player_Label</zorder>
+  <zorder>Red_Player_Label</zorder>
+  <zorder>Yellow_Player_Label</zorder>
  </widget>
  <resources/>
  <connections/>
