@@ -2,7 +2,7 @@
 
 //==============================PLAYER CLASS======================================//
 
-Player::Player(string input_name, int input_ID, bool bot, Field* game_field, Player **input_player_list)
+Player::Player(string input_name, int input_ID, bool bot, Field* game_field)
 {
     ID = input_ID;
     name = input_name;
@@ -32,15 +32,11 @@ Player::Player(string input_name, int input_ID, bool bot, Field* game_field, Pla
     }
     for (int i = 0; i < 4; i++)
     {
-        piece_list[i] = new Piece(i+1,ID);
+        piece_list[i] = new Piece(i,ID);
     }
     for (int i = 0; i < 4; i++)
     {
         home_score[i] = false;
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        player_list[0] = input_player_list[0];
     }
 }
 Player::~Player()

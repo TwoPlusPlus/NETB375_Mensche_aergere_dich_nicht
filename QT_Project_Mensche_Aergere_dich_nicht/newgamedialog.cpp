@@ -35,7 +35,7 @@ void NewGameDialog::on_BackButton_clicked()
     primarydialog.exec();
 }
 
-void NewGameDialog::on_GreencomboBox_currentIndexChanged(const QString &arg1)
+void NewGameDialog::on_GreencomboBox_currentIndexChanged()
 {
     if(ui->GreencomboBox->currentIndex()==1)
     {
@@ -47,7 +47,7 @@ void NewGameDialog::on_GreencomboBox_currentIndexChanged(const QString &arg1)
     }
 }
 
-void NewGameDialog::on_BluecomboBox_currentIndexChanged(const QString &arg1)
+void NewGameDialog::on_BluecomboBox_currentIndexChanged()
 {
     if(ui->BluecomboBox->currentIndex()==1)
     {
@@ -59,7 +59,7 @@ void NewGameDialog::on_BluecomboBox_currentIndexChanged(const QString &arg1)
     }
 }
 
-void NewGameDialog::on_RedcomboBox_currentIndexChanged(const QString &arg1)
+void NewGameDialog::on_RedcomboBox_currentIndexChanged()
 {
     if(ui->RedcomboBox->currentIndex()==1)
     {
@@ -71,7 +71,7 @@ void NewGameDialog::on_RedcomboBox_currentIndexChanged(const QString &arg1)
     }
 }
 
-void NewGameDialog::on_YellowcomboBox_currentIndexChanged(const QString &arg1)
+void NewGameDialog::on_YellowcomboBox_currentIndexChanged()
 {
     if(ui->YellowcomboBox->currentIndex()==1)
     {

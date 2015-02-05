@@ -24,7 +24,7 @@ public:
     Piece* piece_list[4];
     bool home_score[4];
 
-    Player(string input_name, int input_ID, bool bot, Field* game_field, Player** input_player_list);
+    Player(string input_name, int input_ID, bool bot, Field* game_field);
     ~Player();
 
     string get_name();
@@ -54,7 +54,7 @@ public:
 class Ai: public Player
 {
 public:
-    Ai(string input_name,int input_ID,Field* game_field, Player** input_player_list) : Player(input_name,input_ID,true,game_field,input_player_list)
+    Ai(string input_name,int input_ID,Field* game_field) : Player(input_name,input_ID,true,game_field)
     {}
 
     void ai_exec(int dice);

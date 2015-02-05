@@ -20,13 +20,13 @@ public:
 private slots:
     void on_BackButton_clicked();
 
-    void on_GreencomboBox_currentIndexChanged(const QString &arg1);
+    void on_GreencomboBox_currentIndexChanged();
 
-    void on_BluecomboBox_currentIndexChanged(const QString &arg1);
+    void on_BluecomboBox_currentIndexChanged();
 
-    void on_RedcomboBox_currentIndexChanged(const QString &arg1);
+    void on_RedcomboBox_currentIndexChanged();
 
-    void on_YellowcomboBox_currentIndexChanged(const QString &arg1);
+    void on_YellowcomboBox_currentIndexChanged();
 
     void on_StartButton_clicked();
 
