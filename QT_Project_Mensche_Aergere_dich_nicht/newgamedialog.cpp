@@ -85,21 +85,13 @@ void NewGameDialog::on_YellowcomboBox_currentIndexChanged()
 
 void NewGameDialog::on_StartButton_clicked()
 {
-    bool G;
-    bool B;
-    bool R;
-    bool Y;
-    string G_name;
-    string B_name;
-    string R_name;
-    string Y_name;
 
     if(ui->GreencomboBox->currentIndex() == 0)// PLAYER 1 IS GREEN
     {
         G = false;
         if(!ui->GreenlineEdit->text().isEmpty())
         {
-            G_name = ui->GreenlineEdit->text().toStdString();
+            G_name = ui->GreenlineEdit->text();
         }
         else
         {
@@ -113,7 +105,7 @@ void NewGameDialog::on_StartButton_clicked()
         R = false;
         if(!ui->RedlineEdit->text().isEmpty())
         {
-            R_name = ui->RedlineEdit->text().toStdString();
+            R_name = ui->RedlineEdit->text();
         }
         else
         {
@@ -127,7 +119,7 @@ void NewGameDialog::on_StartButton_clicked()
         B = false;
         if(!ui->BluelineEdit->text().isEmpty())
         {
-            B_name = ui->BluelineEdit->text().toStdString();
+            B_name = ui->BluelineEdit->text();
         }
         else
         {
@@ -141,7 +133,7 @@ void NewGameDialog::on_StartButton_clicked()
         Y = false;
         if(!ui->YellowlineEdit->text().isEmpty())
         {
-            Y_name = ui->YellowlineEdit->text().toStdString();
+            Y_name = ui->YellowlineEdit->text();
         }
         else
         {
@@ -151,10 +143,9 @@ void NewGameDialog::on_StartButton_clicked()
     else
         Y=true;Y_name="Bot 4";
 
-    Game newgame(G,G_name,R,R_name,B,B_name,Y,Y_name);
+    //Game newgame(G,G_name,R,R_name,B,B_name,Y,Y_name);
 
-    /*
-
-
-    */
+    ClassicBoardDialog classicboarddialog(0,G,G_name,B,B_name,R,R_name,Y,Y_name);
+    classicboarddialog.setModal(true);
+    classicboarddialog.exec();
 }

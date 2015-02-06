@@ -3,9 +3,12 @@
 
 #include <QDialog>
 #include <QButtonGroup>
+#include <QObject>
+#include "game_class.h"
+
 #include <iostream>
-
-
+#include <cstdlib>
+#include <string>
 
 namespace Ui {
 class ClassicBoardDialog;
@@ -14,9 +17,10 @@ class ClassicBoardDialog;
 class ClassicBoardDialog : public QDialog
 {
     Q_OBJECT
-
+    QThread play_thread();
 public:
-    explicit ClassicBoardDialog(QWidget *parent = 0);
+    Game *game;
+    explicit ClassicBoardDialog(QWidget *parent = 0, bool G = false, QString G_name="player_1", bool R = false, QString R_name="player_2", bool B = false, QString B_name="player_3", bool Y = false, QString Y_name="player_4");
     ~ClassicBoardDialog();
 
 signals:
@@ -299,6 +303,43 @@ public slots:
     void on_node_39_clicked();
     void node_39_set_state(bool checked);
     void node_39_set_player(int player_id);
+
+
+    void on_GH4_clicked();
+    void GH4_set_state(bool cheacked);
+    void on_GH3_clicked();
+    void GH3_set_state(bool cheacked);
+    void on_GH2_clicked();
+    void GH2_set_state(bool cheacked);
+    void on_GH1_clicked();
+    void GH1_set_state(bool cheacked);
+
+    void on_BH1_clicked();
+    void BH1_set_state(bool cheacked);
+    void on_BH2_clicked();
+    void BH2_set_state(bool cheacked);
+    void on_BH3_clicked();
+    void BH3_set_state(bool cheacked);
+    void on_BH4_clicked();
+    void BH4_set_state(bool cheacked);
+
+    void on_RH1_clicked();
+    void RH1_set_state(bool cheacked);
+    void on_RH2_clicked();
+    void RH2_set_state(bool cheacked);
+    void on_RH3_clicked();
+    void RH3_set_state(bool cheacked);
+    void on_RH4_clicked();
+    void RH4_set_state(bool cheacked);
+
+    void on_YH4_clicked();
+    void YH4_set_state(bool cheacked);
+    void on_YH3_clicked();
+    void YH3_set_state(bool cheacked);
+    void on_YH2_clicked();
+    void YH2_set_state(bool cheacked);
+    void on_YH1_clicked();
+    void YH1_set_state(bool cheacked);
 
 private:
     Ui::ClassicBoardDialog *ui;

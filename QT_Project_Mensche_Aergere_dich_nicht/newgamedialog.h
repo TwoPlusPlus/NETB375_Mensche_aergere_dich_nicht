@@ -31,6 +31,15 @@ private slots:
     void on_StartButton_clicked();
 
 private:
+    bool G;
+    bool B;
+    bool R;
+    bool Y;
+    QString G_name;
+    QString B_name;
+    QString R_name;
+    QString Y_name;
+
     Ui::NewGameDialog *ui;
 };
 

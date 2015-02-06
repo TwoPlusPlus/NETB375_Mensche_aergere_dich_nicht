@@ -1,6 +1,6 @@
 #include "game_class.h"
 
-Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, bool Y, string Y_name)
+Game::Game(bool G, QString G_name, bool R, QString R_name, bool B, QString B_name, bool Y, QString Y_name)
 {
     done = false;
     roll_six = false;
@@ -10,13 +10,13 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
 
     player_num = 4;
 
-    player_list[0] = new Player(G_name, 0, G, game_field);
+    player_list[0] = new Player(G_name.toStdString(), 0, G, game_field);
 //cout<<G_name;
-    player_list[1] = new Player(R_name, 1, R, game_field);
+    player_list[1] = new Player(R_name.toStdString(), 1, R, game_field);
 //cout<<R_name;
-    player_list[2] = new Player(B_name, 2, B, game_field);
+    player_list[2] = new Player(B_name.toStdString(), 2, B, game_field);
 //cout<<B_name;
-    player_list[3] = new Player(Y_name, 3, Y, game_field);
+    player_list[3] = new Player(Y_name.toStdString(), 3, Y, game_field);
 //cout<<Y_name;
 
     for(int i = 0; i < 4; i++)
@@ -27,8 +27,8 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
         }
     }
 
-    classicboarddialog = new ClassicBoardDialog(0);
-
+    //classicboarddialog = new ClassicBoardDialog(0);
+/*
     QObject::connect(classicboarddialog, &ClassicBoardDialog::roll_dice,  this, &Game::dice_slot);
     QObject::connect(this, &Game::show_dice, classicboarddialog, &ClassicBoardDialog::Show_Dice);
     QObject::connect(this, &Game::set_dice_player,classicboarddialog, &ClassicBoardDialog::set_Dice_Player);
@@ -242,12 +242,10 @@ Game::Game(bool G, string G_name, bool R, string R_name, bool B, string B_name, 
     QObject::connect(this, &Game::signal_node_39_set_player, classicboarddialog, &ClassicBoardDialog::node_39_set_player);
     QObject::connect(this, &Game::signal_node_39_set_state, classicboarddialog, &ClassicBoardDialog::node_39_set_state);
 
-    //play();
+ */   //play();
 
-    classicboarddialog->setModal(true);
-    classicboarddialog->exec();
-
-    cout << "exiting";
+    //classicboarddialog->setModal(true);
+    //classicboarddialog->exec();
 }
 
 Game::~Game()
@@ -257,12 +255,12 @@ Game::~Game()
         delete player_list[i];
     }
     delete game_field;
-    delete classicboarddialog;
+   // delete classicboarddialog;
 }
 
 int Game::dice(){return rand()%6+1;}
 
-void Game::play()
+void Game::run()
 {
     while (!done)
     {

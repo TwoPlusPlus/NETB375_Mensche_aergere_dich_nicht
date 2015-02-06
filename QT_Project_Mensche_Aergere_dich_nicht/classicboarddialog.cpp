@@ -1,20 +1,40 @@
 #include "classicboarddialog.h"
 #include "ui_classicboarddialog.h"
 
-ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ) :
+ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ,bool G,QString G_name,bool R,QString R_name,bool B,QString B_name,bool Y,QString Y_name) :
     QDialog(parent),
     ui(new Ui::ClassicBoardDialog)
 {
-    std::cout<<"test";
+    game = new Game(G,G_name,R,R_name,B,B_name,Y,Y_name);
+
+    game->moveToThread(&play_thread);
+
+    //QObject::connect(this, &ClassicBoardDialog::roll_dice,  game, &Game::dice_slot);
+    //QObject::connect(game, &Game::show_dice, this, &ClassicBoardDialog::Show_Dice);
+    //QObject::connect(game, &Game::set_dice_player,this, &ClassicBoardDialog::set_Dice_Player);
+
+    //QObject::connect(this, & ClassicBoardDialog::GBase_1_clicked, game, & Game::limbo_input);
+    //QObject::connect(game, &Game::signal_GBase_1_set_state, this, & ClassicBoardDialog::GBase1);
+
+    //board connections
+    //QObject::connect(this, &ClassicBoardDialog::node_0_clicked, game,& Game::classicboard_input);
+    //QObject::connect(game, &Game::signal_node_0_set_player, this, &ClassicBoardDialog::node_0_set_player);
+    //QObject::connect(game, &Game::signal_node_0_set_state, this, &ClassicBoardDialog::node_0_set_state);
+
+
     ui->setupUi(this);
+    ui->green_player_name->setText(G_name);
+    ui->blue_player_name->setText(B_name);
+    ui->red_player_name->setText(R_name);
+    ui->yellow_player_name->setText(Y_name);
 
-std::cout<<"test";
-// board-----------------------------------------------------
-
+    play_thread.start();
 }
 
 ClassicBoardDialog::~ClassicBoardDialog()
 {
+    play_thread.quit();
+    play_thread.wait();
     delete ui;
 }
 
@@ -50,17 +70,7 @@ void ClassicBoardDialog::set_Dice_Player(bool state, int player)
 //------------------------------------------------------------------------
 // GREEN LIMBO
 //------------------------------------------------------------------------
-/*
-void ClassicBoardDialog::on_GBase1_toggled(bool checked)
-{
-    if(!checked)
-    {
-        ui->GBase1->setStyleSheet("background-color: green");ui->GBase1->setEnabled(true);
-    }
-    else
-        ui->GBase1->setStyleSheet("background-color: white");ui->GBase1->setEnabled(false);
-}
-*/
+
 void ClassicBoardDialog::on_GBase1_clicked()
 {
     emit GBase_1_clicked(0);
@@ -1795,4 +1805,84 @@ void ClassicBoardDialog::node_39_set_state(bool checked)
         ui->node_39->setEnabled(false);
 }
 
+//GREEN HOME
 
+void ClassicBoardDialog::on_GH4_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_GH3_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_GH2_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_GH1_clicked()
+{
+
+}
+//BLUE HOME
+void ClassicBoardDialog::on_BH1_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_BH2_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_BH3_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_BH4_clicked()
+{
+
+}
+//RED HOME
+void ClassicBoardDialog::on_RH1_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_RH2_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_RH3_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_RH4_clicked()
+{
+
+}
+//YELLOW HOME
+void ClassicBoardDialog::on_YH4_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_YH3_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_YH2_clicked()
+{
+
+}
+
+void ClassicBoardDialog::on_YH1_clicked()
+{
+
+}

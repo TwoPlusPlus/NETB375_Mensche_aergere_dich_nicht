@@ -2,15 +2,16 @@
 #define __GAME_CLASS_H_INCLUDED__
 
 #include "player_ai_class.h"
-#include "classicboarddialog.h"
+//#include "classicboarddialog.h"
 #include <QObject>
 #include <QThread>
 
 #include <cstdlib>
 
-class Game : public QDialog
+class Game : public QThread
 {
-    Q_OBJECT
+//    Q_OBJECT
+   // QThread play_thread;
 private:
 
     int ai_num;
@@ -22,13 +23,13 @@ private:
     int roll;
 
 public:
-    ClassicBoardDialog *classicboarddialog;
+    //ClassicBoardDialog *classicboarddialog;
 
     int player_num;
     Player* player_list[4];
     Field* game_field;
 
-    Game(bool G,string G_name,bool R,string R_name,bool B,string B_name,bool Y,string Y_name);
+    Game(bool G,QString G_name,bool R,QString R_name,bool B,QString B_name,bool Y,QString Y_name);
     ~Game();
 
     int dice();
@@ -45,8 +46,13 @@ public:
     //takes care which player turn is and which button he/she can push
     void set_board_state(int active_player, int state);
 
+
+    void run();
+
+
+
 public slots:
-    void play();
+
     void dice_slot();
 
     int classicboard_input(int node_id);
