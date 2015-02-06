@@ -168,6 +168,45 @@ ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ,bool G,QString G_name,bo
     QObject::connect(game, &Game::signal_node_29_set_player, this, &ClassicBoardDialog::node_29_set_player);
     QObject::connect(game, &Game::signal_node_29_set_state, this, &ClassicBoardDialog::node_29_set_state);
 
+    QObject::connect(this, &ClassicBoardDialog::node_30_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_30_set_player, this, &ClassicBoardDialog::node_30_set_player);
+    QObject::connect(game, &Game::signal_node_30_set_state, this, &ClassicBoardDialog::node_30_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_31_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_31_set_player, this, &ClassicBoardDialog::node_31_set_player);
+    QObject::connect(game, &Game::signal_node_31_set_state, this, &ClassicBoardDialog::node_31_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_32_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_32_set_player, this, &ClassicBoardDialog::node_32_set_player);
+    QObject::connect(game, &Game::signal_node_32_set_state, this, &ClassicBoardDialog::node_32_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_33_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_33_set_player, this, &ClassicBoardDialog::node_33_set_player);
+    QObject::connect(game, &Game::signal_node_33_set_state, this, &ClassicBoardDialog::node_33_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_34_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_34_set_player, this, &ClassicBoardDialog::node_34_set_player);
+    QObject::connect(game, &Game::signal_node_34_set_state, this, &ClassicBoardDialog::node_34_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_35_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_35_set_player, this, &ClassicBoardDialog::node_35_set_player);
+    QObject::connect(game, &Game::signal_node_35_set_state, this, &ClassicBoardDialog::node_35_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_36_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_36_set_player, this, &ClassicBoardDialog::node_36_set_player);
+    QObject::connect(game, &Game::signal_node_36_set_state, this, &ClassicBoardDialog::node_36_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_37_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_37_set_player, this, &ClassicBoardDialog::node_37_set_player);
+    QObject::connect(game, &Game::signal_node_37_set_state, this, &ClassicBoardDialog::node_37_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_38_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_38_set_player, this, &ClassicBoardDialog::node_38_set_player);
+    QObject::connect(game, &Game::signal_node_38_set_state, this, &ClassicBoardDialog::node_38_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::node_39_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_39_set_player, this, &ClassicBoardDialog::node_39_set_player);
+    QObject::connect(game, &Game::signal_node_39_set_state, this, &ClassicBoardDialog::node_39_set_state);
 
     ui->setupUi(this);
     ui->green_player_name->setText(G_name);
