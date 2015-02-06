@@ -1806,82 +1806,241 @@ void ClassicBoardDialog::node_39_set_state(bool checked)
 }
 
 //GREEN HOME
-
+void ClassicBoardDialog::GH4_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->GH4->setStyleSheet("background-color: green");
+        ui->GH4->setEnabled(checked);
+    }
+    else
+        ui->GH4->setEnabled(checked);
+}
 void ClassicBoardDialog::on_GH4_clicked()
 {
 
 }
 
+void ClassicBoardDialog::GH3_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->GH3->setStyleSheet("background-color: green");
+        ui->GH3->setEnabled(checked);
+    }
+    else
+        ui->GH3->setEnabled(checked);
+}
 void ClassicBoardDialog::on_GH3_clicked()
 {
 
 }
 
+void ClassicBoardDialog::GH2_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->GH2->setStyleSheet("background-color: green");
+        ui->GH2->setEnabled(checked);
+    }
+    else
+        ui->GH2->setEnabled(checked);
+}
 void ClassicBoardDialog::on_GH2_clicked()
 {
 
 }
 
+void ClassicBoardDialog::GH1_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->GH1->setStyleSheet("background-color: green");
+        ui->GH1->setEnabled(checked);
+    }
+    else
+        ui->GH1->setEnabled(checked);
+}
 void ClassicBoardDialog::on_GH1_clicked()
 {
 
 }
 //BLUE HOME
+void ClassicBoardDialog::BH1_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->BH1->setStyleSheet("background-color: blue");
+        ui->BH1->setEnabled(checked);
+    }
+    else
+        ui->BH1->setEnabled(checked);
+}
 void ClassicBoardDialog::on_BH1_clicked()
 {
 
 }
 
+void ClassicBoardDialog::BH2_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->BH2->setStyleSheet("background-color: blue");
+        ui->BH2->setEnabled(checked);
+    }
+    else
+        ui->BH2->setEnabled(checked);
+}
 void ClassicBoardDialog::on_BH2_clicked()
 {
 
 }
 
+void ClassicBoardDialog::BH3_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->BH3->setStyleSheet("background-color: blue");
+        ui->BH3->setEnabled(checked);
+    }
+    else
+        ui->BH3->setEnabled(checked);
+}
 void ClassicBoardDialog::on_BH3_clicked()
 {
 
 }
 
+void ClassicBoardDialog::BH4_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->BH4->setStyleSheet("background-color: blue");
+        ui->BH4->setEnabled(checked);
+    }
+    else
+        ui->BH4->setEnabled(checked);
+}
 void ClassicBoardDialog::on_BH4_clicked()
 {
 
 }
 //RED HOME
+void ClassicBoardDialog::RH1_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->RH1->setStyleSheet("background-color: RED");
+        ui->RH1->setEnabled(checked);
+    }
+    else
+        ui->RH1->setEnabled(checked);
+}
 void ClassicBoardDialog::on_RH1_clicked()
 {
 
 }
 
+void ClassicBoardDialog::RH2_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->RH2->setStyleSheet("background-color: RED");
+        ui->RH2->setEnabled(checked);
+    }
+    else
+        ui->RH2->setEnabled(checked);
+}
 void ClassicBoardDialog::on_RH2_clicked()
 {
 
 }
 
+void ClassicBoardDialog::RH3_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->RH3->setStyleSheet("background-color: RED");
+        ui->RH3->setEnabled(checked);
+    }
+    else
+        ui->RH3->setEnabled(checked);
+}
 void ClassicBoardDialog::on_RH3_clicked()
 {
 
 }
 
+void ClassicBoardDialog::RH4_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->RH4->setStyleSheet("background-color: RED");
+        ui->RH4->setEnabled(checked);
+    }
+    else
+        ui->RH4->setEnabled(checked);
+}
 void ClassicBoardDialog::on_RH4_clicked()
 {
 
 }
 //YELLOW HOME
+void ClassicBoardDialog::YH4_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->YH4->setStyleSheet("background-color: yellow");
+        ui->YH4->setEnabled(checked);
+    }
+    else
+        ui->YH4->setEnabled(checked);
+}
 void ClassicBoardDialog::on_YH4_clicked()
 {
 
 }
 
+void ClassicBoardDialog::YH3_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->YH3->setStyleSheet("background-color: yellow");
+        ui->YH3->setEnabled(checked);
+    }
+    else
+        ui->YH3->setEnabled(checked);
+}
 void ClassicBoardDialog::on_YH3_clicked()
 {
 
 }
 
+void ClassicBoardDialog::YH2_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->YH2->setStyleSheet("background-color: yellow");
+        ui->YH2->setEnabled(checked);
+    }
+    else
+        ui->YH2->setEnabled(checked);
+}
 void ClassicBoardDialog::on_YH2_clicked()
 {
 
 }
 
+void ClassicBoardDialog::YH1_set_state(bool checked)
+{
+    if(checked)
+    {
+        ui->YH1->setStyleSheet("background-color: yellow");
+        ui->YH1->setEnabled(checked);
+    }
+    else
+        ui->YH1->setEnabled(checked);
+}
 void ClassicBoardDialog::on_YH1_clicked()
 {
 
