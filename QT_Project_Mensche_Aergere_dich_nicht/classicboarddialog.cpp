@@ -261,7 +261,7 @@ void ClassicBoardDialog::on_GBase1_clicked()
 }
 void ClassicBoardDialog::GBase1(bool checked)
 {
-    if(!checked)
+    if(checked)
     {
         ui->GBase1->setStyleSheet("background-color: green");
     }
@@ -277,7 +277,7 @@ void ClassicBoardDialog::on_GBase2_clicked()
 }
 void ClassicBoardDialog::GBase2(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->GBase2->setStyleSheet("background-color: green");
     else
         ui->GBase2->setStyleSheet("background-color: white");
@@ -291,7 +291,7 @@ void ClassicBoardDialog::on_GBase3_clicked()
 }
 void ClassicBoardDialog::GBase3(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->GBase3->setStyleSheet("background-color: green");
     else
         ui->GBase3->setStyleSheet("background-color: white");
@@ -305,7 +305,7 @@ void ClassicBoardDialog::on_GBase4_clicked()
 }
 void ClassicBoardDialog::GBase4(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->GBase4->setStyleSheet("background-color: green");
     else
         ui->GBase4->setStyleSheet("background-color: white");
@@ -322,7 +322,7 @@ void ClassicBoardDialog::on_BBase1_clicked()
 }
 void ClassicBoardDialog::BBase1(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->BBase1->setStyleSheet("background-color: blue");
     else
         ui->BBase1->setStyleSheet("background-color: white");ui->BBase1->setEnabled(false);
@@ -335,7 +335,7 @@ void ClassicBoardDialog::on_BBase2_clicked()
 }
 void ClassicBoardDialog::BBase2(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->BBase2->setStyleSheet("background-color: blue");
     else
         ui->BBase2->setStyleSheet("background-color: white");ui->BBase2->setEnabled(false);
@@ -348,7 +348,7 @@ void ClassicBoardDialog::on_BBase3_clicked()
 }
 void ClassicBoardDialog::BBase3(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->BBase3->setStyleSheet("background-color: blue");
     else
         ui->BBase3->setStyleSheet("background-color: white");ui->BBase3->setEnabled(false);
@@ -361,7 +361,7 @@ void ClassicBoardDialog::on_BBase4_clicked()
 }
 void ClassicBoardDialog::BBase4(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->BBase4->setStyleSheet("background-color: blue");
     else
         ui->BBase4->setStyleSheet("background-color: white");ui->BBase4->setEnabled(false);
@@ -376,7 +376,7 @@ void ClassicBoardDialog::on_RBase1_clicked()
 }
 void ClassicBoardDialog::RBase1(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->RBase1->setStyleSheet("background-color: red");
     else
         ui->RBase1->setStyleSheet("background-color: white");ui->RBase1->setEnabled(false);
@@ -389,7 +389,7 @@ void ClassicBoardDialog::on_RBase2_clicked()
 }
 void ClassicBoardDialog::RBase2(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->RBase2->setStyleSheet("background-color: red");
     else
         ui->RBase2->setStyleSheet("background-color: white");ui->RBase2->setEnabled(false);
@@ -401,7 +401,7 @@ void ClassicBoardDialog::on_RBase3_clicked()
 }
 void ClassicBoardDialog::RBase3(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->RBase3->setStyleSheet("background-color: red");
     else
         ui->RBase3->setStyleSheet("background-color: white");ui->RBase3->setEnabled(false);
@@ -413,7 +413,7 @@ void ClassicBoardDialog::on_RBase4_clicked()
 }
 void ClassicBoardDialog::RBase4(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->RBase4->setStyleSheet("background-color: red");
     else
         ui->RBase4->setStyleSheet("background-color: white");ui->RBase4->setEnabled(false);
@@ -427,7 +427,7 @@ void ClassicBoardDialog::on_YBase1_clicked()
 }
 void ClassicBoardDialog::YBase1(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->YBase1->setStyleSheet("background-color: yellow");
     else
         ui->YBase1->setStyleSheet("background-color: white");ui->YBase1->setEnabled(false);
@@ -439,7 +439,7 @@ void ClassicBoardDialog::on_YBase2_clicked()
 }
 void ClassicBoardDialog::YBase2(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->YBase2->setStyleSheet("background-color: yellow");
     else
         ui->YBase2->setStyleSheet("background-color: white");ui->YBase2->setEnabled(false);
@@ -452,7 +452,7 @@ void ClassicBoardDialog::on_YBase3_clicked()
 }
 void ClassicBoardDialog::YBase3(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->YBase3->setStyleSheet("background-color: yellow");
     else
         ui->YBase3->setStyleSheet("background-color: white");ui->YBase3->setEnabled(false);
@@ -465,7 +465,7 @@ void ClassicBoardDialog::on_YBase4_clicked()
 }
 void ClassicBoardDialog::YBase4(bool checked)
 {
-    if(!checked)
+    if(checked)
         ui->YBase4->setStyleSheet("background-color: yellow");
     else
         ui->YBase4->setStyleSheet("background-color: white");ui->YBase4->setEnabled(false);
