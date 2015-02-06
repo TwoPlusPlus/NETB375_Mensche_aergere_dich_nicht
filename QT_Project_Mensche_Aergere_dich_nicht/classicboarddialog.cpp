@@ -5,21 +5,52 @@ ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ,bool G,QString G_name,bo
     QDialog(parent),
     ui(new Ui::ClassicBoardDialog)
 {
-    game = new Game(G,G_name,R,R_name,B,B_name,Y,Y_name);
+    game = new Game(G, G_name, R, R_name, B, B_name, Y, Y_name);
 
-    game->moveToThread(&play_thread);
+    QObject::connect(this, &ClassicBoardDialog::roll_dice, game, &Game::dice_slot);
+    QObject::connect(game, &Game::show_dice, this, &ClassicBoardDialog::Show_Dice);
+    QObject::connect(game, &Game::set_dice_player, this, &ClassicBoardDialog::set_Dice_Player);
 
-    //QObject::connect(this, &ClassicBoardDialog::roll_dice,  game, &Game::dice_slot);
-    //QObject::connect(game, &Game::show_dice, this, &ClassicBoardDialog::Show_Dice);
-    //QObject::connect(game, &Game::set_dice_player,this, &ClassicBoardDialog::set_Dice_Player);
+    QObject::connect(this, & ClassicBoardDialog::GBase_1_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_GBase_1_set_state, this, &ClassicBoardDialog::GBase1);
+    QObject::connect(this, & ClassicBoardDialog::GBase_2_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_GBase_2_set_state, this, &ClassicBoardDialog::GBase2);
+    QObject::connect(this, & ClassicBoardDialog::GBase_3_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_GBase_3_set_state, this, &ClassicBoardDialog::GBase3);
+    QObject::connect(this, & ClassicBoardDialog::GBase_4_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_GBase_4_set_state, this, &ClassicBoardDialog::GBase4);
 
-    //QObject::connect(this, & ClassicBoardDialog::GBase_1_clicked, game, & Game::limbo_input);
-    //QObject::connect(game, &Game::signal_GBase_1_set_state, this, & ClassicBoardDialog::GBase1);
+    QObject::connect(this, & ClassicBoardDialog::BBase_1_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_BBase_1_set_state, this, &ClassicBoardDialog::BBase1);
+    QObject::connect(this, & ClassicBoardDialog::BBase_2_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_BBase_2_set_state, this, &ClassicBoardDialog::BBase2);
+    QObject::connect(this, & ClassicBoardDialog::BBase_3_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_BBase_3_set_state, this, &ClassicBoardDialog::BBase3);
+    QObject::connect(this, & ClassicBoardDialog::BBase_4_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_BBase_4_set_state, this, &ClassicBoardDialog::BBase4);
+
+    QObject::connect(this, & ClassicBoardDialog::RBase_1_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_RBase_1_set_state, this, &ClassicBoardDialog::RBase1);
+    QObject::connect(this, & ClassicBoardDialog::RBase_2_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_RBase_2_set_state, this, &ClassicBoardDialog::RBase2);
+    QObject::connect(this, & ClassicBoardDialog::RBase_3_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_RBase_3_set_state, this, &ClassicBoardDialog::RBase3);
+    QObject::connect(this, & ClassicBoardDialog::RBase_4_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_RBase_4_set_state, this, &ClassicBoardDialog::RBase4);
+
+    QObject::connect(this, & ClassicBoardDialog::YBase_1_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_YBase_1_set_state, this, &ClassicBoardDialog::YBase1);
+    QObject::connect(this, & ClassicBoardDialog::YBase_2_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_YBase_2_set_state, this, &ClassicBoardDialog::YBase2);
+    QObject::connect(this, & ClassicBoardDialog::YBase_3_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_YBase_3_set_state, this, &ClassicBoardDialog::YBase3);
+    QObject::connect(this, & ClassicBoardDialog::YBase_4_clicked, game, &Game::limbo_input);
+    QObject::connect(game, &Game::signal_YBase_4_set_state, this, &ClassicBoardDialog::YBase4);
 
     //board connections
-    //QObject::connect(this, &ClassicBoardDialog::node_0_clicked, game,& Game::classicboard_input);
-    //QObject::connect(game, &Game::signal_node_0_set_player, this, &ClassicBoardDialog::node_0_set_player);
-    //QObject::connect(game, &Game::signal_node_0_set_state, this, &ClassicBoardDialog::node_0_set_state);
+    QObject::connect(this, &ClassicBoardDialog::node_0_clicked, game, &Game::classicboard_input);
+    QObject::connect(game, &Game::signal_node_0_set_player, this, &ClassicBoardDialog::node_0_set_player);
+    QObject::connect(game, &Game::signal_node_0_set_state, this, &ClassicBoardDialog::node_0_set_state);
 
 
     ui->setupUi(this);
@@ -27,14 +58,12 @@ ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ,bool G,QString G_name,bo
     ui->blue_player_name->setText(B_name);
     ui->red_player_name->setText(R_name);
     ui->yellow_player_name->setText(Y_name);
-
-    play_thread.start();
 }
 
 ClassicBoardDialog::~ClassicBoardDialog()
 {
-    play_thread.quit();
-    play_thread.wait();
+    //play_thread.quit();
+   // play_thread.wait();
     delete ui;
 }
 
@@ -2044,4 +2073,9 @@ void ClassicBoardDialog::YH1_set_state(bool checked)
 void ClassicBoardDialog::on_YH1_clicked()
 {
 
+}
+
+void ClassicBoardDialog::on_start_clicked()
+{
+    emit start_thread();
 }

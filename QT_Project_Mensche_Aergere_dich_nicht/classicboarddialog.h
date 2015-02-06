@@ -4,6 +4,8 @@
 #include <QDialog>
 #include <QButtonGroup>
 #include <QObject>
+#include <QThread>
+
 #include "game_class.h"
 
 #include <iostream>
@@ -17,13 +19,16 @@ class ClassicBoardDialog;
 class ClassicBoardDialog : public QDialog
 {
     Q_OBJECT
-    QThread play_thread();
 public:
-    Game *game;
+    //Game* game;
+    Game* game;
     explicit ClassicBoardDialog(QWidget *parent = 0, bool G = false, QString G_name="player_1", bool R = false, QString R_name="player_2", bool B = false, QString B_name="player_3", bool Y = false, QString Y_name="player_4");
     ~ClassicBoardDialog();
 
 signals:
+
+    void start_thread();
+
     void roll_dice();
 //OUTPUT LIMBO
     void GBase_1_clicked(int piece_id);
@@ -340,6 +345,9 @@ public slots:
     void YH2_set_state(bool cheacked);
     void on_YH1_clicked();
     void YH1_set_state(bool cheacked);
+
+private slots:
+    void on_start_clicked();
 
 private:
     Ui::ClassicBoardDialog *ui;

@@ -5,6 +5,8 @@
 #include <string>
 #include "game_class.h"
 
+#include <QDebug>
+
 namespace Ui {
 class NewGameDialog;
 }
@@ -12,7 +14,8 @@ class NewGameDialog;
 class NewGameDialog : public QDialog
 {
     Q_OBJECT
-
+    QThread* game_thread;
+    //QThread GUI_thread();
 public:
     explicit NewGameDialog(QWidget *parent = 0);
     ~NewGameDialog();

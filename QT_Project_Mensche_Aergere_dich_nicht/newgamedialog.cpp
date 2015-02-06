@@ -143,9 +143,13 @@ void NewGameDialog::on_StartButton_clicked()
     else
         Y=true;Y_name="Bot 4";
 
-    //Game newgame(G,G_name,R,R_name,B,B_name,Y,Y_name);
+
 
     ClassicBoardDialog classicboarddialog(0,G,G_name,B,B_name,R,R_name,Y,Y_name);
+
+    qDebug() <<"from main thread" << QThread::currentThreadId();
     classicboarddialog.setModal(true);
+    //game_thread->run();
     classicboarddialog.exec();
+
 }

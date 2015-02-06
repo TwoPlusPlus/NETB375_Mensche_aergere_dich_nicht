@@ -4,15 +4,24 @@
 #include "player_ai_class.h"
 //#include "classicboarddialog.h"
 #include <QObject>
+
+#include <QDebug>
 #include <QThread>
+#include <QWaitCondition>
+#include <QMutex>
+#include <QDebug>
+
 
 #include <cstdlib>
 
-class Game : public QThread
+class GameThread;
+
+class Game : public QObject
 {
-//    Q_OBJECT
-   // QThread play_thread;
+    Q_OBJECT
+
 private:
+public:
 
     int ai_num;
 
@@ -22,12 +31,19 @@ private:
     int turn;
     int roll;
 
-public:
+    int GLOBAL_DICE;
+    int GLOBAL_TOKEN_ID;
+    int GLOBAL_LIMBO_ID;
+    int GLONAL_HOME_ID;
+
     //ClassicBoardDialog *classicboarddialog;
 
     int player_num;
+
     Player* player_list[4];
     Field* game_field;
+
+    GameThread* game_thread;
 
     Game(bool G,QString G_name,bool R,QString R_name,bool B,QString B_name,bool Y,QString Y_name);
     ~Game();
@@ -47,7 +63,7 @@ public:
     void set_board_state(int active_player, int state);
 
 
-    void run();
+    void play();
 
 
 
@@ -55,8 +71,9 @@ public slots:
 
     void dice_slot();
 
-    int classicboard_input(int node_id);
-    int limbo_input(int limbo_id);
+    void classicboard_input(int node_id);
+    void limbo_input(int limbo_id);
+    void home_input(int home_id);
 
 
 signals:
@@ -209,6 +226,24 @@ signals:
 
     void signal_node_39_set_player(int player_id);
     void signal_node_39_set_state(bool check);
+};
+
+class GameThread : public QThread
+{
+    Q_OBJECT
+private:
+public:
+    QWaitCondition keypressed;
+    QMutex mutex;
+    Game* gamePtr;
+
+    GameThread(QObject* parent = 0, Game* gamePtr = 0) : QThread(parent)
+    {
+        this->gamePtr = gamePtr;
+    }
+
+    void run() Q_DECL_OVERRIDE;
+
 };
 
 #endif
