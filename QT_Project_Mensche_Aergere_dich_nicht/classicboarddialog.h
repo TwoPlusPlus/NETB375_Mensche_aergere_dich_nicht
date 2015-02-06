@@ -346,9 +346,6 @@ public slots:
     void on_YH1_clicked();
     void YH1_set_state(bool cheacked);
 
-private slots:
-    void on_start_clicked();
-
 private:
     Ui::ClassicBoardDialog *ui;
 };
