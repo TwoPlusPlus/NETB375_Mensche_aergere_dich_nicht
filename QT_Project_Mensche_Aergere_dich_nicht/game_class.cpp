@@ -325,7 +325,7 @@ void Game::set_board_state(int active_player,int state)
         {
             if(game_field->node_list[0]->state != 0)
             {
-                if(game_field->node_list[0]->occupied_piece->get_piece_id() != 0)
+                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
                 {
                     emit signal_GBase_1_set_state(true);
                 }
@@ -344,21 +344,63 @@ void Game::set_board_state(int active_player,int state)
 
         if(state == 2 && active_player == 0 )
         {
-            emit signal_GBase_2_set_state(true);
+            if(game_field->node_list[0]->state != 0)
+            {
+                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_GBase_2_set_state(true);
+                }
+                else
+                {
+                    emit signal_GBase_2_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_GBase_2_set_state(true);
+            }
         }
         else
             emit signal_GBase_2_set_state(false);
 
         if(state == 2 && active_player == 0 )
         {
-            emit signal_GBase_3_set_state(true);
+            if(game_field->node_list[0]->state != 0)
+            {
+                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_GBase_3_set_state(true);
+                }
+                else
+                {
+                    emit signal_GBase_3_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_GBase_3_set_state(true);
+            }
         }
         else
             emit signal_GBase_3_set_state(false);
 
         if(state == 2 && active_player == 0 )
         {
-            emit signal_GBase_4_set_state(true);
+            if(game_field->node_list[0]->state != 0)
+            {
+                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_GBase_4_set_state(true);
+                }
+                else
+                {
+                    emit signal_GBase_4_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_GBase_4_set_state(true);
+            }
         }
         else
             emit signal_GBase_4_set_state(false);
@@ -366,28 +408,85 @@ void Game::set_board_state(int active_player,int state)
         // BLUE BASE
         if(state == 2 && active_player == 1) // check the player's number
         {
-            emit signal_BBase_1_set_state(true);
+            if(game_field->node_list[10]->state != 0)
+            {
+                if(game_field->node_list[10]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_BBase_1_set_state(true);
+                }
+                else
+                {
+                    emit signal_BBase_1_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_BBase_1_set_state(true);
+            }
+
         }
         else
             emit signal_BBase_1_set_state(false);
 
         if(state == 2 && active_player == 1)
         {
-            emit signal_BBase_2_set_state(true);
+            if(game_field->node_list[10]->state != 0)
+            {
+                if(game_field->node_list[10]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_BBase_2_set_state(true);
+                }
+                else
+                {
+                    emit signal_BBase_2_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_BBase_2_set_state(true);
+            }
         }
         else
             emit signal_BBase_2_set_state(false);
 
         if(state == 2 && active_player == 1)
         {
-            emit signal_BBase_3_set_state(true);
+            if(game_field->node_list[10]->state != 0)
+            {
+                if(game_field->node_list[10]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_BBase_3_set_state(true);
+                }
+                else
+                {
+                    emit signal_BBase_3_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_BBase_3_set_state(true);
+            }
         }
         else
             emit signal_BBase_3_set_state(false);
 
         if(state == 2 && active_player == 1)
         {
-            emit signal_BBase_4_set_state(true);
+            if(game_field->node_list[10]->state != 0)
+            {
+                if(game_field->node_list[10]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_BBase_4_set_state(true);
+                }
+                else
+                {
+                    emit signal_BBase_4_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_BBase_4_set_state(true);
+            }
         }
         else
             emit signal_BBase_4_set_state(false);
@@ -396,50 +495,162 @@ void Game::set_board_state(int active_player,int state)
         // RED BASE
         if(state == 2 && active_player == 2)
         {
-            emit signal_RBase_1_set_state(true);
+            if(game_field->node_list[20]->state != 0)
+            {
+                if(game_field->node_list[20]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_RBase_1_set_state(true);
+                }
+                else
+                {
+                    emit signal_RBase_1_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_RBase_1_set_state(true);
+            }
         }
         else
             emit signal_RBase_1_set_state(false);
         if(state == 2 && active_player == 2)
         {
-            emit signal_RBase_2_set_state(true);
+            if(game_field->node_list[20]->state != 0)
+            {
+                if(game_field->node_list[20]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_RBase_2_set_state(true);
+                }
+                else
+                {
+                    emit signal_RBase_2_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_RBase_2_set_state(true);
+            }
         }
         else
             emit signal_RBase_2_set_state(false);
         if(state == 2 && active_player == 2)
         {
-            emit signal_RBase_3_set_state(true);
+            if(game_field->node_list[20]->state != 0)
+            {
+                if(game_field->node_list[20]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_RBase_3_set_state(true);
+                }
+                else
+                {
+                    emit signal_RBase_3_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_RBase_3_set_state(true);
+            }
         }
         else
             emit signal_RBase_3_set_state(false);
         if(state == 2 && active_player == 2)
         {
-            emit signal_RBase_4_set_state(true);
+            if(game_field->node_list[20]->state != 0)
+            {
+                if(game_field->node_list[20]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_RBase_4_set_state(true);
+                }
+                else
+                {
+                    emit signal_RBase_4_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_RBase_4_set_state(true);
+            }
         }
         else
             emit signal_RBase_4_set_state(false);
         // YELLOW BASE
         if(state == 2 && active_player == 3 )
         {
-            emit signal_YBase_1_set_state(true);
+            if(game_field->node_list[30]->state != 0)
+            {
+                if(game_field->node_list[30]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_YBase_1_set_state(true);
+                }
+                else
+                {
+                    emit signal_YBase_1_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_YBase_1_set_state(true);
+            }
         }
         else
             emit signal_YBase_1_set_state(false);
         if(state == 2 && active_player == 3 )
         {
-            emit signal_YBase_2_set_state(true);
+            if(game_field->node_list[30]->state != 0)
+            {
+                if(game_field->node_list[30]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_YBase_2_set_state(true);
+                }
+                else
+                {
+                    emit signal_YBase_2_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_YBase_2_set_state(true);
+            }
         }
         else
             emit signal_YBase_2_set_state(false);
         if(state == 2 && active_player == 3 )
         {
-            emit signal_YBase_3_set_state(true);
+            if(game_field->node_list[30]->state != 0)
+            {
+                if(game_field->node_list[30]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_YBase_3_set_state(true);
+                }
+                else
+                {
+                    emit signal_YBase_3_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_YBase_3_set_state(true);
+            }
         }
         else
             emit signal_YBase_3_set_state(false);
         if(state == 2 && active_player == 3 )
         {
-            emit signal_YBase_4_set_state(true);
+            if(game_field->node_list[30]->state != 0)
+            {
+                if(game_field->node_list[30]->occupied_piece->get_piece_player_id() != active_player)
+                {
+                    emit signal_YBase_4_set_state(true);
+                }
+                else
+                {
+                    emit signal_YBase_4_set_state(false);
+                }
+            }
+            else
+            {
+                emit signal_YBase_4_set_state(true);
+            }
         }
         else
             emit signal_YBase_4_set_state(false);
@@ -447,14 +658,18 @@ void Game::set_board_state(int active_player,int state)
         //BOARD
         if((state > 0 || state == 3) && (this->game_field->node_list[0]->state != 0))// button_node_0
         {
-            if(active_player == this->game_field->node_list[0]->occupied_piece->get_piece_player_id()){
-                if(this->game_field->node_list[this->GLOBAL_DICE+0]->state != 0){ // if next node empty
-                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+0]->occupied_piece->get_piece_player_id()){
+            if(active_player == this->game_field->node_list[0]->occupied_piece->get_piece_player_id())
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+0]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+0]->occupied_piece->get_piece_player_id())
+                    {
                        emit signal_node_0_set_state(true); //if next node diff player piece
                     }
                     else // if next node same player piece
                         emit signal_node_0_set_state(false);
-                } else{ // if next node empty
+                } else
+                { // if next node empty
                     emit signal_node_0_set_state(true);
                 }
             }
@@ -465,7 +680,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3 )&& (this->game_field->node_list[1]->state != 0))
         {
             if(active_player == this->game_field->node_list[1]->occupied_piece->get_piece_player_id())
-                emit signal_node_1_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+1]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+1]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_1_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_1_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_1_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_1_set_state(false);
@@ -473,7 +701,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3 )&& (this->game_field->node_list[2]->state != 0))
         {
             if(active_player == this->game_field->node_list[2]->occupied_piece->get_piece_player_id())
-                emit signal_node_2_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+2]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+2]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_2_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_2_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_2_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_2_set_state(false);
@@ -481,7 +722,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[3]->state != 0))
         {
             if(active_player == this->game_field->node_list[3]->occupied_piece->get_piece_player_id())
-                emit signal_node_3_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+3]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+3]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_3_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_3_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_3_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_3_set_state(false);
@@ -489,7 +743,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[4]->state != 0))
         {
             if(active_player == this->game_field->node_list[4]->occupied_piece->get_piece_player_id())
-                emit signal_node_4_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+4]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+4]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_4_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_4_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_4_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_4_set_state(false);
@@ -497,7 +764,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[5]->state != 0))
         {
             if(active_player == this->game_field->node_list[5]->occupied_piece->get_piece_player_id())
-                emit signal_node_5_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+5]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+5]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_5_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_5_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_5_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_5_set_state(false);
@@ -505,7 +785,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[6]->state != 0))
         {
             if(active_player == this->game_field->node_list[6]->occupied_piece->get_piece_player_id())
-                emit signal_node_6_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+6]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+6]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_6_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_6_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_6_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_6_set_state(false);
@@ -513,7 +806,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[7]->state != 0))
         {
             if(active_player == this->game_field->node_list[7]->occupied_piece->get_piece_player_id())
-                emit signal_node_7_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+7]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+7]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_7_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_7_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_7_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_7_set_state(false);
@@ -521,7 +827,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[8]->state != 0))
         {
             if(active_player == this->game_field->node_list[8]->occupied_piece->get_piece_player_id())
-                emit signal_node_8_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+8]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+8]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_8_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_8_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_8_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_8_set_state(false);
@@ -529,7 +848,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[9]->state != 0))
         {
             if(active_player == this->game_field->node_list[9]->occupied_piece->get_piece_player_id())
-                emit signal_node_9_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+9]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+9]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_9_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_9_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_9_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_9_set_state(false);
@@ -537,7 +869,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 || state == 3 )&& (this->game_field->node_list[10]->state != 0))// button_node_10
         {
             if(active_player == this->game_field->node_list[10]->occupied_piece->get_piece_player_id())
-                emit signal_node_10_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+10]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+10]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_10_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_10_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_10_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_10_set_state(false);
@@ -545,7 +890,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[11]->state != 0))
         {
             if(active_player == this->game_field->node_list[11]->occupied_piece->get_piece_player_id())
-                emit signal_node_11_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+11]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+11]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_11_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_11_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_11_set_state(true);
+                }
+            };
         }
         else
             emit signal_node_11_set_state(false);
@@ -553,7 +911,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3 )&&( this->game_field->node_list[12]->state != 0))
         {
             if(active_player == this->game_field->node_list[12]->occupied_piece->get_piece_player_id())
-                emit signal_node_12_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+12]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+12]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_12_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_12_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_12_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_12_set_state(false);
@@ -561,7 +932,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[13]->state != 0))
         {
             if(active_player == this->game_field->node_list[13]->occupied_piece->get_piece_player_id())
-            emit signal_node_13_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+13]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+13]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_13_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_13_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_13_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_13_set_state(false);
@@ -569,7 +953,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3 )&& (this->game_field->node_list[14]->state != 0))
         {
             if(active_player == this->game_field->node_list[14]->occupied_piece->get_piece_player_id())
-            emit signal_node_14_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+14]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+14]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_14_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_14_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_14_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_14_set_state(false);
@@ -577,7 +974,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[15]->state != 0))
         {
             if(active_player == this->game_field->node_list[15]->occupied_piece->get_piece_player_id())
-            emit signal_node_15_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+15]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+15]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_15_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_15_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_15_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_15_set_state(false);
@@ -585,7 +995,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[16]->state != 0))
         {
             if(active_player == this->game_field->node_list[16]->occupied_piece->get_piece_player_id())
-            emit signal_node_16_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+16]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+16]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_16_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_16_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_16_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_16_set_state(false);
@@ -593,7 +1016,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[17]->state != 0))
         {
             if(active_player == this->game_field->node_list[17]->occupied_piece->get_piece_player_id())
-            emit signal_node_17_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+17]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+17]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_17_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_17_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_17_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_17_set_state(false);
@@ -601,7 +1037,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[18]->state != 0))
         {
             if(active_player == this->game_field->node_list[18]->occupied_piece->get_piece_player_id())
-            emit signal_node_18_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+18]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+18]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_18_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_18_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_18_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_18_set_state(false);
@@ -609,7 +1058,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[19]->state != 0))
         {
             if(active_player == this->game_field->node_list[19]->occupied_piece->get_piece_player_id())
-            emit signal_node_19_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+19]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+19]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_19_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_19_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_19_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_19_set_state(false);
@@ -617,7 +1079,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 || state == 3) && (this->game_field->node_list[20]->state != 0))// button_node_20
         {
             if(active_player == this->game_field->node_list[20]->occupied_piece->get_piece_player_id())
-            emit signal_node_20_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+20]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+20]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_20_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_20_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_20_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_20_set_state(false);
@@ -625,7 +1100,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[21]->state != 0))
         {
             if(active_player == this->game_field->node_list[21]->occupied_piece->get_piece_player_id())
-            emit signal_node_21_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+21]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+21]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_21_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_21_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_21_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_21_set_state(false);
@@ -633,7 +1121,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[22]->state != 0))
         {
             if(active_player == this->game_field->node_list[22]->occupied_piece->get_piece_player_id())
-            emit signal_node_22_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+22]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+22]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_22_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_22_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_22_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_22_set_state(false);
@@ -641,7 +1142,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[23]->state != 0))
         {
             if(active_player == this->game_field->node_list[23]->occupied_piece->get_piece_player_id())
-            emit signal_node_23_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+23]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+23]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_23_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_23_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_23_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_23_set_state(false);
@@ -649,7 +1163,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[24]->state != 0))
         {
             if(active_player == this->game_field->node_list[24]->occupied_piece->get_piece_player_id())
-            emit signal_node_24_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+24]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+24]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_24_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_24_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_24_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_24_set_state(false);
@@ -657,7 +1184,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[25]->state != 0))
         {
             if(active_player == this->game_field->node_list[25]->occupied_piece->get_piece_player_id())
-            emit signal_node_25_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+25]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+25]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_25_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_25_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_25_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_25_set_state(false);
@@ -665,7 +1205,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[26]->state != 0))
         {
             if(active_player == this->game_field->node_list[26]->occupied_piece->get_piece_player_id())
-            emit signal_node_26_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+26]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+26]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_26_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_26_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_26_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_26_set_state(false);
@@ -673,7 +1226,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[27]->state != 0))
         {
             if(active_player == this->game_field->node_list[27]->occupied_piece->get_piece_player_id())
-            emit signal_node_27_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+27]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+27]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_27_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_27_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_27_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_27_set_state(false);
@@ -681,7 +1247,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[28]->state != 0))
         {
             if(active_player == this->game_field->node_list[28]->occupied_piece->get_piece_player_id())
-            emit signal_node_28_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+28]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+28]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_28_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_28_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_28_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_28_set_state(false);
@@ -689,7 +1268,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[29]->state != 0))
         {
             if(active_player == this->game_field->node_list[29]->occupied_piece->get_piece_player_id())
-            emit signal_node_29_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+29]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+29]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_29_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_29_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_29_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_29_set_state(false);
@@ -697,7 +1289,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 || state == 3) && (this->game_field->node_list[30]->state != 0))//node 30
         {
             if(active_player == this->game_field->node_list[30]->occupied_piece->get_piece_player_id())
-            emit signal_node_30_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+30]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+30]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_30_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_30_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_30_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_30_set_state(false);
@@ -705,7 +1310,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[31]->state != 0))
         {
             if(active_player == this->game_field->node_list[31]->occupied_piece->get_piece_player_id())
-            emit signal_node_31_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+31]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+31]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_31_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_31_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_31_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_31_set_state(false);
@@ -713,7 +1331,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[32]->state != 0))
         {
             if(active_player == this->game_field->node_list[32]->occupied_piece->get_piece_player_id())
-            emit signal_node_32_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+32]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+32]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_32_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_32_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_32_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_32_set_state(false);
@@ -721,7 +1352,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[33]->state != 0))
         {
             if(active_player == this->game_field->node_list[33]->occupied_piece->get_piece_player_id())
-            emit signal_node_33_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+33]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+33]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_33_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_33_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_33_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_33_set_state(false);
@@ -729,7 +1373,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[34]->state != 0))
         {
             if(active_player == this->game_field->node_list[34]->occupied_piece->get_piece_player_id())
-            emit signal_node_34_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+34]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+34]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_34_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_34_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_34_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_34_set_state(false);
@@ -737,7 +1394,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[35]->state != 0))
         {
             if(active_player == this->game_field->node_list[35]->occupied_piece->get_piece_player_id())
-            emit signal_node_35_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+35]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+35]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_35_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_35_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_35_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_35_set_state(false);
@@ -745,7 +1415,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) &&( this->game_field->node_list[36]->state != 0))
         {
             if(active_player == this->game_field->node_list[36]->occupied_piece->get_piece_player_id())
-            emit signal_node_36_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+36]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+36]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_36_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_36_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_36_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_36_set_state(false);
@@ -753,7 +1436,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[37]->state != 0))
         {
             if(active_player == this->game_field->node_list[37]->occupied_piece->get_piece_player_id())
-            emit signal_node_37_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+37]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+37]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_37_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_37_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_37_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_37_set_state(false);
@@ -761,7 +1457,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3) && (this->game_field->node_list[38]->state != 0))
         {
             if(active_player == this->game_field->node_list[38]->occupied_piece->get_piece_player_id())
-            emit signal_node_38_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+38]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+38]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_38_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_38_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_38_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_38_set_state(false);
@@ -769,7 +1478,20 @@ void Game::set_board_state(int active_player,int state)
         if((state > 0 && state < 3 )&& (this->game_field->node_list[39]->state != 0))
         {
             if(active_player == this->game_field->node_list[39]->occupied_piece->get_piece_player_id())
-            emit signal_node_39_set_state(true);
+            {
+                if(this->game_field->node_list[this->GLOBAL_DICE+39]->state != 0)
+                { // if next node empty
+                    if(active_player != this->game_field->node_list[this->GLOBAL_DICE+39]->occupied_piece->get_piece_player_id())
+                    {
+                       emit signal_node_39_set_state(true); //if next node diff player piece
+                    }
+                    else // if next node same player piece
+                        emit signal_node_39_set_state(false);
+                } else
+                { // if next node empty
+                    emit signal_node_39_set_state(true);
+                }
+            }
         }
         else
             emit signal_node_39_set_state(false);
