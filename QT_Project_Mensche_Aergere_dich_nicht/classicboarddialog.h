@@ -126,24 +126,40 @@ public slots:
     void set_Dice_Player(bool state,int player);
 
     void GBase1(bool checked);
+    void GBase1_set_token (bool isPushed);
     void GBase2(bool checked);
+    void GBase2_set_token (bool isPushed);
     void GBase3(bool checked);
+    void GBase3_set_token (bool isPushed);
     void GBase4(bool checked);
+    void GBase4_set_token (bool isPushed);
 
     void BBase1(bool checked);
+    void BBase1_set_token (bool isPushed);
     void BBase2(bool checked);
+    void BBase2_set_token (bool isPushed);
     void BBase3(bool checked);
+    void BBase3_set_token (bool isPushed);
     void BBase4(bool checked);
+    void BBase4_set_token (bool isPushed);
 
     void RBase1(bool checked);
+    void RBase1_set_token (bool isPushed);
     void RBase2(bool checked);
+    void RBase2_set_token (bool isPushed);
     void RBase3(bool checked);
+    void RBase3_set_token (bool isPushed);
     void RBase4(bool checked);
+    void RBase4_set_token (bool isPushed);
 
     void YBase1(bool checked);
+    void YBase1_set_token (bool isPushed);
     void YBase2(bool checked);
+    void YBase2_set_token (bool isPushed);
     void YBase3(bool checked);
+    void YBase3_set_token (bool isPushed);
     void YBase4(bool checked);
+    void YBase4_set_token (bool isPushed);
 
 
     void on_GBase1_clicked();
