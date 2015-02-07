@@ -323,15 +323,18 @@ void Game::set_board_state(int active_player,int state)
         // GREEN LIMBO
         if(state == 2 && active_player == 0 )
         {
-            if(game_field->node_list[0]->state != 0)
+            if(this->player_list[0]->piece_list[0]->get_piece_moves() == -1)
             {
-                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                if(game_field->node_list[0]->state != 0)
                 {
-                    emit signal_GBase_1_set_state(true);
-                }
-                else
-                {
-                    emit signal_GBase_1_set_state(false);
+                    if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                    {
+                        emit signal_GBase_1_set_state(true);
+                    }
+                    else
+                    {
+                        emit signal_GBase_1_set_state(false);
+                    }
                 }
             }
             else
