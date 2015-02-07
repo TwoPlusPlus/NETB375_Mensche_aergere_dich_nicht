@@ -254,6 +254,23 @@ void ClassicBoardDialog::set_Dice_Player(bool state, int player)
 {
     if(state == true)
         ui->Dice_Button->setEnabled(state);
+
+    if(player == 0)//allmost working as intendet
+        ui->green_player_name->setStyleSheet("background-color: green");
+    else
+        ui->green_player_name->setStyleSheet("background-color: white");
+    if(player == 1)
+        ui->blue_player_name->setStyleSheet("background-color: blue");
+    else
+        ui->blue_player_name->setStyleSheet("background-color: white");
+    if(player == 2)
+        ui->red_player_name->setStyleSheet("background-color: red");
+    else
+        ui->red_player_name->setStyleSheet("background-color: white");
+    if(player == 3)
+        ui->yellow_player_name->setStyleSheet("background-color: yellow");
+    else
+        ui->yellow_player_name->setStyleSheet("background-color: white");
 }
 
 //------------------------------------------------------------------------

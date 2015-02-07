@@ -99,7 +99,10 @@ void NewGameDialog::on_StartButton_clicked()
         }
     }
     else
-        G=true;G_name="Bot 1";
+    {
+        G=true;
+        G_name="Bot 1";
+    }
     if(ui->RedcomboBox->currentIndex() == 0)// PLAYER 2 IS RED!
     {
         R = false;
@@ -113,7 +116,10 @@ void NewGameDialog::on_StartButton_clicked()
         }
     }
     else
-        R=true;R_name="Bot 2";
+    {
+        R=true;
+        R_name="Bot 2";
+    }
     if(ui->BluecomboBox->currentIndex() == 0)//Player 3 is Blue
     {
         B = false;
@@ -127,7 +133,10 @@ void NewGameDialog::on_StartButton_clicked()
         }
     }
     else
-        B=true;B_name="Bot 3";
+    {
+        B=true;
+        B_name="Bot 3";
+    }
     if(ui->YellowcomboBox->currentIndex() == 0)// 4 is Yellow
     {
         Y = false;
@@ -141,7 +150,10 @@ void NewGameDialog::on_StartButton_clicked()
         }
     }
     else
-        Y=true;Y_name="Bot 4";
+    {
+        Y=true;
+        Y_name="Bot 4";
+    }
 
 
 
