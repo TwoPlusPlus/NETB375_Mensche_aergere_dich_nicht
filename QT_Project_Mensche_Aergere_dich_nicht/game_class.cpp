@@ -347,15 +347,18 @@ void Game::set_board_state(int active_player,int state)
 
         if(state == 2 && active_player == 0 )
         {
-            if(game_field->node_list[0]->state != 0)
+            if(this->player_list[0]->piece_list[1]->get_piece_moves() == -1)
             {
-                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                if(game_field->node_list[0]->state != 0)
                 {
-                    emit signal_GBase_2_set_state(true);
-                }
-                else
-                {
-                    emit signal_GBase_2_set_state(false);
+                    if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                    {
+                        emit signal_GBase_2_set_state(true);
+                    }
+                    else
+                    {
+                        emit signal_GBase_2_set_state(false);
+                    }
                 }
             }
             else
@@ -368,20 +371,23 @@ void Game::set_board_state(int active_player,int state)
 
         if(state == 2 && active_player == 0 )
         {
-            if(game_field->node_list[0]->state != 0)
+            if(this->player_list[0]->piece_list[2]->get_piece_moves() == -1)
             {
-                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                if(game_field->node_list[0]->state != 0)
                 {
-                    emit signal_GBase_3_set_state(true);
+                    if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                    {
+                        emit signal_GBase_3_set_state(true);
+                    }
+                    else
+                    {
+                        emit signal_GBase_3_set_state(false);
+                    }
                 }
                 else
                 {
-                    emit signal_GBase_3_set_state(false);
+                    emit signal_GBase_3_set_state(true);
                 }
-            }
-            else
-            {
-                emit signal_GBase_3_set_state(true);
             }
         }
         else
@@ -389,20 +395,23 @@ void Game::set_board_state(int active_player,int state)
 
         if(state == 2 && active_player == 0 )
         {
-            if(game_field->node_list[0]->state != 0)
+            if(this->player_list[0]->piece_list[3]->get_piece_moves() == -1)
             {
-                if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                if(game_field->node_list[0]->state != 0)
                 {
-                    emit signal_GBase_4_set_state(true);
+                    if(game_field->node_list[0]->occupied_piece->get_piece_player_id() != active_player)
+                    {
+                        emit signal_GBase_4_set_state(true);
+                    }
+                    else
+                    {
+                        emit signal_GBase_4_set_state(false);
+                    }
                 }
                 else
                 {
-                    emit signal_GBase_4_set_state(false);
+                    emit signal_GBase_4_set_state(true);
                 }
-            }
-            else
-            {
-                emit signal_GBase_4_set_state(true);
             }
         }
         else
