@@ -208,6 +208,42 @@ ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ,bool G,QString G_name,bo
     QObject::connect(game, &Game::signal_node_39_set_state, this, &ClassicBoardDialog::node_39_set_state);
 
 
+    QObject::connect(this, &ClassicBoardDialog::GH1_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_GH1_set_state, this, &ClassicBoardDialog::GH1_set_state);
+    QObject::connect(this, &ClassicBoardDialog::GH2_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_GH2_set_state, this, &ClassicBoardDialog::GH2_set_state);
+    QObject::connect(this, &ClassicBoardDialog::GH3_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_GH3_set_state, this, &ClassicBoardDialog::GH3_set_state);
+    QObject::connect(this, &ClassicBoardDialog::GH4_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_GH4_set_state, this, &ClassicBoardDialog::GH4_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::BH1_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_BH1_set_state, this, &ClassicBoardDialog::BH1_set_state);
+    QObject::connect(this, &ClassicBoardDialog::BH2_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_BH2_set_state, this, &ClassicBoardDialog::BH2_set_state);
+    QObject::connect(this, &ClassicBoardDialog::BH3_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_BH3_set_state, this, &ClassicBoardDialog::BH3_set_state);
+    QObject::connect(this, &ClassicBoardDialog::BH4_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_BH4_set_state, this, &ClassicBoardDialog::BH4_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::RH1_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_RH1_set_state, this, &ClassicBoardDialog::RH1_set_state);
+    QObject::connect(this, &ClassicBoardDialog::RH2_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_RH2_set_state, this, &ClassicBoardDialog::RH2_set_state);
+    QObject::connect(this, &ClassicBoardDialog::RH3_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_RH3_set_state, this, &ClassicBoardDialog::RH3_set_state);
+    QObject::connect(this, &ClassicBoardDialog::RH4_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_RH4_set_state, this, &ClassicBoardDialog::RH4_set_state);
+
+    QObject::connect(this, &ClassicBoardDialog::YH1_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_YH1_set_state, this, &ClassicBoardDialog::YH1_set_state);
+    QObject::connect(this, &ClassicBoardDialog::YH2_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_YH2_set_state, this, &ClassicBoardDialog::YH2_set_state);
+    QObject::connect(this, &ClassicBoardDialog::YH3_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_YH3_set_state, this, &ClassicBoardDialog::YH3_set_state);
+    QObject::connect(this, &ClassicBoardDialog::YH4_clicked, game, &Game::home_input);
+    QObject::connect(game, &Game::signal_YH4_set_state, this, &ClassicBoardDialog::YH4_set_state);
+
     //Thread connections
     QObject::connect(this, &ClassicBoardDialog::wake_thread, game->game_thread, &GameThread::wakeThread);
     //=====================
