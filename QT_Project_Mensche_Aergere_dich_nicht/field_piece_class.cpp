@@ -22,6 +22,7 @@ int Piece::get_piece_player_id()
 
 int Piece::get_piece_moves()
 {
+    int debug = moves;
     return moves;
 }
 int Piece::get_piece_home_moves()
@@ -39,10 +40,11 @@ void Piece::update_moves(int roll, bool home)
 {
     if (!home)
     {
-        if (roll > -1)
+        if (roll > 0)
             this->moves += roll;
-        else
-            this->moves = -1;
+        else if (roll == 0)
+            this->moves = 0;
+        else if (roll == -1) this->moves = -1;
     }
     else
     {

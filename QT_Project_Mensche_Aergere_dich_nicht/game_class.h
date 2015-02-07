@@ -34,7 +34,7 @@ public:
     int GLOBAL_DICE;
     int GLOBAL_TOKEN_ID;
     int GLOBAL_LIMBO_ID;
-    int GLONAL_HOME_ID;
+    int GLOBAL_HOME_ID;
 
     //ClassicBoardDialog *classicboarddialog;
 
@@ -243,6 +243,8 @@ public:
     }
 
     void run() Q_DECL_OVERRIDE;
+public slots:
+    void wakeThread();
 
 };
 

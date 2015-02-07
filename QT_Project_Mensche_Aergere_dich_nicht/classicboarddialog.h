@@ -27,7 +27,7 @@ public:
 
 signals:
 
-    void start_thread();
+    void wake_thread();
 
     void roll_dice();
 //OUTPUT LIMBO
@@ -94,8 +94,6 @@ signals:
     void node_37_clicked(int id);
     void node_38_clicked(int id);
     void node_39_clicked(int id);
-//HOME
-    //void
 
 //-----------------------------------------------------------
 public slots:

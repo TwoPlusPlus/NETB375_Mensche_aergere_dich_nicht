@@ -11,19 +11,19 @@ Player::Player(string input_name, int input_ID, bool bot, Field* game_field)
     active_player_pieces = 0;
     switch(ID)
     {
-        case 1:
+        case 0:
             start_move = 0;
             finish_move = 39;
             break;
-        case 2:
+        case 1:
             start_move = 10;
             finish_move = 9;
             break;
-        case 3:
+        case 2:
             start_move = 20;
             finish_move = 19;
             break;
-        case 4:
+        case 3:
             start_move = 30;
             finish_move = 29;
             break;
@@ -78,7 +78,8 @@ bool Player::is_player_active()
 
 int Player::get_piece_current_node_id(int piece_id)
 {
-    return ((piece_list[piece_id]->get_piece_moves() + start_move) % 40); // calculates pieces current node id by combining number of moves made and starting node ID
+    int debug = ((piece_list[piece_id]->get_piece_moves() + start_move) % 40);
+    return debug; // calculates pieces current node id by combining number of moves made and starting node ID
 }															// modulus division by 40 (number of nodes) gives us the correct ID of the node
 
 void Player::update_score()
@@ -120,7 +121,7 @@ void Player::move_piece (int piece_id, int roll)
 
 void Player::activate_piece(int piece_id)
 {
-    this->piece_list[piece_id]->update_moves(1, false);
+    this->piece_list[piece_id]->update_moves(0, false);
 
     this->board->occupy_node(this->start_move, this->piece_list[piece_id]);
 
@@ -128,7 +129,7 @@ void Player::activate_piece(int piece_id)
 }
 void Player::deactivate_piece(int piece_id)
 {
-    this->piece_list[piece_id]->update_moves(0,false);
+    this->piece_list[piece_id]->update_moves(-1,false);
 
     int x = this->get_piece_current_node_id(piece_id);
     this->board->de_occupy_node(x);
