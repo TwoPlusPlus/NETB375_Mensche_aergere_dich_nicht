@@ -95,6 +95,29 @@ signals:
     void node_38_clicked(int id);
     void node_39_clicked(int id);
 
+    //HOME OUTPUT
+    void GH1_clicked(int id);
+    void GH2_clicked(int id);
+    void GH3_clicked(int id);
+    void GH4_clicked(int id);
+
+    void BH1_clicked(int id);
+    void BH2_clicked(int id);
+    void BH3_clicked(int id);
+    void BH4_clicked(int id);
+
+    void RH1_clicked(int id);
+    void RH2_clicked(int id);
+    void RH3_clicked(int id);
+    void RH4_clicked(int id);
+
+    void YH1_clicked(int id);
+    void YH2_clicked(int id);
+    void YH3_clicked(int id);
+    void YH4_clicked(int id);
+
+
+
 //-----------------------------------------------------------
 public slots:
 

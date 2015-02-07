@@ -13,91 +13,88 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>31</y>
-     <width>195</width>
-     <height>171</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+  <widget class="QWidget" name="">
+   <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="DieThrowlabel">
-        <property name="text">
-         <string>Die throw</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="DieThrowcomboBox"/>
-      </item>
-     </layout>
+     <widget class="QLabel" name="DieThrowlabel">
+      <property name="text">
+       <string>Die throw</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="Ruleslabel">
-        <property name="text">
-         <string>Rules                  </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="RulescomboBox"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <widget class="QLabel" name="Themeslabel">
-        <property name="text">
-         <string>Themes</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="ThemescomboBox"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QLabel" name="Soundslabel">
-        <property name="text">
-         <string>Sounds</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="SoundscomboBox"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <item>
-       <widget class="QPushButton" name="StartButton">
-        <property name="text">
-         <string>Start</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="BackButton">
-        <property name="text">
-         <string>Back</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QComboBox" name="DieThrowcomboBox"/>
     </item>
    </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QLabel" name="Themeslabel">
+      <property name="text">
+       <string>Themes</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="ThemescomboBox"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLabel" name="Soundslabel">
+      <property name="text">
+       <string>Sounds</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="SoundscomboBox"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <widget class="QPushButton" name="StartButton">
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="BackButton">
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="Ruleslabel">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>68</y>
+     <width>100</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Rules                  </string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="RulescomboBox">
+   <property name="geometry">
+    <rect>
+     <x>138</x>
+     <y>68</y>
+     <width>85</width>
+     <height>27</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

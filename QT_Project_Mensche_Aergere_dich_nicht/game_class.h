@@ -226,6 +226,26 @@ signals:
 
     void signal_node_39_set_player(int player_id);
     void signal_node_39_set_state(bool check);
+
+    void signal_GH1_set_state(bool check);
+    void signal_GH2_set_state(bool check);
+    void signal_GH3_set_state(bool check);
+    void signal_GH4_set_state(bool check);
+
+    void signal_BH1_set_state(bool check);
+    void signal_BH2_set_state(bool check);
+    void signal_BH3_set_state(bool check);
+    void signal_BH4_set_state(bool check);
+
+    void signal_RH1_set_state(bool check);
+    void signal_RH2_set_state(bool check);
+    void signal_RH3_set_state(bool check);
+    void signal_RH4_set_state(bool check);
+
+    void signal_YH1_set_state(bool check);
+    void signal_YH2_set_state(bool check);
+    void signal_YH3_set_state(bool check);
+    void signal_YH4_set_state(bool check);
 };
 
 class GameThread : public QThread
