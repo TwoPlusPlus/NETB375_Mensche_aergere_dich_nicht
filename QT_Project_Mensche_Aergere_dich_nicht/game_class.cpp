@@ -129,25 +129,26 @@ void Game::ai_turn(int plr_ID)
 void Game::update_classicboard()
 {
     //LIMBO
-    emit signal_GBase_1_set_state(this->player_list[0]->piece_list[0]->get_piece_moves() != -1);
-    emit signal_GBase_2_set_state(this->player_list[0]->piece_list[1]->get_piece_moves() != -1);
-    emit signal_GBase_3_set_state(this->player_list[0]->piece_list[2]->get_piece_moves() != -1);
-    emit signal_GBase_4_set_state(this->player_list[0]->piece_list[3]->get_piece_moves() != -1);
+    //emit signal_GBase_1_set_state(this->player_list[0]->piece_list[0]->get_piece_moves() != -1);
+    emit signal_GBase_1_set_token(this->player_list[0]->piece_list[0]->get_piece_moves() != -1);
+    emit signal_GBase_2_set_token(this->player_list[0]->piece_list[1]->get_piece_moves() != -1);
+    emit signal_GBase_3_set_token(this->player_list[0]->piece_list[2]->get_piece_moves() != -1);
+    emit signal_GBase_4_set_token(this->player_list[0]->piece_list[3]->get_piece_moves() != -1);
 
-    emit signal_BBase_1_set_state(this->player_list[1]->piece_list[0]->get_piece_moves() != -1);
-    emit signal_BBase_2_set_state(this->player_list[1]->piece_list[1]->get_piece_moves() != -1);
-    emit signal_BBase_3_set_state(this->player_list[1]->piece_list[2]->get_piece_moves() != -1);
-    emit signal_BBase_4_set_state(this->player_list[1]->piece_list[3]->get_piece_moves() != -1);
+    emit signal_BBase_1_set_token(this->player_list[1]->piece_list[0]->get_piece_moves() != -1);
+    emit signal_BBase_2_set_token(this->player_list[1]->piece_list[1]->get_piece_moves() != -1);
+    emit signal_BBase_3_set_token(this->player_list[1]->piece_list[2]->get_piece_moves() != -1);
+    emit signal_BBase_4_set_token(this->player_list[1]->piece_list[3]->get_piece_moves() != -1);
 
-    emit signal_RBase_1_set_state(this->player_list[2]->piece_list[0]->get_piece_moves() != -1);
-    emit signal_RBase_2_set_state(this->player_list[2]->piece_list[1]->get_piece_moves() != -1);
-    emit signal_RBase_3_set_state(this->player_list[2]->piece_list[2]->get_piece_moves() != -1);
-    emit signal_RBase_4_set_state(this->player_list[2]->piece_list[3]->get_piece_moves() != -1);
+    emit signal_RBase_1_set_token(this->player_list[2]->piece_list[0]->get_piece_moves() != -1);
+    emit signal_RBase_2_set_token(this->player_list[2]->piece_list[1]->get_piece_moves() != -1);
+    emit signal_RBase_3_set_token(this->player_list[2]->piece_list[2]->get_piece_moves() != -1);
+    emit signal_RBase_4_set_token(this->player_list[2]->piece_list[3]->get_piece_moves() != -1);
 
-    emit signal_YBase_1_set_state(this->player_list[3]->piece_list[0]->get_piece_moves() != -1);
-    emit signal_YBase_2_set_state(this->player_list[3]->piece_list[1]->get_piece_moves() != -1);
-    emit signal_YBase_3_set_state(this->player_list[3]->piece_list[2]->get_piece_moves() != -1);
-    emit signal_YBase_4_set_state(this->player_list[3]->piece_list[3]->get_piece_moves() != -1);
+    emit signal_YBase_1_set_token(this->player_list[3]->piece_list[0]->get_piece_moves() != -1);
+    emit signal_YBase_2_set_token(this->player_list[3]->piece_list[1]->get_piece_moves() != -1);
+    emit signal_YBase_3_set_token(this->player_list[3]->piece_list[2]->get_piece_moves() != -1);
+    emit signal_YBase_4_set_token(this->player_list[3]->piece_list[3]->get_piece_moves() != -1);
 
 //BOARD
     if(this->game_field->node_list[0]->state != 0)
