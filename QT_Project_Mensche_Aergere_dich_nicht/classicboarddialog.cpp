@@ -25,42 +25,42 @@ ClassicBoardDialog::ClassicBoardDialog(QWidget *parent ,bool G,QString G_name,bo
 
     QObject::connect(this, & ClassicBoardDialog::BBase_1_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_BBase_1_set_state, this, &ClassicBoardDialog::BBase1);
-    QObject::connect(game, &Game::signal_BBase_1_set_token, this, &ClassicBoardDialog::GBase1_set_token);
+    QObject::connect(game, &Game::signal_BBase_1_set_token, this, &ClassicBoardDialog::BBase1_set_token);
     QObject::connect(this, & ClassicBoardDialog::BBase_2_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_BBase_2_set_state, this, &ClassicBoardDialog::BBase2);
-    QObject::connect(game, &Game::signal_BBase_2_set_token, this, &ClassicBoardDialog::GBase2_set_token);
+    QObject::connect(game, &Game::signal_BBase_2_set_token, this, &ClassicBoardDialog::BBase2_set_token);
     QObject::connect(this, & ClassicBoardDialog::BBase_3_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_BBase_3_set_state, this, &ClassicBoardDialog::BBase3);
-    QObject::connect(game, &Game::signal_BBase_3_set_token, this, &ClassicBoardDialog::GBase3_set_token);
+    QObject::connect(game, &Game::signal_BBase_3_set_token, this, &ClassicBoardDialog::BBase3_set_token);
     QObject::connect(this, & ClassicBoardDialog::BBase_4_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_BBase_4_set_state, this, &ClassicBoardDialog::BBase4);
-    QObject::connect(game, &Game::signal_BBase_4_set_token, this, &ClassicBoardDialog::GBase4_set_token);
+    QObject::connect(game, &Game::signal_BBase_4_set_token, this, &ClassicBoardDialog::BBase4_set_token);
 
     QObject::connect(this, & ClassicBoardDialog::RBase_1_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_RBase_1_set_state, this, &ClassicBoardDialog::RBase1);
-    QObject::connect(game, &Game::signal_RBase_1_set_token, this, &ClassicBoardDialog::GBase1_set_token);
+    QObject::connect(game, &Game::signal_RBase_1_set_token, this, &ClassicBoardDialog::RBase1_set_token);
     QObject::connect(this, & ClassicBoardDialog::RBase_2_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_RBase_2_set_state, this, &ClassicBoardDialog::RBase2);
-    QObject::connect(game, &Game::signal_RBase_2_set_token, this, &ClassicBoardDialog::GBase2_set_token);
+    QObject::connect(game, &Game::signal_RBase_2_set_token, this, &ClassicBoardDialog::RBase2_set_token);
     QObject::connect(this, & ClassicBoardDialog::RBase_3_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_RBase_3_set_state, this, &ClassicBoardDialog::RBase3);
-    QObject::connect(game, &Game::signal_RBase_3_set_token, this, &ClassicBoardDialog::GBase3_set_token);
+    QObject::connect(game, &Game::signal_RBase_3_set_token, this, &ClassicBoardDialog::RBase3_set_token);
     QObject::connect(this, & ClassicBoardDialog::RBase_4_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_RBase_4_set_state, this, &ClassicBoardDialog::RBase4);
-    QObject::connect(game, &Game::signal_RBase_4_set_token, this, &ClassicBoardDialog::GBase4_set_token);
+    QObject::connect(game, &Game::signal_RBase_4_set_token, this, &ClassicBoardDialog::RBase4_set_token);
 
     QObject::connect(this, & ClassicBoardDialog::YBase_1_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_YBase_1_set_state, this, &ClassicBoardDialog::YBase1);
-    QObject::connect(game, &Game::signal_YBase_1_set_token, this, &ClassicBoardDialog::GBase1_set_token);
+    QObject::connect(game, &Game::signal_YBase_1_set_token, this, &ClassicBoardDialog::YBase1_set_token);
     QObject::connect(this, & ClassicBoardDialog::YBase_2_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_YBase_2_set_state, this, &ClassicBoardDialog::YBase2);
-    QObject::connect(game, &Game::signal_YBase_2_set_token, this, &ClassicBoardDialog::GBase2_set_token);
+    QObject::connect(game, &Game::signal_YBase_2_set_token, this, &ClassicBoardDialog::YBase2_set_token);
     QObject::connect(this, & ClassicBoardDialog::YBase_3_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_YBase_3_set_state, this, &ClassicBoardDialog::YBase3);
-    QObject::connect(game, &Game::signal_YBase_3_set_token, this, &ClassicBoardDialog::GBase3_set_token);
+    QObject::connect(game, &Game::signal_YBase_3_set_token, this, &ClassicBoardDialog::YBase3_set_token);
     QObject::connect(this, & ClassicBoardDialog::YBase_4_clicked, game, &Game::limbo_input);
     QObject::connect(game, &Game::signal_YBase_4_set_state, this, &ClassicBoardDialog::YBase4);
-    QObject::connect(game, &Game::signal_YBase_4_set_token, this, &ClassicBoardDialog::GBase4_set_token);
+    QObject::connect(game, &Game::signal_YBase_4_set_token, this, &ClassicBoardDialog::YBase4_set_token);
 
     //board connections
     QObject::connect(this, &ClassicBoardDialog::node_0_clicked, game, &Game::classicboard_input);
@@ -331,13 +331,13 @@ void ClassicBoardDialog::set_Dice_Player(bool state, int player)
 
 void ClassicBoardDialog::GBase1_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->GBase1->setChecked(true);// if piece is home -> button is up
+        ui->GBase1->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->GBase1->setChecked(false);// button is pushed
+        ui->GBase1->setDown(true);// button is pushed
         ui->GBase1->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -364,13 +364,13 @@ void ClassicBoardDialog::GBase1(bool checked)
 
 void ClassicBoardDialog::GBase2_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->GBase2->setChecked(true);
+        ui->GBase2->setDown(false);
     }
     else
     {
-        ui->GBase2->setChecked(false);
+        ui->GBase2->setDown(true);
         ui->GBase2->setEnabled(false);
     }
 }
@@ -397,13 +397,13 @@ void ClassicBoardDialog::GBase2(bool checked)
 
 void ClassicBoardDialog::GBase3_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->GBase3->setChecked(true);// if piece is home -> button is up
+        ui->GBase3->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->GBase3->setChecked(false);// button is pushed
+        ui->GBase3->setDown(true);// button is pushed
         ui->GBase3->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -429,13 +429,13 @@ void ClassicBoardDialog::GBase3(bool checked)
 
 void ClassicBoardDialog::GBase4_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->GBase4->setChecked(true);// if piece is home -> button is up
+        ui->GBase4->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->GBase4->setChecked(false);// button is pushed
+        ui->GBase4->setDown(true);// button is pushed
         ui->GBase4->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -465,13 +465,13 @@ void ClassicBoardDialog::GBase4(bool checked)
 
 void ClassicBoardDialog::BBase1_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->BBase1->setChecked(true);// if piece is home -> button is up
+        ui->BBase1->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->BBase1->setChecked(false);// button is pushed
+        ui->BBase1->setDown(true);// button is pushed
         ui->BBase1->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -497,13 +497,13 @@ void ClassicBoardDialog::BBase1(bool checked)
 
 void ClassicBoardDialog::BBase2_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->BBase2->setChecked(true);// if piece is home -> button is up
+        ui->BBase2->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->BBase2->setChecked(false);// button is pushed
+        ui->BBase2->setDown(true);// button is pushed
         ui->BBase2->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -529,13 +529,13 @@ void ClassicBoardDialog::BBase2(bool checked)
 
 void ClassicBoardDialog::BBase3_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->BBase3->setChecked(true);// if piece is home -> button is up
+        ui->BBase3->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->BBase3->setChecked(false);// button is pushed
+        ui->BBase3->setDown(true);// button is pushed
         ui->BBase3->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -561,13 +561,13 @@ void ClassicBoardDialog::BBase3(bool checked)
 
 void ClassicBoardDialog::BBase4_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->BBase4->setChecked(true);// if piece is home -> button is up
+        ui->BBase4->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->BBase4->setChecked(false);// button is pushed
+        ui->BBase4->setDown(true);// button is pushed
         ui->BBase4->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -597,13 +597,13 @@ void ClassicBoardDialog::BBase4(bool checked)
 
 void ClassicBoardDialog::RBase1_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->RBase1->setChecked(true);// if piece is home -> button is up
+        ui->RBase1->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->RBase1->setChecked(false);// button is pushed
+        ui->RBase1->setDown(true);// button is pushed
         ui->RBase1->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -627,13 +627,13 @@ void ClassicBoardDialog::RBase1(bool checked)
 
 void ClassicBoardDialog::RBase2_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->RBase2->setChecked(true);// if piece is home -> button is up
+        ui->RBase2->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->RBase2->setChecked(false);// button is pushed
+        ui->RBase2->setDown(true);// button is pushed
         ui->RBase2->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -672,13 +672,13 @@ void ClassicBoardDialog::RBase3(bool checked)
 }
 void ClassicBoardDialog::RBase3_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->RBase3->setChecked(true);// if piece is home -> button is up
+        ui->RBase3->setDown(true);// if piece is home -> button is up
     }
     else
     {
-        ui->RBase3->setChecked(false);// button is pushed
+        ui->RBase3->setDown(false);// button is pushed
         ui->RBase3->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -702,13 +702,13 @@ void ClassicBoardDialog::RBase4(bool checked)
 }
 void ClassicBoardDialog::RBase4_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->RBase4->setChecked(true);// if piece is home -> button is up
+        ui->RBase4->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->RBase4->setChecked(false);// button is pushed
+        ui->RBase4->setDown(true);// button is pushed
         ui->RBase4->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -734,13 +734,13 @@ void ClassicBoardDialog::YBase1(bool checked)
 }
 void ClassicBoardDialog::YBase1_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->YBase1->setChecked(true);// if piece is home -> button is up
+        ui->YBase1->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->YBase1->setChecked(false);// button is pushed
+        ui->YBase1->setDown(true);// button is pushed
         ui->YBase1->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -762,13 +762,13 @@ void ClassicBoardDialog::YBase2(bool checked)
 }
 void ClassicBoardDialog::YBase2_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->YBase2->setChecked(true);// if piece is home -> button is up
+        ui->YBase2->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->YBase2->setChecked(false);// button is pushed
+        ui->YBase2->setDown(true);// button is pushed
         ui->YBase2->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -791,13 +791,13 @@ void ClassicBoardDialog::YBase3(bool checked)
 }
 void ClassicBoardDialog::YBase3_set_token(bool isPushed)
 {
-    if(!isPushed)
+    if(isPushed)
     {
-        ui->YBase3->setChecked(true);// if piece is home -> button is up
+        ui->YBase3->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->YBase3->setChecked(false);// button is pushed
+        ui->YBase3->setDown(true);// button is pushed
         ui->YBase3->setEnabled(false);// when no piece home the button is disabled
     }
 }
@@ -820,13 +820,13 @@ void ClassicBoardDialog::YBase4(bool checked)
 }
 void ClassicBoardDialog::YBase4_set_token(bool isPushed)
 {
-    if(!!isPushed)
+    if(isPushed)
     {
-        ui->YBase4->setChecked(true);// if piece is home -> button is up
+        ui->YBase4->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->YBase4->setChecked(false);// button is pushed
+        ui->YBase4->setDown(true);// button is pushed
         ui->YBase4->setEnabled(false);// when no piece home the button is disabled
     }
 }
