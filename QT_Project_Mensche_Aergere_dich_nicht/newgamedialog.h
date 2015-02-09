@@ -17,7 +17,7 @@ class NewGameDialog : public QDialog
     QThread* game_thread;
     //QThread GUI_thread();
 public:
-    explicit NewGameDialog(QWidget *parent = 0);
+    explicit NewGameDialog(QWidget *parent = 0, int language=0);
     ~NewGameDialog();
 
 private slots:
@@ -43,6 +43,7 @@ private:
     QString R_name;
     QString Y_name;
 
+    int language_id;
     Ui::NewGameDialog *ui;
 };
 

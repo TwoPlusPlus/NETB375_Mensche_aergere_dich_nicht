@@ -12,7 +12,7 @@ class PrimaryDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit PrimaryDialog(QWidget *parent = 0);
+    explicit PrimaryDialog(QWidget *parent = 0, int language = 0);
     ~PrimaryDialog();
 
 private slots:
@@ -25,6 +25,7 @@ private slots:
     void on_RulesButton_clicked();
 
 private:
+    int language_id;
     Ui::PrimaryDialog *ui;
 };
 
