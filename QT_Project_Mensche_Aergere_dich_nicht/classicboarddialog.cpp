@@ -289,17 +289,17 @@ void ClassicBoardDialog::on_Dice_Button_clicked()
 void ClassicBoardDialog::Show_Dice(int N)
 {
     if(N==1)
-        ui->Dice_Button->setIcon(QIcon(":/img/1.png"));
+        ui->Dice_Button->setIcon(QIcon(":/img/1.jpg"));
     else if(N==2)
-        ui->Dice_Button->setIcon(QIcon(":/img/2.png"));
+        ui->Dice_Button->setIcon(QIcon(":/img/2.jpg"));
     else if(N==3)
-        ui->Dice_Button->setIcon(QIcon(":/img/3.png"));
+        ui->Dice_Button->setIcon(QIcon(":/img/3.jpg"));
     else if(N==4)
-        ui->Dice_Button->setIcon(QIcon(":/img/4.png"));
+        ui->Dice_Button->setIcon(QIcon(":/img/4.jpg"));
     else if(N==5)
-        ui->Dice_Button->setIcon(QIcon(":/img/5.png"));
+        ui->Dice_Button->setIcon(QIcon(":/img/5.jpg"));
     else if(N==6)
-        ui->Dice_Button->setIcon(QIcon(":/img/6.png"));
+        ui->Dice_Button->setIcon(QIcon(":/img/6.jpg"));
 }
 
 void ClassicBoardDialog::set_Dice_Player(bool state, int player)
