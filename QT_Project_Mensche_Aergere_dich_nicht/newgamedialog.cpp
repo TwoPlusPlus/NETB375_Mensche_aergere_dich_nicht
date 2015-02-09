@@ -4,23 +4,59 @@
 #include "classicboarddialog.h"
 #include <QComboBox>
 
-NewGameDialog::NewGameDialog(QWidget *parent) :
+NewGameDialog::NewGameDialog(QWidget *parent, int language) :
     QDialog(parent),
     ui(new Ui::NewGameDialog)
 {
     ui->setupUi(this);
+    if(language == 0)
+    {
+        ui->GreencomboBox->addItem("Player");
+        ui->GreencomboBox->addItem("Bot1");
 
-    ui->GreencomboBox->addItem("Player");
-    ui->GreencomboBox->addItem("Bot1");
+        ui->BluecomboBox->addItem("Player");
+        ui->BluecomboBox->addItem("Bot2");
 
-    ui->BluecomboBox->addItem("Player");
-    ui->BluecomboBox->addItem("Bot2");
+        ui->RedcomboBox->addItem("Player");
+        ui->RedcomboBox->addItem("Bot3");
 
-    ui->RedcomboBox->addItem("Player");
-    ui->RedcomboBox->addItem("Bot3");
-
-    ui->YellowcomboBox->addItem("Player");
-    ui->YellowcomboBox->addItem("Bot4");
+        ui->YellowcomboBox->addItem("Player");
+        ui->YellowcomboBox->addItem("Bot4");
+    }
+    if(language == 1)
+    {
+        ui->BackButton->setText("Nach hiten");
+        ui->StartButton->setText("Anfang");
+        ui->Greenlabel->setText("Grün");
+        ui->Bluelabel->setText("Blau");
+        ui->Redlabel->setText("Rot");
+        ui->Yellowlabel->setText("Gelb");
+        ui->GreencomboBox->addItem("Sieler");
+        ui->GreencomboBox->addItem("Bot1");
+        ui->BluecomboBox->addItem("Spieler");
+        ui->BluecomboBox->addItem("Bot2");
+        ui->RedcomboBox->addItem("Spieler");
+        ui->RedcomboBox->addItem("Bot3");
+        ui->YellowcomboBox->addItem("Spieler");
+        ui->YellowcomboBox->addItem("Bot4");
+    }
+    if(language == 2)
+    {
+        ui->BackButton->setText("Назад");
+        ui->StartButton->setText("Начало");
+        ui->Greenlabel->setText("Зеленый");
+        ui->Bluelabel->setText("Синий");
+        ui->Redlabel->setText("Красный");
+        ui->Yellowlabel->setText("Желтый");
+        ui->GreencomboBox->addItem("Игрок");
+        ui->GreencomboBox->addItem("Бот1");
+        ui->BluecomboBox->addItem("Игрок");
+        ui->BluecomboBox->addItem("Бот2");
+        ui->RedcomboBox->addItem("Игрок");
+        ui->RedcomboBox->addItem("Бот3");
+        ui->YellowcomboBox->addItem("Игрок");
+        ui->YellowcomboBox->addItem("Бот4");
+    }
 }
 
 NewGameDialog::~NewGameDialog()
@@ -30,9 +66,25 @@ NewGameDialog::~NewGameDialog()
 
 void NewGameDialog::on_BackButton_clicked()
 {
-    PrimaryDialog primarydialog;
-    primarydialog.setModal(true);
-    primarydialog.exec();
+    if(language_id == 0)
+    {
+        PrimaryDialog primarydialog(0,0);
+        primarydialog.setModal(true);
+        primarydialog.exec();
+    }
+    else if(language_id == 1)
+    {
+        PrimaryDialog primarydialog(0,1);
+        primarydialog.setModal(true);
+        primarydialog.exec();
+    }
+    else if(language_id == 2)
+    {
+        PrimaryDialog primarydialog(0,2);
+        primarydialog.setModal(true);
+        primarydialog.exec();
+    }
+
 }
 
 void NewGameDialog::on_GreencomboBox_currentIndexChanged()

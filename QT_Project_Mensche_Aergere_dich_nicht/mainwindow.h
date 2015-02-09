@@ -16,7 +16,11 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_WelcomeButton_clicked();
+    void on_EnglishButton_clicked();
+
+    void on_GermanButton_clicked();
+
+    void on_RussianButton_clicked();
 
 private:
     Ui::MainWindow *ui;

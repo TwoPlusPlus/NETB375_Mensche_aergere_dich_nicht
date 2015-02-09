@@ -12,7 +12,7 @@ class RulesDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit RulesDialog(QWidget *parent = 0);
+    explicit RulesDialog(QWidget *parent = 0, int language=0);
     ~RulesDialog();
 
 private slots:
@@ -21,6 +21,7 @@ private slots:
     void on_StartButton_clicked();
 
 private:
+    int language_id;
     Ui::RulesDialog *ui;
 };
 
