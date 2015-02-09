@@ -4,7 +4,6 @@
 #include "player_ai_class.h"
 //#include "classicboarddialog.h"
 #include <QObject>
-
 #include <QDebug>
 #include <QThread>
 #include <QWaitCondition>

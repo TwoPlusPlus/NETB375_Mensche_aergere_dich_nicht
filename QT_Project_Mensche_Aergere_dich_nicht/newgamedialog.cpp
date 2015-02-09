@@ -8,6 +8,7 @@ NewGameDialog::NewGameDialog(QWidget *parent, int language) :
     QDialog(parent),
     ui(new Ui::NewGameDialog)
 {
+    language_id = language;
     ui->setupUi(this);
     if(language == 0)
     {

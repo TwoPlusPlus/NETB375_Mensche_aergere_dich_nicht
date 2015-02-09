@@ -7,6 +7,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, int language) :
     QDialog(parent),
     ui(new Ui::SettingsDialog)
 {
+    language_id = language;
     ui->setupUi(this);
     if(language == 0)
     {

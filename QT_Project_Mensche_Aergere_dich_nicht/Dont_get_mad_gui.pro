@@ -46,3 +46,6 @@ FORMS    += mainwindow.ui \
     rulesdialog.ui \
     classicboarddialog.ui \
     windialog.ui
+
+RESOURCES += \
+    req.qrc

@@ -7,6 +7,7 @@ RulesDialog::RulesDialog(QWidget *parent, int language) :
     QDialog(parent),
     ui(new Ui::RulesDialog)
 {
+    language_id = language;
     ui->setupUi(this);
 }
 
