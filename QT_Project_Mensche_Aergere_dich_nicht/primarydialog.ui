@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Müllers</string>
+    <string>New Game</string>
    </property>
   </widget>
   <widget class="QPushButton" name="LoadButton">

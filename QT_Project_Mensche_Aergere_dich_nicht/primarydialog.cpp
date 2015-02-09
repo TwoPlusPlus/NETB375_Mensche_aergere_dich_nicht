@@ -19,7 +19,7 @@ PrimaryDialog::PrimaryDialog(QWidget *parent, int language) :
         ui->NewGameButton->setText("Neues Spiel");
         ui->LoadButton->setText("Laden");
         ui->SettingsButton->setText("Einstellungen");
-        ui->RulesButton->setText("Regeln");
+        ui->RulesButton->setText("Spielregeln");
         ui->ExitButton->setText("Verlassen");
     }
     else if(language == 2)
