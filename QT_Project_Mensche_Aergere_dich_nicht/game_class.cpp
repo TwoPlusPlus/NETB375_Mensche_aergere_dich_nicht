@@ -15,16 +15,26 @@ Game::Game(bool G, QString G_name, bool R, QString R_name, bool B, QString B_nam
 
     game_field = new Field();
 
-    player_num = 4;
+    player_num = 0;
+    ai_num = 0;
 
     player_list[0] = new Player(G_name.toStdString(), 0, G, game_field);
-
     player_list[1] = new Player(B_name.toStdString(), 1, B, game_field);
-
     player_list[2] = new Player(R_name.toStdString(), 2, R, game_field);
-
     player_list[3] = new Player(Y_name.toStdString(), 3, Y, game_field);
 
+    if(G)
+        player_num++;
+    else ai_num++;
+    if(B)
+        player_num++;
+    else ai_num++;
+    if(R)
+        player_num++;
+    else ai_num++;
+    if(Y)
+        player_num++;
+    else ai_num++;
 
     for(int i = 0; i < 4; i++)
     {
@@ -40,9 +50,11 @@ Game::Game(bool G, QString G_name, bool R, QString R_name, bool B, QString B_nam
 
 Game::~Game()
 {
-    for (int i = 0; i < player_num; i++)
+    for (int i = 0; i < 4; i++)
     {
-        delete player_list[i];
+        if(player_list[i])
+            delete player_list[i];
+        player_list[i] = 0;
     }
     delete game_field;
    // delete classicboarddialog;
@@ -52,78 +64,6 @@ Game::~Game()
 
 int Game::dice(){return rand()%6+1;}
 
-void Game::play()
-{
-    while (!done)
-    {
-        game_turn();
-    }
-}
-
-void Game::game_turn()
-{
-    for (int i = 0; i < player_num; i++)
-    {
-        if(player_list[i]->is_player_bot() == false)
-        {
-            player_turn(i);
-            if (roll_six == true)
-                player_turn(i);
-            roll_six = false;
-        }
-        else
-        {
-            //ai_turn(i+1);
-            if (roll_six == true)
-                // ai_turn(i+1);
-            roll_six = false;
-        }
-    }
-    turn++;
-}
-
-void Game::player_turn(int plr_ID)
-{
-    //int roll = 0;
-   // int choice;
-
-    if (player_list[plr_ID]->is_player_active() == true)
-    {
-
-    } else {
-
-
-    }
-}
-
-void Game::ai_turn(int plr_ID)
-{
-   // int roll = 0;
-
-   // roll = dice();
-
-    if( roll == 6)
-    {
-        roll_six = true;
-    }
-
-    if(player_list[plr_ID-1]->is_player_active() == true)
-    {
-        //player_list[plr_ID-1]->ai_exec(roll);
-    }
-    else
-    {
-        for(int i = 0; i < 2; i++)
-        {
-            if(roll_six == true)
-            {
-                //player_list[plr_ID-1]->ai_exec(roll);
-                roll_six = false;
-                break;
-            }
-        }
-    }
-}
 //SIGNAL EMIT'S -> BOARD
 //------------------------------------------------------------------------
 void Game::update_classicboard()
@@ -1426,6 +1366,15 @@ void Game::set_board_state(int active_player,int state)
 
         if((state > 0 && state < 3) && (this->game_field->node_list[34]->state != 0))
         {
+            if(active_player == 0 && this->GLOBAL_DICE == 6)// 9 02 2015 5:24 making shit happen
+            {
+                if(this->game_field->home_node_list[0][0]->state == 0)
+                {
+                    emit signal_node_34_set_state(true);
+                }
+            }
+
+
             if(active_player == this->game_field->node_list[34]->occupied_piece->get_piece_player_id())
             {
                 if(this->game_field->node_list[this->GLOBAL_DICE+34]->state != 0)
@@ -1447,6 +1396,13 @@ void Game::set_board_state(int active_player,int state)
 
         if((state > 0 && state < 3) && (this->game_field->node_list[35]->state != 0))
         {
+            if(active_player == 0 && this->GLOBAL_DICE == 5)// 9 02 2015 5:24 making shit happen
+            {
+                if(this->game_field->home_node_list[0][0]->state == 0)
+                {
+                    emit signal_node_34_set_state(true);
+                }
+            }
             if(active_player == this->game_field->node_list[35]->occupied_piece->get_piece_player_id())
             {
                 if(this->game_field->node_list[this->GLOBAL_DICE+35]->state != 0)
@@ -1468,6 +1424,13 @@ void Game::set_board_state(int active_player,int state)
 
         if((state > 0 && state < 3) &&( this->game_field->node_list[36]->state != 0))
         {
+            if(active_player == 0 && this->GLOBAL_DICE == 4)// 9 02 2015 5:24 making shit happen
+            {
+                if(this->game_field->home_node_list[0][0]->state == 0)
+                {
+                    emit signal_node_36_set_state(true);
+                }
+            }
             if(active_player == this->game_field->node_list[36]->occupied_piece->get_piece_player_id())
             {
                 if(this->game_field->node_list[this->GLOBAL_DICE+36]->state != 0)
@@ -1489,6 +1452,13 @@ void Game::set_board_state(int active_player,int state)
 
         if((state > 0 && state < 3) && (this->game_field->node_list[37]->state != 0))
         {
+            if(active_player == 0 && this->GLOBAL_DICE == 3)// 9 02 2015 5:24 making shit happen
+            {
+                if(this->game_field->home_node_list[0][0]->state == 0)
+                {
+                    emit signal_node_34_set_state(true);
+                }
+            }
             if(active_player == this->game_field->node_list[37]->occupied_piece->get_piece_player_id())
             {
                 if(this->game_field->node_list[this->GLOBAL_DICE+37]->state != 0)
@@ -1577,18 +1547,36 @@ void Game::home_input(int home_id)
 
 void GameThread::run() {
     qDebug() << "from game-ptr thread" << currentThreadId();
+    msleep(999);
     while(!gamePtr->done){
+        if(gamePtr->turn == 17)
+            msleep(1); // debug
         for(int i = 0; i < 4; i++){
+            if(gamePtr->player_list[i]->is_player_bot())
+            {
+               mutex.lock();
+               gamePtr->set_board_state(i,0);
+               gamePtr->dice_slot();
+               gamePtr->player_list[i]->ai_exec(gamePtr->GLOBAL_DICE);
+               msleep(200);
+               gamePtr->GLOBAL_HOME_ID = -1;
+               gamePtr->GLOBAL_LIMBO_ID = -1;
+               gamePtr->GLOBAL_TOKEN_ID = -1;
+               gamePtr->update_classicboard();
+               mutex.unlock();
+               continue;
+            }
             mutex.lock();
 
             gamePtr->set_board_state(i,0);
 
             keypressed.wait(&mutex);
             mutex.unlock();
-            mutex.lock();
 
             if (gamePtr->player_list[i]->is_player_active()){// if player active
                 if (gamePtr->GLOBAL_DICE != 6){ //if dice not 6
+                    mutex.lock();
+
                     gamePtr->set_board_state(i,1);
 
                     keypressed.wait(&mutex);
@@ -1606,6 +1594,8 @@ void GameThread::run() {
                     mutex.unlock();
                 }
                 else{ // if dice 6
+                    mutex.lock();
+
                     gamePtr->set_board_state(i,2);
 
                     keypressed.wait(&mutex);
@@ -1634,13 +1624,15 @@ void GameThread::run() {
                         gamePtr->player_list[i]->activate_piece(gamePtr->GLOBAL_LIMBO_ID);
                         gamePtr->update_classicboard();
                         gamePtr->set_board_state(i,0);
+
                         mutex.unlock();
                     }
-
                 }
             }
             else{ // player inactive
                 if(gamePtr->GLOBAL_DICE == 6){// dice 6 - move/limbo
+                    mutex.lock();
+
                     gamePtr->set_board_state(i,2);
 
                     keypressed.wait(&mutex);
@@ -1653,7 +1645,11 @@ void GameThread::run() {
                         gamePtr->player_list[x]->deactivate_piece(y);
                     }
                     gamePtr->player_list[i]->activate_piece(gamePtr->GLOBAL_LIMBO_ID);
+                    msleep(100);
                     gamePtr->update_classicboard();
+                    this->msleep(100);
+                    gamePtr->update_classicboard();
+                    this->msleep(100);
                     gamePtr->set_board_state(i,0);
 
                     keypressed.wait(&mutex);
@@ -1679,7 +1675,6 @@ void GameThread::run() {
                     mutex.unlock();
                 }
                 else{
-                    mutex.unlock();
 
                 }
             }
@@ -1689,41 +1684,16 @@ void GameThread::run() {
             gamePtr->GLOBAL_HOME_ID = -1;
             gamePtr->GLOBAL_LIMBO_ID = -1;
             gamePtr->GLOBAL_TOKEN_ID = -1;
+          //  gamePtr->update_classicboard();
+
             mutex.unlock();
 
-/*
-
-            if (gamePtr->GLOBAL_TOKEN_ID > -1){ // if node clicked
-
-            } else if (gamePtr->GLOBAL_LIMBO_ID > -1){ // if limbo clicked
-                gamePtr->player_list[i]->activate_piece(gamePtr->GLOBAL_LIMBO_ID);
-                gamePtr->update_classicboard();
-                gamePtr->set_board_state(i,0);
-
-                keypressed.wait(&mutex);// wait for dice
-                mutex.unlock();
-                mutex.lock();
-
-                gamePtr->set_board_state(i,3);
-
-                keypressed.wait(&mutex); // wait to clear start position
-                mutex.unlock();
-                mutex.lock();
-                int x = gamePtr->game_field->node_list[gamePtr->player_list[i]->get_player_start()]->occupied_piece->get_piece_moves();
-                int y = x + gamePtr->GLOBAL_DICE;
-
-                if(gamePtr->game_field->node_list[y]->state == 0)
-                    gamePtr->player_list[i]->move_piece(gamePtr->GLOBAL_LIMBO_ID, gamePtr->GLOBAL_DICE);
-
-                gamePtr->update_classicboard();
-                mutex.unlock();
-            } else if (gamePtr->GLOBAL_HOME_ID > -1){ // if home clicked
-
-            }
-*/
-
         }
+        qDebug() << gamePtr->turn << " ends";
+        gamePtr->turn++;
+
     }
+
 }
 
 void GameThread::wakeThread(){

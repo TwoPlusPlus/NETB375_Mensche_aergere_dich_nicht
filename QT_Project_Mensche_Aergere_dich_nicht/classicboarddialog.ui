@@ -1074,7 +1074,7 @@
     <string>GBase1</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="checked">
     <bool>false</bool>
@@ -1099,7 +1099,7 @@
     <string>GBase2</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="flat">
     <bool>false</bool>
@@ -1121,7 +1121,7 @@
     <string>GBase3</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="GBase4">
@@ -1140,7 +1140,7 @@
     <string>GBase4</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="BBase1">
@@ -1159,7 +1159,7 @@
     <string>BBase1</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="BBase2">
@@ -1178,7 +1178,7 @@
     <string>BBase2</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="BBase3">
@@ -1197,7 +1197,7 @@
     <string>BBase3</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="BBase4">
@@ -1216,7 +1216,7 @@
     <string>BBase4</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="YBase1">
@@ -1461,7 +1461,7 @@
     <string>YBase1</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="YBase2">
@@ -1480,7 +1480,7 @@
     <string>YBase2</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="YBase3">
@@ -1499,7 +1499,7 @@
     <string>YBase3</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="YBase4">
@@ -1518,7 +1518,7 @@
     <string>YBase4</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="RBase1">
@@ -1537,7 +1537,7 @@
     <string>RBase1</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="RBase2">
@@ -1556,7 +1556,7 @@
     <string>RBase2</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="RBase3">
@@ -1575,7 +1575,7 @@
     <string>RBase3</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="RBase4">
@@ -1594,7 +1594,7 @@
     <string>RBase4</string>
    </property>
    <property name="checkable">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QLabel" name="yellow_player_name">

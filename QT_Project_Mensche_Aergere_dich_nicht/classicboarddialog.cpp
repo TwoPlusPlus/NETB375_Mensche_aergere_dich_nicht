@@ -674,11 +674,11 @@ void ClassicBoardDialog::RBase3_set_token(bool isPushed)
 {
     if(isPushed)
     {
-        ui->RBase3->setDown(true);// if piece is home -> button is up
+        ui->RBase3->setDown(false);// if piece is home -> button is up
     }
     else
     {
-        ui->RBase3->setDown(false);// button is pushed
+        ui->RBase3->setDown(true);// button is pushed
         ui->RBase3->setEnabled(false);// when no piece home the button is disabled
     }
 }

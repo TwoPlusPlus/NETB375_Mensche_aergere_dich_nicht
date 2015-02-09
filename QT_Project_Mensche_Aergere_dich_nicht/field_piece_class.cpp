@@ -22,7 +22,6 @@ int Piece::get_piece_player_id()
 
 int Piece::get_piece_moves()
 {
-    int debug = moves;
     return moves;
 }
 int Piece::get_piece_home_moves()
@@ -114,9 +113,11 @@ void Field::de_occupy_node(int node_id)
 void Field::occupy_home_node(int node_id, int player_id, Piece* occupy_piece)
 {
     this->home_node_list[player_id][node_id]->occupied_piece = occupy_piece;
+    this->home_node_list[player_id][node_id]->state = 1;
 }
 
 void Field::de_occupy_home_node(int node_id, int player_id)
 {
     this->home_node_list[player_id][node_id]->occupied_piece = 0;
+    this->home_node_list[player_id][node_id]->state = 0;
 }

@@ -22,9 +22,6 @@ class Game : public QObject
 
 private:
 public:
-
-    int ai_num;
-
     bool done;
     bool roll_six;
 
@@ -39,6 +36,7 @@ public:
     //ClassicBoardDialog *classicboarddialog;
 
     int player_num;
+    int ai_num;
 
     Player* player_list[4];
     Field* game_field;
@@ -49,11 +47,6 @@ public:
     ~Game();
 
     int dice();
-
-
-    void game_turn();
-    void player_turn(int plr_ID);
-    void ai_turn(int plr_ID);
 
     //from game_class to board_dialog
     //syncs boards with node_List[]
