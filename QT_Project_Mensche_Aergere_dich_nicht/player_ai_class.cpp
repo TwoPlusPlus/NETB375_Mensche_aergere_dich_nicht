@@ -2,7 +2,7 @@
 
 //==============================PLAYER CLASS======================================//
 
-Player::Player(string input_name, int input_ID, bool bot, Field* game_field)
+Player::Player(QString input_name, int input_ID, bool bot, Field* game_field)
 {
     ID = input_ID;
     name = input_name;
@@ -39,16 +39,35 @@ Player::Player(string input_name, int input_ID, bool bot, Field* game_field)
         home_score[i] = false;
     }
 }
+Player::Player(Player &a)
+{
+    this->ID = a.ID;
+    this->name = a.name;
+    this->active_player_pieces = a.active_player_pieces;
+    this->is_bot = a.is_bot;
+    this->start_move = a.start_move;
+    this->finish_move = a.finish_move;
+    for (int i = 0; i < 4; i++)
+    {
+        this->piece_list[i] = new Piece(*a.piece_list[i]);
+    }
+    for (int i = 0; i < 4; i++)
+    {
+        this->home_score[i] = a.home_score[i];
+    }
+}
+
 Player::~Player()
 {
      for (int i = 0; i < 4; i++)
      {
-         delete piece_list[i];
+         if(piece_list[i])
+            delete piece_list[i];
          piece_list[i] = 0;
      }
 }
 
-string Player::get_name()
+QString Player::get_name()
 {
     return name;
 }
@@ -103,10 +122,6 @@ bool Player::is_player_win()
     return false;
 }
 
-void Player::add_to_name(int x)
-{
-     name += to_string(x);
-}
 //new==============================================
 void Player::move_piece (int piece_id, int roll)
 {
@@ -149,6 +164,8 @@ void Player::move_piece_home(int piece_id, int roll)
 
     x = this->piece_list[piece_id]->get_piece_moves();
     x = 39 - x;
+    if(x==0)
+        this->piece_list[piece_id]->update_moves(39, false);
     this->piece_list[piece_id]->update_moves(x, false);
 
     x = roll - x;
@@ -158,6 +175,8 @@ void Player::move_piece_home(int piece_id, int roll)
     this->board->occupy_home_node(x, this->get_player_id(), this->piece_list[piece_id]);
 
     this->update_score();
+
+    this->active_player_pieces--;
 }
 
 void Player::move_home_piece(int piece_id, int roll)
@@ -172,6 +191,48 @@ void Player::move_home_piece(int piece_id, int roll)
 
     this->update_score();
 }
+
+//json
+
+void Player::read(const QJsonObject &json)
+{
+
+    ID = json["id"].toInt();
+    name = json["id"].toString();
+    active_player_pieces = json["active-player-pieces"].toInt();
+    is_bot = json["is-bot"].toBool();
+    start_move = json["start-move"].toInt();
+    finish_move = json["finish_move"].toInt();
+
+    QJsonArray pieces_array = json["pieces"].toArray();
+    for (int i = 0; i < 4; i++)
+    {
+        QJsonObject pieceObject = pieces_array[i].toObject();
+        Piece piece(i,this->ID);
+        piece.read(pieceObject);
+        piece_list[i] = new Piece(piece);
+    }
+}
+
+void Player::write(QJsonObject &json) const
+{
+    json["id"] = ID;
+    json["name"] = name;
+    json["active-player-pieces"] = active_player_pieces;
+    json["is-bot"] = is_bot;
+    json["start-move"] = start_move;
+    json["finish-move"] = finish_move;
+    QJsonArray piece_array;
+    for(int i = 0; i < 4; i++)
+    {
+        QJsonObject pieceObject;
+        piece_list[i]->write(pieceObject);
+        piece_array.append(pieceObject);
+    }
+    json["pieces"] = piece_array;
+}
+
+//=============
 
 //AI METHODS--------------------------------------------------------------
 

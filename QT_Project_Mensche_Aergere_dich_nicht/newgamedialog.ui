@@ -123,6 +123,19 @@
     </item>
    </layout>
   </widget>
+  <widget class="QPushButton" name="testLoad">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>160</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Load</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>

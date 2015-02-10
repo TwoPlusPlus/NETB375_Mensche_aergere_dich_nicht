@@ -19,7 +19,8 @@ class NewGameDialog : public QDialog
 public:
     explicit NewGameDialog(QWidget *parent = 0, int language=0);
     ~NewGameDialog();
-
+signals:
+    void loadGame();
 private slots:
     void on_BackButton_clicked();
 
@@ -32,6 +33,8 @@ private slots:
     void on_YellowcomboBox_currentIndexChanged();
 
     void on_StartButton_clicked();
+
+    void on_testLoad_clicked();
 
 private:
     bool G;

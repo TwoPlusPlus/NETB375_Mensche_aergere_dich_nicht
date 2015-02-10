@@ -4,13 +4,16 @@
 #include "player_ai_class.h"
 //#include "classicboarddialog.h"
 #include <QObject>
+
 #include <QDebug>
 #include <QThread>
 #include <QWaitCondition>
 #include <QMutex>
 #include <QDebug>
+#include <QFile>
+#include <QJsonDocument>
 
-#include <QSound>
+
 #include <cstdlib>
 
 class GameThread;
@@ -23,14 +26,20 @@ private:
 public:
     bool done;
     bool roll_six;
+    int winner;
 
-    int turn;
+    int game_turn;
+    int player_turn;
     int roll;
+
+    bool load;
 
     int GLOBAL_DICE;
     int GLOBAL_TOKEN_ID;
     int GLOBAL_LIMBO_ID;
     int GLOBAL_HOME_ID;
+    int GLOBAL_TRANSITION;
+    bool GLOBAL_VALID_MOVE;
 
     //ClassicBoardDialog *classicboarddialog;
 
@@ -42,6 +51,7 @@ public:
 
     GameThread* game_thread;
 
+    Game();
     Game(bool G,QString G_name,bool R,QString R_name,bool B,QString B_name,bool Y,QString Y_name);
     ~Game();
 
@@ -57,15 +67,25 @@ public:
 
     void play();
 
+    void finish();
+    void set_winner(int king);
+
+
+    void read(const QJsonObject &json);
+    void write(QJsonObject &json) const;
+
 
 
 public slots:
 
+    bool loadGame();
+    bool saveGame() const;
+
     void dice_slot();
 
-    void classicboard_input(int node_id);
+    void classicboard_input(int node_id, bool end_node);
     void limbo_input(int limbo_id);
-    void home_input(int home_id);
+    void home_input(int i, int j);
 
 
 signals:
@@ -234,26 +254,10 @@ signals:
 
     void signal_node_39_set_player(int player_id);
     void signal_node_39_set_state(bool check);
-
-    void signal_GH1_set_state(bool check);
-    void signal_GH2_set_state(bool check);
-    void signal_GH3_set_state(bool check);
-    void signal_GH4_set_state(bool check);
-
-    void signal_BH1_set_state(bool check);
-    void signal_BH2_set_state(bool check);
-    void signal_BH3_set_state(bool check);
-    void signal_BH4_set_state(bool check);
-
-    void signal_RH1_set_state(bool check);
-    void signal_RH2_set_state(bool check);
-    void signal_RH3_set_state(bool check);
-    void signal_RH4_set_state(bool check);
-
-    void signal_YH1_set_state(bool check);
-    void signal_YH2_set_state(bool check);
-    void signal_YH3_set_state(bool check);
-    void signal_YH4_set_state(bool check);
+//=====================
+    void signal_home_set_state(int i, int j, bool can_move);
+    void signal_home_update_state(int i, int j, bool taken);
+//===============
 };
 
 class GameThread : public QThread

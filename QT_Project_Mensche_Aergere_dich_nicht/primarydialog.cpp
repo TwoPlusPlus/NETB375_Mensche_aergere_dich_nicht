@@ -62,6 +62,7 @@ void PrimaryDialog::on_NewGameButton_clicked()
 
 void PrimaryDialog::on_LoadButton_clicked()
 {
+
    if(language_id == 0)
    {
        LoadDialog loaddialog(0,0);

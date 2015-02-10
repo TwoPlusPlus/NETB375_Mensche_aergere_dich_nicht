@@ -3,6 +3,8 @@
 
 #include "field_piece_class.h"
 #include <string>
+#include <QList>
+#include <QJsonArray>
 
 using namespace std;
 
@@ -10,24 +12,31 @@ class Player // holds player properties
 {
 protected:
 
-    string name;
+    QString name;
     int ID; // 0-3, decides turns and other events
     int start_move; // starting position on field, node ID
     int finish_move;// finish position on field, node ID
     int active_player_pieces;
-    Field* board;
     bool is_bot;
 
 
 public:
+    Field* board;
     Player* player_list[4];
+
     Piece* piece_list[4];
+    //json
+    void read(const QJsonObject &json);
+    void write(QJsonObject &json) const;
+
+    //==============
     bool home_score[4];
 
-    Player(string input_name, int input_ID, bool bot, Field* game_field);
+    Player(QString input_name, int input_ID, bool bot, Field* game_field);
+    Player(Player &a);
     ~Player();
 
-    string get_name();
+    QString get_name();
     int get_player_id();
     int get_player_start();
     int get_player_finish();
@@ -40,8 +49,6 @@ public:
 
     void update_score();
     bool is_player_win();
-
-    void add_to_name(int x);
     //new//==========================================
     void move_piece (int piece_id, int roll);
     void activate_piece(int piece_id);

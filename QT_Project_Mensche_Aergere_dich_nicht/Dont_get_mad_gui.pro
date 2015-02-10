@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-QT       += multimedia
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Dont_get_mad_gui
@@ -46,6 +46,3 @@ FORMS    += mainwindow.ui \
     rulesdialog.ui \
     classicboarddialog.ui \
     windialog.ui
-
-RESOURCES += \
-    req.qrc

@@ -5,6 +5,7 @@
 #include <QButtonGroup>
 #include <QObject>
 #include <QThread>
+#include <QRegularExpression>
 
 #include "game_class.h"
 
@@ -22,7 +23,7 @@ class ClassicBoardDialog : public QDialog
 public:
     //Game* game;
     Game* game;
-    explicit ClassicBoardDialog(QWidget *parent = 0, bool G = false, QString G_name="player_1", bool R = false, QString R_name="player_2", bool B = false, QString B_name="player_3", bool Y = false, QString Y_name="player_4");
+    explicit ClassicBoardDialog(QWidget *parent = 0, bool G = false, QString G_name="player_1", bool R = false, QString R_name="player_2", bool B = false, QString B_name="player_3", bool Y = false, QString Y_name="player_4", bool load = false);
     ~ClassicBoardDialog();
 
 signals:
@@ -51,72 +52,73 @@ signals:
     void YBase_3_clicked(int piece_id);
     void YBase_4_clicked(int piece_id);
 //OUTPUT BOARD
-    void node_0_clicked(int id);
-    void node_1_clicked(int id);
-    void node_2_clicked(int id);
-    void node_3_clicked(int id);
-    void node_4_clicked(int id);
-    void node_5_clicked(int id);
-    void node_6_clicked(int id);
-    void node_7_clicked(int id);
-    void node_8_clicked(int id);
-    void node_9_clicked(int id);
+    void node_0_clicked(int id, bool end_node);
+    void node_1_clicked(int id, bool end_node);
+    void node_2_clicked(int id, bool end_node);
+    void node_3_clicked(int id, bool end_node);
+    void node_4_clicked(int id, bool end_node);
+    void node_5_clicked(int id, bool end_node);
+    void node_6_clicked(int id, bool end_node);
+    void node_7_clicked(int id, bool end_node);
+    void node_8_clicked(int id, bool end_node);
+    void node_9_clicked(int id, bool end_node);
 
-    void node_10_clicked(int id);
-    void node_11_clicked(int id);
-    void node_12_clicked(int id);
-    void node_13_clicked(int id);
-    void node_14_clicked(int id);
-    void node_15_clicked(int id);
-    void node_16_clicked(int id);
-    void node_17_clicked(int id);
-    void node_18_clicked(int id);
-    void node_19_clicked(int id);
+    void node_10_clicked(int id, bool end_node);
+    void node_11_clicked(int id, bool end_node);
+    void node_12_clicked(int id, bool end_node);
+    void node_13_clicked(int id, bool end_node);
+    void node_14_clicked(int id, bool end_node);
+    void node_15_clicked(int id, bool end_node);
+    void node_16_clicked(int id, bool end_node);
+    void node_17_clicked(int id, bool end_node);
+    void node_18_clicked(int id, bool end_node);
+    void node_19_clicked(int id, bool end_node);
 
-    void node_20_clicked(int id);
-    void node_21_clicked(int id);
-    void node_22_clicked(int id);
-    void node_23_clicked(int id);
-    void node_24_clicked(int id);
-    void node_25_clicked(int id);
-    void node_26_clicked(int id);
-    void node_27_clicked(int id);
-    void node_28_clicked(int id);
-    void node_29_clicked(int id);
+    void node_20_clicked(int id, bool end_node);
+    void node_21_clicked(int id, bool end_node);
+    void node_22_clicked(int id, bool end_node);
+    void node_23_clicked(int id, bool end_node);
+    void node_24_clicked(int id, bool end_node);
+    void node_25_clicked(int id, bool end_node);
+    void node_26_clicked(int id, bool end_node);
+    void node_27_clicked(int id, bool end_node);
+    void node_28_clicked(int id, bool end_node);
+    void node_29_clicked(int id, bool end_node);
 
-    void node_30_clicked(int id);
-    void node_31_clicked(int id);
-    void node_32_clicked(int id);
-    void node_33_clicked(int id);
-    void node_34_clicked(int id);
-    void node_35_clicked(int id);
-    void node_36_clicked(int id);
-    void node_37_clicked(int id);
-    void node_38_clicked(int id);
-    void node_39_clicked(int id);
+    void node_30_clicked(int id, bool end_node);
+    void node_31_clicked(int id, bool end_node);
+    void node_32_clicked(int id, bool end_node);
+    void node_33_clicked(int id, bool end_node);
+    void node_34_clicked(int id, bool end_node);
+    void node_35_clicked(int id, bool end_node);
+    void node_36_clicked(int id, bool end_node);
+    void node_37_clicked(int id, bool end_node);
+    void node_38_clicked(int id, bool end_node);
+    void node_39_clicked(int id, bool end_node);
 
     //HOME OUTPUT
-    void GH1_clicked(int id);
-    void GH2_clicked(int id);
-    void GH3_clicked(int id);
-    void GH4_clicked(int id);
+    void GH1_clicked(int i, int j);
+    void GH2_clicked(int i, int j);
+    void GH3_clicked(int i, int j);
+    void GH4_clicked(int i, int j);
 
-    void BH1_clicked(int id);
-    void BH2_clicked(int id);
-    void BH3_clicked(int id);
-    void BH4_clicked(int id);
+    void BH1_clicked(int i, int j);
+    void BH2_clicked(int i, int j);
+    void BH3_clicked(int i, int j);
+    void BH4_clicked(int i, int j);
 
-    void RH1_clicked(int id);
-    void RH2_clicked(int id);
-    void RH3_clicked(int id);
-    void RH4_clicked(int id);
+    void RH1_clicked(int i, int j);
+    void RH2_clicked(int i, int j);
+    void RH3_clicked(int i, int j);
+    void RH4_clicked(int i, int j);
 
-    void YH1_clicked(int id);
-    void YH2_clicked(int id);
-    void YH3_clicked(int id);
-    void YH4_clicked(int id);
+    void YH1_clicked(int i, int j);
+    void YH2_clicked(int i, int j);
+    void YH3_clicked(int i, int j);
+    void YH4_clicked(int i, int j);
 
-
+    void save_game();
+    void load_game();
 
 //-----------------------------------------------------------
 public slots:
@@ -160,7 +162,6 @@ public slots:
     void YBase3_set_token (bool isPushed);
     void YBase4(bool checked);
     void YBase4_set_token (bool isPushed);
-
 
     void on_GBase1_clicked();
     void on_GBase2_clicked();
@@ -349,41 +350,38 @@ public slots:
     void node_39_set_player(int player_id);
 
 
-    void on_GH4_clicked();
-    void GH4_set_state(bool cheacked);
-    void on_GH3_clicked();
-    void GH3_set_state(bool cheacked);
-    void on_GH2_clicked();
-    void GH2_set_state(bool cheacked);
+    //Home
+
+    void home_set_state(int i, int j, bool can_move);
+    void home_update_state(int i, int j, bool taken);
+
     void on_GH1_clicked();
-    void GH1_set_state(bool cheacked);
+    void on_GH2_clicked();
+    void on_GH3_clicked();
+    void on_GH4_clicked();
 
     void on_BH1_clicked();
-    void BH1_set_state(bool cheacked);
     void on_BH2_clicked();
-    void BH2_set_state(bool cheacked);
     void on_BH3_clicked();
-    void BH3_set_state(bool cheacked);
     void on_BH4_clicked();
-    void BH4_set_state(bool cheacked);
 
     void on_RH1_clicked();
-    void RH1_set_state(bool cheacked);
     void on_RH2_clicked();
-    void RH2_set_state(bool cheacked);
     void on_RH3_clicked();
-    void RH3_set_state(bool cheacked);
     void on_RH4_clicked();
-    void RH4_set_state(bool cheacked);
 
-    void on_YH4_clicked();
-    void YH4_set_state(bool cheacked);
-    void on_YH3_clicked();
-    void YH3_set_state(bool cheacked);
-    void on_YH2_clicked();
-    void YH2_set_state(bool cheacked);
     void on_YH1_clicked();
-    void YH1_set_state(bool cheacked);
+    void on_YH2_clicked();
+    void on_YH3_clicked();
+    void on_YH4_clicked();
+
+    //JSON
+
+
+private slots:
+    void on_saveButton_clicked();
+
+    void on_loadButton_clicked();
 
 private:
     Ui::ClassicBoardDialog *ui;
