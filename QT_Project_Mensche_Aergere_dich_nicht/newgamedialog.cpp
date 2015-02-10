@@ -8,7 +8,6 @@ NewGameDialog::NewGameDialog(QWidget *parent, int language) :
     QDialog(parent),
     ui(new Ui::NewGameDialog)
 {
-    language_id = language;
     ui->setupUi(this);
     if(language == 0)
     {
@@ -217,4 +216,12 @@ void NewGameDialog::on_StartButton_clicked()
     //game_thread->run();
     classicboarddialog.exec();
 
+}
+
+void NewGameDialog::on_testLoad_clicked()
+{
+    ClassicBoardDialog classicboarddialog(0,G,G_name,B,B_name,R,R_name,Y,Y_name,true);
+    classicboarddialog.setModal(true);
+    classicboarddialog.game->game_thread->start();
+    classicboarddialog.exec();
 }
