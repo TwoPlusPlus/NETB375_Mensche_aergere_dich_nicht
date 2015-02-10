@@ -1528,7 +1528,7 @@ void Game::set_board_state(int active_player,int state)
 //------------------------------------------------------------------------
 void Game::dice_slot()
 {
-    QSound::play(":/sound/dice.wav");
+    //QSound::play(":/sound/dice.wav");
 
     GLOBAL_DICE = rand()%6+1;
     emit show_dice(GLOBAL_DICE);

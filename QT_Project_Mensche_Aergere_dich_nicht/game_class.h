@@ -10,7 +10,7 @@
 #include <QMutex>
 #include <QDebug>
 
-#include <QSound>
+//#include <QSound>
 #include <cstdlib>
 
 class GameThread;
