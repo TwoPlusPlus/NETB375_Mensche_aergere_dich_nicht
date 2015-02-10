@@ -22,7 +22,7 @@ Game::Game(bool G, QString G_name, bool R, QString R_name, bool B, QString B_nam
     GLOBAL_TOKEN_ID = -1;
     GLOBAL_HOME_ID = -1;
     GLOBAL_TRANSITION = -1;
-    GLOBAL_VALID_MOVE  = false;
+    GLOBAL_VALID_MOVE  = true;
 
     game_field = new Field();
 
@@ -132,14 +132,14 @@ void Game::read(const QJsonObject &json)
     GLOBAL_TOKEN_ID = -1;
     GLOBAL_HOME_ID = -1;
     GLOBAL_TRANSITION = -1;
-    GLOBAL_VALID_MOVE  = false;
+    GLOBAL_VALID_MOVE  = true;
 
     game_field = new Field();
 
     player_num = 0;
     ai_num = 0;
 
-    load = true;
+    load = 1;
 
     game_turn = json["game-turn"].toInt();
     player_turn = json["player-turn"].toInt();
@@ -151,6 +151,7 @@ void Game::read(const QJsonObject &json)
         player.read(playerObject);
         player_list[i] = new Player(player);
     }
+    GLOBAL_VALID_MOVE = json["valid-move"].toInt();
     for(int i = 0; i < 4; i++)
     {//give players pointers to board and players
         for (int j = 0; j < 4; j++)
@@ -191,6 +192,7 @@ void Game::write(QJsonObject &json) const
         player_array.append(playerObject);
     }
     json["players"] = player_array;
+    json["valid-move"] = GLOBAL_VALID_MOVE;
 }
 
 //SIGNAL EMIT'S -> BOARD
@@ -2976,9 +2978,6 @@ void Game::set_board_state(int active_player,int state)
 //------------------------------------------------------------------------
 void Game::dice_slot()
 {
-
-    //QSound::play(":/sound/dice.wav");
-
     GLOBAL_DICE = rand()%6+1;
     emit show_dice(GLOBAL_DICE);
 }
@@ -3009,10 +3008,10 @@ void GameThread::run() {
     while(!gamePtr->done){
         gamePtr->update_classicboard();
         for(int i = 0; i < 4; i++){
-            if(gamePtr->load)
+            if(gamePtr->load == 1)
             {
                 i = gamePtr->player_turn;
-                gamePtr->load = false;
+                gamePtr->load = 0;
             }
             if(gamePtr->player_list[i]->is_player_bot())
             {
@@ -3032,9 +3031,10 @@ void GameThread::run() {
             mutex.lock();
 
             gamePtr->set_board_state(i,0);
-            if(gamePtr->GLOBAL_VALID_MOVE)
+           // if(gamePtr->GLOBAL_VALID_MOVE)
                 keypressed.wait(&mutex);
-            gamePtr->GLOBAL_VALID_MOVE = false;
+                if(!gamePtr->GLOBAL_VALID_MOVE)
+                    continue;
             mutex.unlock();
 
             if (gamePtr->player_list[i]->is_player_active()){// if player active
@@ -3042,8 +3042,10 @@ void GameThread::run() {
                     mutex.lock();
 
                     gamePtr->set_board_state(i,1);
-                    if(gamePtr->GLOBAL_VALID_MOVE)
+               //     if(gamePtr->GLOBAL_VALID_MOVE)
                         keypressed.wait(&mutex);
+                        if(!gamePtr->GLOBAL_VALID_MOVE)
+                            continue;
                     mutex.unlock();
 
 
@@ -3052,9 +3054,9 @@ void GameThread::run() {
                         if (gamePtr->GLOBAL_HOME_ID == -1) // if no pieces moved in home
                         {
                             mutex.lock(); // if enemy piece in next node -   V
-                            if (gamePtr->game_field->node_list[gamePtr->GLOBAL_TOKEN_ID+gamePtr->GLOBAL_DICE]->state != 0){
-                                int x = gamePtr->game_field->node_list[gamePtr->GLOBAL_TOKEN_ID+gamePtr->GLOBAL_DICE]->occupied_piece->get_piece_player_id();
-                                int y = gamePtr->game_field->node_list[gamePtr->GLOBAL_TOKEN_ID+gamePtr->GLOBAL_DICE]->occupied_piece->get_piece_id();
+                            if (gamePtr->game_field->node_list[(gamePtr->GLOBAL_TOKEN_ID+gamePtr->GLOBAL_DICE)%40]->state != 0){
+                                int x = gamePtr->game_field->node_list[(gamePtr->GLOBAL_TOKEN_ID+gamePtr->GLOBAL_DICE)%40]->occupied_piece->get_piece_player_id();
+                                int y = gamePtr->game_field->node_list[(gamePtr->GLOBAL_TOKEN_ID+gamePtr->GLOBAL_DICE)%40]->occupied_piece->get_piece_id();
                                 gamePtr->player_list[x]->deactivate_piece(y); // - deactivate
                             }
                             gamePtr->player_list[i]->move_piece(gamePtr->game_field->node_list[gamePtr->GLOBAL_TOKEN_ID]->occupied_piece->get_piece_id(), gamePtr->GLOBAL_DICE);
@@ -3092,8 +3094,10 @@ void GameThread::run() {
 
                     gamePtr->set_board_state(i,2);
 
-                    if(gamePtr->GLOBAL_VALID_MOVE)
+               //     if(gamePtr->GLOBAL_VALID_MOVE)
                         keypressed.wait(&mutex);
+                        if(!gamePtr->GLOBAL_VALID_MOVE)
+                            continue;
                     mutex.unlock();
 
                     if(gamePtr->GLOBAL_TRANSITION == -1)
@@ -3143,8 +3147,10 @@ void GameThread::run() {
 
                     gamePtr->set_board_state(i,2);
 
-                    if(gamePtr->GLOBAL_VALID_MOVE)
+                 //   if(gamePtr->GLOBAL_VALID_MOVE)
                         keypressed.wait(&mutex);
+                        if(!gamePtr->GLOBAL_VALID_MOVE)
+                            continue;
                     mutex.unlock();
                     mutex.lock();
                     if(gamePtr->game_field->node_list[gamePtr->player_list[i]->get_player_start()]->state != 0)
@@ -3161,16 +3167,19 @@ void GameThread::run() {
                     this->msleep(100);
                     gamePtr->set_board_state(i,0);
 
-                    if(gamePtr->GLOBAL_VALID_MOVE)
+                 //
                         keypressed.wait(&mutex);
-                    gamePtr->GLOBAL_VALID_MOVE = false;
+                        if(!gamePtr->GLOBAL_VALID_MOVE)
+                            continue;
                     mutex.unlock();
                     mutex.lock();
 
                     gamePtr->set_board_state(i,3);
 
-                    if(gamePtr->GLOBAL_VALID_MOVE)
+                 //   if(gamePtr->GLOBAL_VALID_MOVE)
                         keypressed.wait(&mutex);
+                        if(!gamePtr->GLOBAL_VALID_MOVE)
+                            continue;
                     mutex.unlock();
                     mutex.lock();
 
@@ -3202,8 +3211,10 @@ void GameThread::run() {
                         }
                         if(valid_home_move)
                         {
-                            if(gamePtr->GLOBAL_VALID_MOVE)
+                       //     if(gamePtr->GLOBAL_VALID_MOVE)
                                 keypressed.wait(&mutex);
+                                if(!gamePtr->GLOBAL_VALID_MOVE)
+                                    continue;
                             mutex.unlock();
                             mutex.lock();
 
@@ -3223,7 +3234,7 @@ void GameThread::run() {
             gamePtr->GLOBAL_LIMBO_ID = -1;
             gamePtr->GLOBAL_TOKEN_ID = -1;
             gamePtr->GLOBAL_TRANSITION = -1;
-            gamePtr->GLOBAL_VALID_MOVE = false;
+            gamePtr->GLOBAL_VALID_MOVE = true;
 
             bool over = gamePtr->player_list[i]->is_player_win();
             if(over)
@@ -3241,6 +3252,7 @@ void GameThread::run() {
 
     }
     qDebug() << "Game won by player " << gamePtr->winner << " on turn " << gamePtr->game_turn;
+
 }
 
 void GameThread::wakeThread(){

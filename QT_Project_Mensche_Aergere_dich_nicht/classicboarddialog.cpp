@@ -1,10 +1,10 @@
 #include "classicboarddialog.h"
 #include "ui_classicboarddialog.h"
 
-ClassicBoardDialog::ClassicBoardDialog(QWidget *parent , bool G, QString G_name, bool R, QString R_name, bool B, QString B_name, bool Y, QString Y_name, bool load) :
+ClassicBoardDialog::ClassicBoardDialog(QWidget *parent , int G, QString G_name, int R, QString R_name, int B, QString B_name, int Y, QString Y_name, int load) :
     QDialog(parent),
     ui(new Ui::ClassicBoardDialog){
-    if(load)
+    if(load == 1)
     {
         game = new Game();
         game->loadGame();
@@ -282,6 +282,7 @@ ClassicBoardDialog::~ClassicBoardDialog()
 //DICE
 void ClassicBoardDialog::on_Dice_Button_clicked()
 {
+    QSound::play(":/sound/dice.wav");
     ui->Dice_Button->setEnabled(false);
     emit roll_dice();
     emit wake_thread();
@@ -289,17 +290,17 @@ void ClassicBoardDialog::on_Dice_Button_clicked()
 void ClassicBoardDialog::Show_Dice(int N)
 {
     if(N==1)
-        ui->Dice_Button->setText("1");
+        ui->Dice_Button->setIcon(QIcon(":/img/1.jpg"));
     else if(N==2)
-        ui->Dice_Button->setText("2");
+        ui->Dice_Button->setIcon(QIcon(":/img/2.jpg"));
     else if(N==3)
-        ui->Dice_Button->setText("3");
+        ui->Dice_Button->setIcon(QIcon(":/img/3.jpg"));
     else if(N==4)
-        ui->Dice_Button->setText("4");
+        ui->Dice_Button->setIcon(QIcon(":/img/4.jpg"));
     else if(N==5)
-        ui->Dice_Button->setText("5");
+        ui->Dice_Button->setIcon(QIcon(":/img/5.jpg"));
     else if(N==6)
-        ui->Dice_Button->setText("6");
+        ui->Dice_Button->setIcon(QIcon(":/img/6.jpg"));
 }
 
 void ClassicBoardDialog::set_Dice_Player(bool state, int player)
@@ -3037,7 +3038,9 @@ void ClassicBoardDialog::on_saveButton_clicked()
     emit save_game();
 }
 
-void ClassicBoardDialog::on_loadButton_clicked()
+
+
+void ClassicBoardDialog::on_skipButton_clicked()
 {
-    emit load_game();
+    game->GLOBAL_VALID_MOVE = false;
 }

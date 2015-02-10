@@ -14,9 +14,6 @@
 #include <QJsonDocument>
 
 
-
-//#include <QSound>
-
 #include <cstdlib>
 
 class GameThread;
@@ -35,7 +32,7 @@ public:
     int player_turn;
     int roll;
 
-    bool load;
+    int load;
 
     int GLOBAL_DICE;
     int GLOBAL_TOKEN_ID;

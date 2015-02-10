@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/img/wood.jpg);</string>
+  </property>
   <widget class="QPushButton" name="Dice_Button">
    <property name="geometry">
     <rect>
@@ -38,7 +41,13 @@
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>DICE</string>
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>60</width>
+     <height>60</height>
+    </size>
    </property>
   </widget>
   <widget class="QPushButton" name="YH1">
@@ -1655,8 +1664,8 @@
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>460</y>
+     <x>180</x>
+     <y>680</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -1665,17 +1674,20 @@
     <string>Save</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="loadButton">
+  <widget class="QPushButton" name="skipButton">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>460</y>
+     <x>460</x>
+     <y>680</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
-    <string>Load</string>
+    <string>Skip</string>
    </property>
   </widget>
  </widget>

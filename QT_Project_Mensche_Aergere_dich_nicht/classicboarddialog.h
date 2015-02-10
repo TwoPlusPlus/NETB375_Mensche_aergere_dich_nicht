@@ -8,6 +8,7 @@
 #include <QRegularExpression>
 
 #include "game_class.h"
+#include <QSound>
 
 #include <iostream>
 #include <cstdlib>
@@ -23,7 +24,7 @@ class ClassicBoardDialog : public QDialog
 public:
     //Game* game;
     Game* game;
-    explicit ClassicBoardDialog(QWidget *parent = 0, bool G = false, QString G_name="player_1", bool R = false, QString R_name="player_2", bool B = false, QString B_name="player_3", bool Y = false, QString Y_name="player_4", bool load = false);
+    explicit ClassicBoardDialog(QWidget *parent = 0, int G = 0, QString G_name="player_1", int R = 0, QString R_name="player_2", int B = 0, QString B_name="player_3", int Y = 0, QString Y_name="player_4", int load = 0);
     ~ClassicBoardDialog();
 
 signals:
@@ -381,7 +382,7 @@ public slots:
 private slots:
     void on_saveButton_clicked();
 
-    void on_loadButton_clicked();
+    void on_skipButton_clicked();
 
 private:
     Ui::ClassicBoardDialog *ui;

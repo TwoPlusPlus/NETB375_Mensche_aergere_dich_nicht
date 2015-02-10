@@ -17,7 +17,7 @@ protected:
     int start_move; // starting position on field, node ID
     int finish_move;// finish position on field, node ID
     int active_player_pieces;
-    bool is_bot;
+    int is_bot;
 
 
 public:
@@ -32,7 +32,7 @@ public:
     //==============
     bool home_score[4];
 
-    Player(QString input_name, int input_ID, bool bot, Field* game_field);
+    Player(QString input_name, int input_ID, int bot, Field* game_field);
     Player(Player &a);
     ~Player();
 

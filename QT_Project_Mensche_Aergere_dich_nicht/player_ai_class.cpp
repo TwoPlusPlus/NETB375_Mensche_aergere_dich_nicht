@@ -2,7 +2,7 @@
 
 //==============================PLAYER CLASS======================================//
 
-Player::Player(QString input_name, int input_ID, bool bot, Field* game_field)
+Player::Player(QString input_name, int input_ID, int bot, Field* game_field)
 {
     ID = input_ID;
     name = input_name;
@@ -92,7 +92,9 @@ bool Player::is_player_active()
 }
 bool Player::is_player_bot()
 {
-    return is_bot;
+    if(is_bot == 1)
+        return true;
+    return false;
 }
 
 int Player::get_piece_current_node_id(int piece_id)
@@ -200,7 +202,7 @@ void Player::read(const QJsonObject &json)
     ID = json["id"].toInt();
     name = json["id"].toString();
     active_player_pieces = json["active-player-pieces"].toInt();
-    is_bot = json["is-bot"].toBool();
+    is_bot = json["is-bot"].toInt();
     start_move = json["start-move"].toInt();
     finish_move = json["finish_move"].toInt();
 
