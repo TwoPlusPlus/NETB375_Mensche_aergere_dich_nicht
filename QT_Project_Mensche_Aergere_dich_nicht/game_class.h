@@ -41,7 +41,7 @@ public:
     int GLOBAL_TRANSITION;
     bool GLOBAL_VALID_MOVE;
 
-    //ClassicBoardDialog *classicboarddialog;
+
 
     int player_num;
     int ai_num;

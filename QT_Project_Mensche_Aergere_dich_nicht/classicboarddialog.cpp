@@ -283,6 +283,8 @@ ClassicBoardDialog::~ClassicBoardDialog()
 void ClassicBoardDialog::on_Dice_Button_clicked()
 {
     QSound::play(":/sound/dice.wav");
+
+
     ui->Dice_Button->setEnabled(false);
     emit roll_dice();
     emit wake_thread();

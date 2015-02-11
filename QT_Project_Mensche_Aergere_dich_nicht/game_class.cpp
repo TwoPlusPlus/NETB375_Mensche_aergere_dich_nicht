@@ -3019,7 +3019,7 @@ void GameThread::run() {
                gamePtr->set_board_state(i,0);
                gamePtr->dice_slot();
                gamePtr->player_list[i]->ai_exec(gamePtr->GLOBAL_DICE);
-               msleep(200);
+               msleep(600);
                gamePtr->GLOBAL_HOME_ID = -1;
                gamePtr->GLOBAL_LIMBO_ID = -1;
                gamePtr->GLOBAL_TOKEN_ID = -1;
