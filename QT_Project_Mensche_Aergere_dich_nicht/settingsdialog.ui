@@ -6,53 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>258</width>
-    <height>231</height>
+    <width>237</width>
+    <height>156</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>31</y>
-     <width>195</width>
-     <height>171</height>
+     <y>30</y>
+     <width>180</width>
+     <height>101</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="DieThrowlabel">
-        <property name="text">
-         <string>Die throw</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="DieThrowcomboBox"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="Ruleslabel">
-        <property name="text">
-         <string>Rules                  </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="RulescomboBox"/>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
        <widget class="QLabel" name="Themeslabel">
         <property name="text">
@@ -66,7 +38,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
       <item>
        <widget class="QLabel" name="Soundslabel">
         <property name="text">
@@ -80,7 +52,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QPushButton" name="StartButton">
         <property name="text">

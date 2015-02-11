@@ -6,25 +6,51 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>254</width>
-    <height>164</height>
+    <width>240</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="WelcomeButton">
+   <widget class="QPushButton" name="EnglishButton">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>40</y>
-      <width>91</width>
-      <height>41</height>
+      <x>70</x>
+      <y>10</y>
+      <width>99</width>
+      <height>27</height>
      </rect>
     </property>
     <property name="text">
-     <string>Welcome</string>
+     <string>English</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="GermanButton">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>50</y>
+      <width>99</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Deutsch</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="RussianButton">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>90</y>
+      <width>99</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Русский</string>
     </property>
    </widget>
   </widget>
@@ -33,7 +59,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>254</width>
+     <width>240</width>
      <height>25</height>
     </rect>
    </property>
@@ -58,18 +84,50 @@
  <resources/>
  <connections>
   <connection>
-   <sender>WelcomeButton</sender>
+   <sender>EnglishButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>176</x>
-     <y>177</y>
+     <x>166</x>
+     <y>74</y>
     </hint>
     <hint type="destinationlabel">
      <x>171</x>
-     <y>234</y>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>GermanButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>53</x>
+     <y>100</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>RussianButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>47</x>
+     <y>141</y>
     </hint>
    </hints>
   </connection>

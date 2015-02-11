@@ -2,54 +2,89 @@
 #define __GAME_CLASS_H_INCLUDED__
 
 #include "player_ai_class.h"
-#include "classicboarddialog.h"
+//#include "classicboarddialog.h"
 #include <QObject>
+
+#include <QDebug>
+#include <QThread>
+#include <QWaitCondition>
+#include <QMutex>
+#include <QDebug>
+#include <QFile>
+#include <QJsonDocument>
+
 
 #include <cstdlib>
 
-class Game : public QDialog
+class GameThread;
+
+class Game : public QObject
 {
     Q_OBJECT
+
 private:
-
-
-    int ai_num;
-
+public:
     bool done;
     bool roll_six;
+    int winner;
 
-    int turn;
+    int game_turn;
+    int player_turn;
     int roll;
 
-public:
-    ClassicBoardDialog* classicboarddialog;
+    int load;
+
+    int GLOBAL_DICE;
+    int GLOBAL_TOKEN_ID;
+    int GLOBAL_LIMBO_ID;
+    int GLOBAL_HOME_ID;
+    int GLOBAL_TRANSITION;
+    bool GLOBAL_VALID_MOVE;
+
+
     int player_num;
+    int ai_num;
+
     Player* player_list[4];
     Field* game_field;
 
-    Game(bool G,string G_name,bool R,string R_name,bool B,string B_name,bool Y,string Y_name);
+    GameThread* game_thread;
+
+    Game();
+    Game(bool G,QString G_name,bool R,QString R_name,bool B,QString B_name,bool Y,QString Y_name);
     ~Game();
 
-    void game_turn();
-    void player_turn(int plr_ID);
-    void ai_turn(int plr_ID);
+    int dice();
 
     //from game_class to board_dialog
-
     //syncs boards with node_List[]
     void update_classicboard();
 
     //takes care which player turn is and which button he/she can push
-    void set_board_state(int dice,int active_player,int state);
+    void set_board_state(int active_player, int state);
+
+
+    void play();
+
+    void finish();
+    void set_winner(int king);
+
+
+    void read(const QJsonObject &json);
+    void write(QJsonObject &json) const;
+
 
 
 public slots:
-    void play();
+
+    bool loadGame();
+    bool saveGame() const;
+
     void dice_slot();
 
-    //form board_dialog to game_class
-    int classicboard_input(int node_id);
-    int limbo_input(int limbo_id);
+    void classicboard_input(int node_id, bool end_node);
+    void limbo_input(int limbo_id);
+    void home_input(int i, int j);
 
 
 signals:
@@ -57,24 +92,40 @@ signals:
     void set_dice_player(bool state,int player);
    //LIMBO
     void signal_GBase_1_set_state(bool check);
+    void signal_GBase_1_set_token(bool isPushed);
     void signal_GBase_2_set_state(bool check);
+    void signal_GBase_2_set_token(bool isPushed);
     void signal_GBase_3_set_state(bool check);
+    void signal_GBase_3_set_token(bool isPushed);
     void signal_GBase_4_set_state(bool check);
+    void signal_GBase_4_set_token(bool isPushed);
 
     void signal_BBase_1_set_state(bool check);
+    void signal_BBase_1_set_token(bool isPushed);
     void signal_BBase_2_set_state(bool check);
+    void signal_BBase_2_set_token(bool isPushed);
     void signal_BBase_3_set_state(bool check);
+    void signal_BBase_3_set_token(bool isPushed);
     void signal_BBase_4_set_state(bool check);
+    void signal_BBase_4_set_token(bool isPushed);
 
     void signal_RBase_1_set_state(bool check);
+    void signal_RBase_1_set_token(bool isPushed);
     void signal_RBase_2_set_state(bool check);
+    void signal_RBase_2_set_token(bool isPushed);
     void signal_RBase_3_set_state(bool check);
+    void signal_RBase_3_set_token(bool isPushed);
     void signal_RBase_4_set_state(bool check);
+    void signal_RBase_4_set_token(bool isPushed);
 
     void signal_YBase_1_set_state(bool check);
+    void signal_YBase_1_set_token(bool isPushed);
     void signal_YBase_2_set_state(bool check);
+    void signal_YBase_2_set_token(bool isPushed);
     void signal_YBase_3_set_state(bool check);
+    void signal_YBase_3_set_token(bool isPushed);
     void signal_YBase_4_set_state(bool check);
+    void signal_YBase_4_set_token(bool isPushed);
 
 //BOARD
     void signal_node_0_set_player(int player_id);
@@ -202,7 +253,29 @@ signals:
 
     void signal_node_39_set_player(int player_id);
     void signal_node_39_set_state(bool check);
+//=====================
+    void signal_home_set_state(int i, int j, bool can_move);
+    void signal_home_update_state(int i, int j, bool taken);
+//===============
+};
 
+class GameThread : public QThread
+{
+    Q_OBJECT
+private:
+public:
+    QWaitCondition keypressed;
+    QMutex mutex;
+    Game* gamePtr;
+
+    GameThread(QObject* parent = 0, Game* gamePtr = 0) : QThread(parent)
+    {
+        this->gamePtr = gamePtr;
+    }
+
+    void run() Q_DECL_OVERRIDE;
+public slots:
+    void wakeThread();
 };
 
 #endif

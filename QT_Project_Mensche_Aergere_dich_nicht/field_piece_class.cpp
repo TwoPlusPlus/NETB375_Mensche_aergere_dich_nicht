@@ -10,6 +10,14 @@ Piece::Piece(int input_piece_id, int input_piece_player_id)
     home_moves = -1;
 }
 
+Piece::Piece(Piece &a)
+{
+    this->piece_id = a.piece_id;
+    this->piece_player_id = a.piece_player_id;
+    this->moves = a.moves;
+    this->home_moves = a.home_moves;
+}
+
 int Piece::get_piece_id()
 {
     return piece_id;
@@ -39,15 +47,38 @@ void Piece::update_moves(int roll, bool home)
 {
     if (!home)
     {
-        if (roll > -1)
+        if (roll > 0)
             this->moves += roll;
-        else
+        else if (roll == 0)
+            this->moves = 0;
+        else if (roll == -1)
             this->moves = -1;
+        else if (roll == 39)
+            this->moves = 39;
+
     }
     else
     {
         home_moves += roll;
     }
+}
+
+//JSON
+
+void Piece::read(const QJsonObject &json)
+{
+    piece_id = json["piece-id"].toInt();
+    piece_player_id = json["pice-player-id"].toInt();
+    moves = json["moves"].toInt();
+    home_moves = json["home-moves"].toInt();
+}
+
+void Piece::write(QJsonObject &json) const
+{
+    json["piece-id"] = piece_id;
+    json["pice-player-id"] = piece_player_id;
+    json["moves"] = moves;
+    json["home-moves"] = home_moves;
 }
 
 //===============================================================END==============//
@@ -112,9 +143,11 @@ void Field::de_occupy_node(int node_id)
 void Field::occupy_home_node(int node_id, int player_id, Piece* occupy_piece)
 {
     this->home_node_list[player_id][node_id]->occupied_piece = occupy_piece;
+    this->home_node_list[player_id][node_id]->state = 1;
 }
 
 void Field::de_occupy_home_node(int node_id, int player_id)
 {
     this->home_node_list[player_id][node_id]->occupied_piece = 0;
+    this->home_node_list[player_id][node_id]->state = 0;
 }

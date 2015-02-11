@@ -6,6 +6,7 @@
 
 QT       += core gui
 
+QT       += multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Dont_get_mad_gui
@@ -23,7 +24,8 @@ SOURCES += main.cpp\
     classicboarddialog.cpp \
     player_ai_class.cpp \
     field_piece_class.cpp \
-    game_class.cpp
+    game_class.cpp \
+    windialog.cpp
 
 HEADERS  += mainwindow.h \
     primarydialog.h \
@@ -34,7 +36,8 @@ HEADERS  += mainwindow.h \
     classicboarddialog.h \
     player_ai_class.h \
     field_piece_class.h \
-    game_class.h
+    game_class.h \
+    windialog.h
 
 FORMS    += mainwindow.ui \
     primarydialog.ui \
@@ -42,4 +45,8 @@ FORMS    += mainwindow.ui \
     loaddialog.ui \
     settingsdialog.ui \
     rulesdialog.ui \
-    classicboarddialog.ui
+    classicboarddialog.ui \
+    windialog.ui
+
+RESOURCES += \
+    res.qrc

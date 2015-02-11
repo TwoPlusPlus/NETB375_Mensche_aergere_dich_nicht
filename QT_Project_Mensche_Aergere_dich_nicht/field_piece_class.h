@@ -2,6 +2,7 @@
 #define __FIELD_PIECE_CLASS_H_INCLUDED__
 
 #include <iostream>
+#include <QJsonObject>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ private:
     int home_moves; // 0-3
 public:
     Piece(int input_piece_id, int input_piece_player_id);
+    Piece(Piece &a);
 
     int get_piece_id();
     int get_piece_player_id();
@@ -22,6 +24,12 @@ public:
     bool is_piece_home();
 
     void update_moves(int roll, bool home);
+
+    //JSON
+    void read(const QJsonObject &json);
+    void write(QJsonObject &json) const;
+
+
 };
 
 class Field{ // represents the game field with a simple data structure resembeling

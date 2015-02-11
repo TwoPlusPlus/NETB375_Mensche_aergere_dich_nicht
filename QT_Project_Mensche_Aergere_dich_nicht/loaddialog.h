@@ -12,7 +12,7 @@ class LoadDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoadDialog(QWidget *parent = 0);
+    explicit LoadDialog(QWidget *parent = 0, int language=0);
     ~LoadDialog();
 
 private slots:
@@ -21,6 +21,7 @@ private slots:
     void on_StartButton_clicked();
 
 private:
+    int language_id;
     Ui::LoadDialog *ui;
 };
 
