@@ -56,7 +56,7 @@ public:
     void move_piece_home(int piece_id, int roll);
     void move_home_piece(int piece_id, int roll);
 //ai
-    bool ai_clear_start_pos(int i, int dice);
+    bool ai_clear_start_pos(int dice);
     bool ai_score_point(int i,int dice);
     bool ai_remove_enemy_token(int i, int dice);
     void ai_dice_6();

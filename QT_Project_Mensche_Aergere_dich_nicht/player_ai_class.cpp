@@ -239,7 +239,7 @@ void Player::write(QJsonObject &json) const
 //AI METHODS--------------------------------------------------------------
 
 
-bool Player::ai_clear_start_pos(int i,int dice)
+bool Player::ai_clear_start_pos(int dice)
 {
     if(this->board->node_list[this->get_player_start()]->state != 0)//CLEAR BOT STARTING FIELD
     {
@@ -405,35 +405,35 @@ int Player::ai_move_token(int dice)
         {
             if(this->board->node_list[this->get_piece_current_node_id(i)]->occupied_piece->get_piece_player_id() != this->board->node_list[(this->get_piece_current_node_id(i) + 5)%40]->occupied_piece->get_piece_player_id())
             {
-                PRIORITY[i]+=5;
+                PRIORITY[i]-=10;
             }
         }
         if(this->board->node_list[this->get_piece_current_node_id(i) + 4]->state != 0)
         {
             if(this->board->node_list[this->get_piece_current_node_id(i)]->occupied_piece->get_piece_player_id() != this->board->node_list[(this->get_piece_current_node_id(i) + 4)%40]->occupied_piece->get_piece_player_id())
             {
-                PRIORITY[i]+=10;
+                PRIORITY[i]-=10;
             }
         }
         if(this->board->node_list[this->get_piece_current_node_id(i) + 3]->state != 0)
         {
             if(this->board->node_list[this->get_piece_current_node_id(i)]->occupied_piece->get_piece_player_id() != this->board->node_list[(this->get_piece_current_node_id(i) + 3)%40]->occupied_piece->get_piece_player_id())
             {
-                PRIORITY[i]+=10;
+                PRIORITY[i]-=10;
             }
         }
         if(this->board->node_list[this->get_piece_current_node_id(i) + 2]->state != 0)
         {
             if(this->board->node_list[this->get_piece_current_node_id(i)]->occupied_piece->get_piece_player_id() != this->board->node_list[(this->get_piece_current_node_id(i) + 2)%40]->occupied_piece->get_piece_player_id())
             {
-                PRIORITY[i]+=10;
+                PRIORITY[i]-=10;
             }
         }
         if(this->board->node_list[this->get_piece_current_node_id(i) + 1]->state != 0)
         {
             if(this->board->node_list[this->get_piece_current_node_id(i)]->occupied_piece->get_piece_player_id() != this->board->node_list[(this->get_piece_current_node_id(i) + 1)%40]->occupied_piece->get_piece_player_id())
             {
-                PRIORITY[i]+=20;
+                PRIORITY[i]-=10;
             }
         }
         //MOVE TOKEN WITH HIGHEST PRIORITY
@@ -452,27 +452,27 @@ void Player::ai_exec(int dice)
 {
     if(this->is_player_active())
     {
-        int x = 0;
+        bool flag = false;
         for(int i = 0;i<4;i++)
         {
-            if(ai_clear_start_pos(i,dice))
+            if(ai_clear_start_pos(dice))
             {
-                x = 1;
+                flag = true;
                 break;
             }
 
             if(ai_score_point(i,dice))
             {
-                x = 1;
+                flag = true;
                 break;
             }
             if(ai_remove_enemy_token(i,dice))
             {
-                x = 1;
+                flag = true;
                 break;
             }
         }
-        if(x == 0)
+        if(flag == false)
         {
             if(dice==6)
                 ai_dice_6();
@@ -490,7 +490,7 @@ void Player::ai_exec(int dice)
 
             for(int i = 0;i < 4; i++)
             {
-                if(ai_clear_start_pos(i,dice))
+                if(ai_clear_start_pos(dice))
                     break;
             }
         }
